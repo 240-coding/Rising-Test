@@ -45,10 +45,10 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login1" translatesAutoresizingMaskIntoConstraints="NO" id="m3k-Af-UfF">
-                                                    <rect key="frame" x="80" y="271.5" width="250" height="250"/>
+                                                    <rect key="frame" x="92.5" y="279.5" width="225" height="225"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="250" id="U10-Qu-SwN"/>
-                                                        <constraint firstAttribute="height" constant="250" id="VWx-3q-IZJ"/>
+                                                        <constraint firstAttribute="width" constant="225" id="U10-Qu-SwN"/>
+                                                        <constraint firstAttribute="height" constant="225" id="VWx-3q-IZJ"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ukz-NP-8bT">
@@ -65,7 +65,7 @@
                                                 <constraint firstItem="JLa-lm-U41" firstAttribute="top" secondItem="eWW-W5-NqV" secondAttribute="top" constant="100" id="TlS-Zr-613"/>
                                                 <constraint firstItem="JLa-lm-U41" firstAttribute="centerX" secondItem="eWW-W5-NqV" secondAttribute="centerX" id="VGd-vd-I7c"/>
                                                 <constraint firstItem="m3k-Af-UfF" firstAttribute="centerX" secondItem="eWW-W5-NqV" secondAttribute="centerX" id="aw2-RB-7tf"/>
-                                                <constraint firstItem="m3k-Af-UfF" firstAttribute="top" secondItem="Ukz-NP-8bT" secondAttribute="bottom" constant="24" id="bsn-4N-kJj"/>
+                                                <constraint firstItem="m3k-Af-UfF" firstAttribute="top" secondItem="Ukz-NP-8bT" secondAttribute="bottom" constant="32" id="bsn-4N-kJj"/>
                                                 <constraint firstItem="Ukz-NP-8bT" firstAttribute="centerX" secondItem="eWW-W5-NqV" secondAttribute="centerX" id="uCU-3K-2kY"/>
                                             </constraints>
                                         </collectionViewCellContentView>
@@ -83,20 +83,66 @@
                                 <color key="pageIndicatorTintColor" red="0.86274509803921573" green="0.85882352941176465" blue="0.88627450980392153" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="currentPageIndicatorTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </pageControl>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="HpJ-Fg-4a8">
+                                <rect key="frame" x="32" y="670" width="350" height="108"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IDt-1M-aNi">
+                                        <rect key="frame" x="0.0" y="0.0" width="350" height="50"/>
+                                        <color key="backgroundColor" red="0.96862745098039216" green="0.90196078431372551" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="vje-MC-PBM"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="tintColor" red="0.21176470588235294" green="0.12549019607843137" blue="0.12549019607843137" alpha="1" colorSpace="calibratedRGB"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="140" maxY="0.0"/>
+                                        <state key="normal" title="카카오톡으로 로그인" image="kakao">
+                                            <color key="titleColor" red="0.21176470589999999" green="0.12549019610000001" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NyP-D1-l6i">
+                                        <rect key="frame" x="0.0" y="58" width="350" height="50"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="YhO-k2-Xzp"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="170" maxY="0.0"/>
+                                        <state key="normal" title="Apple로 로그인" image="apple">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uoW-Tv-73X">
+                                <rect key="frame" x="132.5" y="794" width="149" height="32"/>
+                                <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="다른 방법으로 로그인">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="15"/>
+                                </buttonConfiguration>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Z1B-QN-pub" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="2wQ-6Z-7xW"/>
+                            <constraint firstItem="HpJ-Fg-4a8" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="32" id="8bB-Iq-npt"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="X3O-tK-tBj" secondAttribute="trailing" id="9jB-XJ-cZo"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="HpJ-Fg-4a8" secondAttribute="trailing" constant="32" id="FaD-Sk-4aM"/>
+                            <constraint firstItem="uoW-Tv-73X" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="Mgm-2H-3cs"/>
                             <constraint firstItem="Z1B-QN-pub" firstAttribute="top" secondItem="X3O-tK-tBj" secondAttribute="bottom" constant="16" id="Yf4-2l-cQE"/>
+                            <constraint firstItem="uoW-Tv-73X" firstAttribute="top" secondItem="HpJ-Fg-4a8" secondAttribute="bottom" constant="16" id="aai-c2-abM"/>
                             <constraint firstItem="X3O-tK-tBj" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="hyM-WT-aqz"/>
+                            <constraint firstItem="HpJ-Fg-4a8" firstAttribute="top" secondItem="Z1B-QN-pub" secondAttribute="bottom" constant="16" id="jUB-V4-CYr"/>
                             <constraint firstItem="X3O-tK-tBj" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="rXg-3D-YBB"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="X3O-tK-tBj" secondAttribute="bottom" constant="250" id="tcm-Be-Pvt"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="appleLoginButton" destination="NyP-D1-l6i" id="GKR-fm-lRI"/>
+                        <outlet property="kakaoLoginButton" destination="IDt-1M-aNi" id="Hfr-B4-UhI"/>
                         <outlet property="loginCollectionView" destination="X3O-tK-tBj" id="nQu-C8-Gfa"/>
+                        <outlet property="otherLoginButton" destination="uoW-Tv-73X" id="pL0-aP-MXg"/>
                         <outlet property="pageControl" destination="Z1B-QN-pub" id="oL9-CL-3hX"/>
                     </connections>
                 </viewController>
@@ -106,6 +152,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="apple" width="10" height="12"/>
+        <image name="kakao" width="15" height="15"/>
         <image name="login1" width="514" height="654"/>
         <namedColor name="gray">
             <color red="0.54509803921568623" green="0.54509803921568623" blue="0.54509803921568623" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

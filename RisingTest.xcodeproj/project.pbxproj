@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		890F195E28D8DA9C00927292 /* LoginCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890F195D28D8DA9C00927292 /* LoginCollectionViewCell.swift */; };
+		890F196128D8EBCD00927292 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890F196028D8EBCD00927292 /* UIButton.swift */; };
 		89152A9C28D83F490071225D /* LoginStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89152A9B28D83F490071225D /* LoginStoryboard.storyboard */; };
 		89152A9E28D840670071225D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89152A9D28D840670071225D /* LoginViewController.swift */; };
 		89E4797628D7681900C3E1E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E4797528D7681900C3E1E0 /* AppDelegate.swift */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		890F195D28D8DA9C00927292 /* LoginCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCollectionViewCell.swift; sourceTree = "<group>"; };
+		890F196028D8EBCD00927292 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		89152A9B28D83F490071225D /* LoginStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginStoryboard.storyboard; sourceTree = "<group>"; };
 		89152A9D28D840670071225D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		89E4797228D7681900C3E1E0 /* RisingTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RisingTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -51,6 +53,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		890F195F28D8EBBC00927292 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				890F196028D8EBCD00927292 /* UIButton.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		89152A9628D83BC20071225D /* Source */ = {
 			isa = PBXGroup;
 			children = (
@@ -64,6 +74,7 @@
 		89152A9728D83BCE0071225D /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				890F195F28D8EBBC00927292 /* Extension */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -201,6 +212,7 @@
 				89E4797A28D7681900C3E1E0 /* ViewController.swift in Sources */,
 				89E4797628D7681900C3E1E0 /* AppDelegate.swift in Sources */,
 				89E4797828D7681900C3E1E0 /* SceneDelegate.swift in Sources */,
+				890F196128D8EBCD00927292 /* UIButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -24,6 +24,10 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var loginCollectionView: UICollectionView!
     @IBOutlet weak var pageControl: UIPageControl!
+    
+    @IBOutlet weak var kakaoLoginButton: UIButton!
+    @IBOutlet weak var appleLoginButton: UIButton!
+    @IBOutlet weak var otherLoginButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,8 +39,16 @@ class LoginViewController: UIViewController {
         pageControl.addTarget(self, action: #selector(pageValueDidChanged), for: .valueChanged)
         
         loginCollectionView.scrollToItem(at: NSIndexPath(item: pageControl.currentPage, section: 0) as IndexPath, at: .right, animated: true)
+        
+        configureLoginButton()
     }
     
+    func configureLoginButton() {
+        kakaoLoginButton.setRoundCorner()
+        appleLoginButton.setRoundCorner()
+        appleLoginButton.layer.borderColor = UIColor.black.cgColor
+        appleLoginButton.layer.borderWidth = 1
+    }
     // MARK: - Actions
     @objc func pageValueDidChanged() {
         let indexPath = IndexPath(row: pageControl.currentPage, section: 0)
@@ -56,7 +68,7 @@ extension LoginViewController: UIScrollViewDelegate {
 // MARK: - UICollectionView
 extension LoginViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return loginCellData.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
