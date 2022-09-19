@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Y6W-OH-hqX">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Login View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController id="Y6W-OH-hqX" customClass="LoginViewController" customModule="RisingTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="X3O-tK-tBj">
+                                <rect key="frame" x="0.0" y="44" width="414" height="568"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="xL1-IU-MAc">
+                                    <size key="itemSize" width="410" height="582"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="LoginCell" id="HVu-yO-XTD" customClass="LoginCollectionViewCell" customModule="RisingTest" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="-7" width="410" height="582"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="eWW-W5-NqV">
+                                            <rect key="frame" x="0.0" y="0.0" width="410" height="582"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JLa-lm-U41">
+                                                    <rect key="frame" x="85" y="100" width="240" height="86"/>
+                                                    <string key="text">취향을 잇는 거래,
+번개장터</string>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="36"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login1" translatesAutoresizingMaskIntoConstraints="NO" id="m3k-Af-UfF">
+                                                    <rect key="frame" x="80" y="271.5" width="250" height="250"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="250" id="U10-Qu-SwN"/>
+                                                        <constraint firstAttribute="height" constant="250" id="VWx-3q-IZJ"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ukz-NP-8bT">
+                                                    <rect key="frame" x="89" y="202" width="232.5" height="45.5"/>
+                                                    <string key="text">요즘 유행하는 메이저 취향부터 
+나만 알고싶은 마이너 취향까지</string>
+                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="19"/>
+                                                    <color key="textColor" name="gray"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Ukz-NP-8bT" firstAttribute="top" secondItem="JLa-lm-U41" secondAttribute="bottom" constant="16" id="4eR-e6-flR"/>
+                                                <constraint firstItem="JLa-lm-U41" firstAttribute="top" secondItem="eWW-W5-NqV" secondAttribute="top" constant="100" id="TlS-Zr-613"/>
+                                                <constraint firstItem="JLa-lm-U41" firstAttribute="centerX" secondItem="eWW-W5-NqV" secondAttribute="centerX" id="VGd-vd-I7c"/>
+                                                <constraint firstItem="m3k-Af-UfF" firstAttribute="centerX" secondItem="eWW-W5-NqV" secondAttribute="centerX" id="aw2-RB-7tf"/>
+                                                <constraint firstItem="m3k-Af-UfF" firstAttribute="top" secondItem="Ukz-NP-8bT" secondAttribute="bottom" constant="24" id="bsn-4N-kJj"/>
+                                                <constraint firstItem="Ukz-NP-8bT" firstAttribute="centerX" secondItem="eWW-W5-NqV" secondAttribute="centerX" id="uCU-3K-2kY"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="410" height="582"/>
+                                        <connections>
+                                            <outlet property="descriptionLabel" destination="Ukz-NP-8bT" id="I0D-tM-Cch"/>
+                                            <outlet property="imageView" destination="m3k-Af-UfF" id="0Jg-Db-PjF"/>
+                                            <outlet property="titleLabel" destination="JLa-lm-U41" id="Kl5-jO-fcn"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="Z1B-QN-pub">
+                                <rect key="frame" x="141" y="628" width="132.5" height="26"/>
+                                <color key="pageIndicatorTintColor" red="0.86274509803921573" green="0.85882352941176465" blue="0.88627450980392153" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="currentPageIndicatorTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </pageControl>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Z1B-QN-pub" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="2wQ-6Z-7xW"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="X3O-tK-tBj" secondAttribute="trailing" id="9jB-XJ-cZo"/>
+                            <constraint firstItem="Z1B-QN-pub" firstAttribute="top" secondItem="X3O-tK-tBj" secondAttribute="bottom" constant="16" id="Yf4-2l-cQE"/>
+                            <constraint firstItem="X3O-tK-tBj" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="hyM-WT-aqz"/>
+                            <constraint firstItem="X3O-tK-tBj" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="rXg-3D-YBB"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="X3O-tK-tBj" secondAttribute="bottom" constant="250" id="tcm-Be-Pvt"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="loginCollectionView" destination="X3O-tK-tBj" id="nQu-C8-Gfa"/>
+                        <outlet property="pageControl" destination="Z1B-QN-pub" id="oL9-CL-3hX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="18.840579710144929" y="69.642857142857139"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="login1" width="514" height="654"/>
+        <namedColor name="gray">
+            <color red="0.54509803921568623" green="0.54509803921568623" blue="0.54509803921568623" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
