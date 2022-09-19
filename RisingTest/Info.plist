@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>UIMainStoryboardFile</key>
-	<string>LoginStoryboard</string>
+	<string>MainStoryboard</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -18,7 +18,7 @@
 					<key>UISceneDelegateClassName</key>
 					<string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
 					<key>UISceneStoryboardFile</key>
-					<string>LoginStoryboard</string>
+					<string>MainStoryboard</string>
 				</dict>
 			</array>
 		</dict>

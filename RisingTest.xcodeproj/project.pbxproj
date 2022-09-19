@@ -67,6 +67,7 @@
 				89152A9A28D83D820071225D /* Login */,
 				89152A9928D83C7E0071225D /* Main */,
 				89E4797B28D7681900C3E1E0 /* MainStoryboard.storyboard */,
+				89E4797928D7681900C3E1E0 /* ViewController.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -127,7 +128,6 @@
 				89152A9628D83BC20071225D /* Source */,
 				89E4797528D7681900C3E1E0 /* AppDelegate.swift */,
 				89E4797728D7681900C3E1E0 /* SceneDelegate.swift */,
-				89E4797928D7681900C3E1E0 /* ViewController.swift */,
 				89E4797E28D7681900C3E1E0 /* Assets.xcassets */,
 				89E4798028D7681900C3E1E0 /* LaunchScreen.storyboard */,
 				89E4798328D7681900C3E1E0 /* Info.plist */,
