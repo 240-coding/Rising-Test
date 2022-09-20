@@ -11,6 +11,9 @@
 		890F196128D8EBCD00927292 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890F196028D8EBCD00927292 /* UIButton.swift */; };
 		89152A9C28D83F490071225D /* LoginStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89152A9B28D83F490071225D /* LoginStoryboard.storyboard */; };
 		89152A9E28D840670071225D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89152A9D28D840670071225D /* LoginViewController.swift */; };
+		8994934C28D9911A00333811 /* WriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8994934B28D9911A00333811 /* WriteViewController.swift */; };
+		8994934E28D9918600333811 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8994934D28D9918600333811 /* MainTabBarController.swift */; };
+		8994935028D99C4000333811 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8994934F28D99C4000333811 /* SearchViewController.swift */; };
 		89E4797628D7681900C3E1E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E4797528D7681900C3E1E0 /* AppDelegate.swift */; };
 		89E4797828D7681900C3E1E0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E4797728D7681900C3E1E0 /* SceneDelegate.swift */; };
 		89E4797A28D7681900C3E1E0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E4797928D7681900C3E1E0 /* ViewController.swift */; };
@@ -24,6 +27,9 @@
 		890F196028D8EBCD00927292 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		89152A9B28D83F490071225D /* LoginStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginStoryboard.storyboard; sourceTree = "<group>"; };
 		89152A9D28D840670071225D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		8994934B28D9911A00333811 /* WriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteViewController.swift; sourceTree = "<group>"; };
+		8994934D28D9918600333811 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		8994934F28D99C4000333811 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		89E4797228D7681900C3E1E0 /* RisingTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RisingTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89E4797528D7681900C3E1E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89E4797728D7681900C3E1E0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -90,6 +96,9 @@
 		89152A9928D83C7E0071225D /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				8994934B28D9911A00333811 /* WriteViewController.swift */,
+				8994934D28D9918600333811 /* MainTabBarController.swift */,
+				8994934F28D99C4000333811 /* SearchViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -209,10 +218,13 @@
 			files = (
 				89152A9E28D840670071225D /* LoginViewController.swift in Sources */,
 				890F195E28D8DA9C00927292 /* LoginCollectionViewCell.swift in Sources */,
+				8994934E28D9918600333811 /* MainTabBarController.swift in Sources */,
+				8994935028D99C4000333811 /* SearchViewController.swift in Sources */,
 				89E4797A28D7681900C3E1E0 /* ViewController.swift in Sources */,
 				89E4797628D7681900C3E1E0 /* AppDelegate.swift in Sources */,
 				89E4797828D7681900C3E1E0 /* SceneDelegate.swift in Sources */,
 				890F196128D8EBCD00927292 /* UIButton.swift in Sources */,
+				8994934C28D9911A00333811 /* WriteViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
