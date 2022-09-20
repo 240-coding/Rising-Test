@@ -27,9 +27,7 @@ extension MainTabBarController: UITabBarControllerDelegate {
             present(searchViewController, animated: true)
             return false
         } else if viewController == tabBarController.viewControllers?[2] {
-            guard let writeViewController = UIStoryboard(name: "MainStoryboard", bundle: nil).instantiateViewController(withIdentifier: "WriteViewController") as? WriteViewController else {
-                return true
-            }
+            let writeViewController = UIStoryboard(name: "MainStoryboard", bundle: nil).instantiateViewController(withIdentifier: "WriteNavigationController")
             writeViewController.modalPresentationStyle = .fullScreen
             present(writeViewController, animated: true)
             return false
