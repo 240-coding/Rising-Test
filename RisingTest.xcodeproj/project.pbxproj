@@ -26,6 +26,8 @@
 		89E4798228D7681900C3E1E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89E4798028D7681900C3E1E0 /* LaunchScreen.storyboard */; };
 		89E6C35B28DAF5A100A48052 /* WritePhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E6C35928DAF5A100A48052 /* WritePhotoCollectionViewCell.swift */; };
 		89E6C35C28DAF5A100A48052 /* WritePhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89E6C35A28DAF5A100A48052 /* WritePhotoCollectionViewCell.xib */; };
+		89E6C35F28DAFA5900A48052 /* WriteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E6C35E28DAFA5900A48052 /* WriteCollectionViewCell.swift */; };
+		89E6C36128DB071A00A48052 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E6C36028DB071A00A48052 /* UIView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,8 @@
 		89E4798328D7681900C3E1E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		89E6C35928DAF5A100A48052 /* WritePhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritePhotoCollectionViewCell.swift; sourceTree = "<group>"; };
 		89E6C35A28DAF5A100A48052 /* WritePhotoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WritePhotoCollectionViewCell.xib; sourceTree = "<group>"; };
+		89E6C35E28DAFA5900A48052 /* WriteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteCollectionViewCell.swift; sourceTree = "<group>"; };
+		89E6C36028DB071A00A48052 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				890F196028D8EBCD00927292 /* UIButton.swift */,
+				89E6C36028DB071A00A48052 /* UIView.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -137,12 +142,8 @@
 		8994935228D9B73E00333811 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				8994935328D9B75000333811 /* WriteCollectionReusableView.swift */,
-				8994935428D9B75000333811 /* WriteCollectionReusableView.xib */,
-				8994935728D9B98E00333811 /* WriteUploadCollectionViewCell.swift */,
-				8994935828D9B98E00333811 /* WriteUploadCollectionViewCell.xib */,
-				89E6C35928DAF5A100A48052 /* WritePhotoCollectionViewCell.swift */,
-				89E6C35A28DAF5A100A48052 /* WritePhotoCollectionViewCell.xib */,
+				89E6C35D28DAFA4100A48052 /* Photo */,
+				89E6C35E28DAFA5900A48052 /* WriteCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -176,6 +177,19 @@
 				89E4798328D7681900C3E1E0 /* Info.plist */,
 			);
 			path = RisingTest;
+			sourceTree = "<group>";
+		};
+		89E6C35D28DAFA4100A48052 /* Photo */ = {
+			isa = PBXGroup;
+			children = (
+				8994935328D9B75000333811 /* WriteCollectionReusableView.swift */,
+				8994935428D9B75000333811 /* WriteCollectionReusableView.xib */,
+				8994935728D9B98E00333811 /* WriteUploadCollectionViewCell.swift */,
+				8994935828D9B98E00333811 /* WriteUploadCollectionViewCell.xib */,
+				89E6C35928DAF5A100A48052 /* WritePhotoCollectionViewCell.swift */,
+				89E6C35A28DAF5A100A48052 /* WritePhotoCollectionViewCell.xib */,
+			);
+			path = Photo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -255,6 +269,7 @@
 			files = (
 				89152A9E28D840670071225D /* LoginViewController.swift in Sources */,
 				890F195E28D8DA9C00927292 /* LoginCollectionViewCell.swift in Sources */,
+				89E6C35F28DAFA5900A48052 /* WriteCollectionViewCell.swift in Sources */,
 				8994934E28D9918600333811 /* MainTabBarController.swift in Sources */,
 				8994935928D9B98E00333811 /* WriteUploadCollectionViewCell.swift in Sources */,
 				8994935028D99C4000333811 /* SearchViewController.swift in Sources */,
@@ -262,6 +277,7 @@
 				89E4797628D7681900C3E1E0 /* AppDelegate.swift in Sources */,
 				89E4797828D7681900C3E1E0 /* SceneDelegate.swift in Sources */,
 				890F196128D8EBCD00927292 /* UIButton.swift in Sources */,
+				89E6C36128DB071A00A48052 /* UIView.swift in Sources */,
 				89E6C35B28DAF5A100A48052 /* WritePhotoCollectionViewCell.swift in Sources */,
 				8994934C28D9911A00333811 /* WriteViewController.swift in Sources */,
 				8994935528D9B75000333811 /* WriteCollectionReusableView.swift in Sources */,
