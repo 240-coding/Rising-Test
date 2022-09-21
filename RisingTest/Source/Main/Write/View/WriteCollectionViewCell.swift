@@ -18,8 +18,7 @@ class WriteCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var optionSelectButton: UIButton!
     @IBOutlet weak var optionLabel: UILabel!
-    
-    
+        
     override func awakeFromNib() {
         super.awakeFromNib()
         

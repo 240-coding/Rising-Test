@@ -14,6 +14,11 @@ class WriteViewController: UIViewController {
     @IBOutlet weak var bottomButtonView: UIView!
     @IBOutlet weak var payButton: UIButton!
     @IBOutlet weak var writeButton: UIButton!
+    
+    @IBOutlet weak var payWarningImageView: UIImageView!
+    @IBOutlet weak var payWarningLabel: UILabel!
+    
+    var textViewHeight = 400.0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +32,7 @@ class WriteViewController: UIViewController {
         collectionView.register(UINib(nibName: "WriteCollectionReusableView", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "WriteView")
     }
     
+    // MARK: - Configure UI
     func configureNavigationBar() {
         navigationController?.navigationBar.tintColor = .black
         
@@ -53,24 +59,55 @@ class WriteViewController: UIViewController {
         payButton.layer.borderColor = UIColor(named: "lightgray")?.cgColor
         payButton.layer.borderWidth = 1
     }
+    
+    // MARK: - Actions
+    
+    @IBAction func pressedPayButton(_ sender: UIButton) {
+        sender.isSelected.toggle()
+        if sender.isSelected {
+            sender.layer.borderColor = UIColor(named: "red")?.cgColor
+            payWarningImageView.isHidden = true
+            payWarningLabel.text = "내 상품에 안전결제 배지가 표시돼요"
+            payWarningLabel.textColor = .black
+        } else {
+            sender.layer.borderColor = UIColor(named: "lightgray")?.cgColor
+            payWarningImageView.isHidden = false
+            payWarningLabel.text = "안전결제를 거부하면 주의 안내가 표시돼요"
+            payWarningLabel.textColor = UIColor(named: "red") ?? UIColor()
+        }
+    }
 
 }
 
+// MARK: - UICollectionView
 extension WriteViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return 2
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WriteCell", for: indexPath) as? WriteCollectionViewCell else {
-            return UICollectionViewCell()
+        if indexPath.row == 0 {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WriteCell", for: indexPath) as? WriteCollectionViewCell else {
+                return UICollectionViewCell()
+            }
+            return cell
+        } else {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TextViewCell", for: indexPath) as? TextViewCollectionViewCell else {
+                return UICollectionViewCell()
+            }
+            cell.delegate = self
+            
+            return cell
         }
-        print("냠")
-        return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width, height: 400)
+        var height = 400.0
+        
+        if indexPath.row == 1 {
+            height = textViewHeight
+        }
+        return CGSize(width: view.frame.width, height: height)
     }
     
     // Header
@@ -91,4 +128,11 @@ extension WriteViewController: UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     
+}
+
+extension WriteViewController: TextViewCollectionViewCellDelegate {
+    func updateCollectionViewCellHeight(_ textView: UITextView) {
+        self.textViewHeight = textView.frame.height
+//        collectionView.reloadData()
+    }
 }
