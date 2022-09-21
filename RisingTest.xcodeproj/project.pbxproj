@@ -14,12 +14,18 @@
 		8994934C28D9911A00333811 /* WriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8994934B28D9911A00333811 /* WriteViewController.swift */; };
 		8994934E28D9918600333811 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8994934D28D9918600333811 /* MainTabBarController.swift */; };
 		8994935028D99C4000333811 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8994934F28D99C4000333811 /* SearchViewController.swift */; };
+		8994935528D9B75000333811 /* WriteCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8994935328D9B75000333811 /* WriteCollectionReusableView.swift */; };
+		8994935628D9B75000333811 /* WriteCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8994935428D9B75000333811 /* WriteCollectionReusableView.xib */; };
+		8994935928D9B98E00333811 /* WriteUploadCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8994935728D9B98E00333811 /* WriteUploadCollectionViewCell.swift */; };
+		8994935A28D9B98E00333811 /* WriteUploadCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8994935828D9B98E00333811 /* WriteUploadCollectionViewCell.xib */; };
 		89E4797628D7681900C3E1E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E4797528D7681900C3E1E0 /* AppDelegate.swift */; };
 		89E4797828D7681900C3E1E0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E4797728D7681900C3E1E0 /* SceneDelegate.swift */; };
 		89E4797A28D7681900C3E1E0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E4797928D7681900C3E1E0 /* ViewController.swift */; };
 		89E4797D28D7681900C3E1E0 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89E4797B28D7681900C3E1E0 /* MainStoryboard.storyboard */; };
 		89E4797F28D7681900C3E1E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 89E4797E28D7681900C3E1E0 /* Assets.xcassets */; };
 		89E4798228D7681900C3E1E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89E4798028D7681900C3E1E0 /* LaunchScreen.storyboard */; };
+		89E6C35B28DAF5A100A48052 /* WritePhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E6C35928DAF5A100A48052 /* WritePhotoCollectionViewCell.swift */; };
+		89E6C35C28DAF5A100A48052 /* WritePhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89E6C35A28DAF5A100A48052 /* WritePhotoCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +36,10 @@
 		8994934B28D9911A00333811 /* WriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteViewController.swift; sourceTree = "<group>"; };
 		8994934D28D9918600333811 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		8994934F28D99C4000333811 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		8994935328D9B75000333811 /* WriteCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteCollectionReusableView.swift; sourceTree = "<group>"; };
+		8994935428D9B75000333811 /* WriteCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WriteCollectionReusableView.xib; sourceTree = "<group>"; };
+		8994935728D9B98E00333811 /* WriteUploadCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteUploadCollectionViewCell.swift; sourceTree = "<group>"; };
+		8994935828D9B98E00333811 /* WriteUploadCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WriteUploadCollectionViewCell.xib; sourceTree = "<group>"; };
 		89E4797228D7681900C3E1E0 /* RisingTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RisingTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89E4797528D7681900C3E1E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89E4797728D7681900C3E1E0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -38,6 +48,8 @@
 		89E4797E28D7681900C3E1E0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		89E4798128D7681900C3E1E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89E4798328D7681900C3E1E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		89E6C35928DAF5A100A48052 /* WritePhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritePhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		89E6C35A28DAF5A100A48052 /* WritePhotoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WritePhotoCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,9 +128,23 @@
 		8994935128D99E5600333811 /* Write */ = {
 			isa = PBXGroup;
 			children = (
+				8994935228D9B73E00333811 /* View */,
 				8994934B28D9911A00333811 /* WriteViewController.swift */,
 			);
 			path = Write;
+			sourceTree = "<group>";
+		};
+		8994935228D9B73E00333811 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8994935328D9B75000333811 /* WriteCollectionReusableView.swift */,
+				8994935428D9B75000333811 /* WriteCollectionReusableView.xib */,
+				8994935728D9B98E00333811 /* WriteUploadCollectionViewCell.swift */,
+				8994935828D9B98E00333811 /* WriteUploadCollectionViewCell.xib */,
+				89E6C35928DAF5A100A48052 /* WritePhotoCollectionViewCell.swift */,
+				89E6C35A28DAF5A100A48052 /* WritePhotoCollectionViewCell.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		89E4796928D7681900C3E1E0 = {
@@ -211,6 +237,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				89E4798228D7681900C3E1E0 /* LaunchScreen.storyboard in Resources */,
+				89E6C35C28DAF5A100A48052 /* WritePhotoCollectionViewCell.xib in Resources */,
+				8994935628D9B75000333811 /* WriteCollectionReusableView.xib in Resources */,
+				8994935A28D9B98E00333811 /* WriteUploadCollectionViewCell.xib in Resources */,
 				89E4797F28D7681900C3E1E0 /* Assets.xcassets in Resources */,
 				89E4797D28D7681900C3E1E0 /* MainStoryboard.storyboard in Resources */,
 				89152A9C28D83F490071225D /* LoginStoryboard.storyboard in Resources */,
@@ -227,12 +256,15 @@
 				89152A9E28D840670071225D /* LoginViewController.swift in Sources */,
 				890F195E28D8DA9C00927292 /* LoginCollectionViewCell.swift in Sources */,
 				8994934E28D9918600333811 /* MainTabBarController.swift in Sources */,
+				8994935928D9B98E00333811 /* WriteUploadCollectionViewCell.swift in Sources */,
 				8994935028D99C4000333811 /* SearchViewController.swift in Sources */,
 				89E4797A28D7681900C3E1E0 /* ViewController.swift in Sources */,
 				89E4797628D7681900C3E1E0 /* AppDelegate.swift in Sources */,
 				89E4797828D7681900C3E1E0 /* SceneDelegate.swift in Sources */,
 				890F196128D8EBCD00927292 /* UIButton.swift in Sources */,
+				89E6C35B28DAF5A100A48052 /* WritePhotoCollectionViewCell.swift in Sources */,
 				8994934C28D9911A00333811 /* WriteViewController.swift in Sources */,
+				8994935528D9B75000333811 /* WriteCollectionReusableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoCell" id="gTV-IL-0wX" customClass="WritePhotoCollectionViewCell" customModule="RisingTest" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sM1-Kg-PG3">
+                        <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="login1" translatesAutoresizingMaskIntoConstraints="NO" id="pgk-gp-0R7">
+                                <rect key="frame" x="8" y="8" width="54" height="54"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ob-w6-r1E">
+                                <rect key="frame" x="41" y="4" width="25" height="25"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="25" id="aLi-we-GSy"/>
+                                    <constraint firstAttribute="height" constant="25" id="xdU-3S-LtF"/>
+                                </constraints>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <imageReference key="image" image="xmark" catalog="system" symbolScale="small"/>
+                                </buttonConfiguration>
+                            </button>
+                            <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AWj-J6-OWe">
+                                <rect key="frame" x="4" y="41" width="25" height="25"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="P47-Ga-wyd"/>
+                                    <constraint firstAttribute="width" constant="25" id="g5o-V2-X2b"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="gray">
+                                    <imageReference key="image" image="wand.and.rays" catalog="system" symbolScale="small"/>
+                                </buttonConfiguration>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="9ob-w6-r1E" firstAttribute="top" secondItem="sM1-Kg-PG3" secondAttribute="top" constant="4" id="7Wr-Ci-U5z"/>
+                            <constraint firstItem="pgk-gp-0R7" firstAttribute="top" secondItem="sM1-Kg-PG3" secondAttribute="top" constant="8" id="KEP-Ah-Iyk"/>
+                            <constraint firstAttribute="bottom" secondItem="pgk-gp-0R7" secondAttribute="bottom" constant="8" id="Zsx-3Q-lw2"/>
+                            <constraint firstAttribute="trailing" secondItem="9ob-w6-r1E" secondAttribute="trailing" constant="4" id="awJ-YU-MCE"/>
+                            <constraint firstAttribute="trailing" secondItem="pgk-gp-0R7" secondAttribute="trailing" constant="8" id="dXX-bv-O2M"/>
+                            <constraint firstAttribute="bottom" secondItem="AWj-J6-OWe" secondAttribute="bottom" constant="4" id="otk-pg-Mr6"/>
+                            <constraint firstItem="pgk-gp-0R7" firstAttribute="leading" secondItem="sM1-Kg-PG3" secondAttribute="leading" constant="8" id="yIa-T4-2jF"/>
+                            <constraint firstItem="AWj-J6-OWe" firstAttribute="leading" secondItem="sM1-Kg-PG3" secondAttribute="leading" constant="4" id="yct-Ce-E7m"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="sM1-Kg-PG3" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="45o-2Q-ocH"/>
+                <constraint firstAttribute="trailing" secondItem="sM1-Kg-PG3" secondAttribute="trailing" id="hO9-v0-Ha4"/>
+                <constraint firstAttribute="bottom" secondItem="sM1-Kg-PG3" secondAttribute="bottom" id="kcd-vO-6sL"/>
+                <constraint firstItem="sM1-Kg-PG3" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="lsf-VN-DZy"/>
+            </constraints>
+            <size key="customSize" width="70" height="70"/>
+            <connections>
+                <outlet property="closeButton" destination="9ob-w6-r1E" id="tsC-ZI-hHz"/>
+                <outlet property="editButton" destination="AWj-J6-OWe" id="bw3-CU-ZPf"/>
+                <outlet property="imageView" destination="pgk-gp-0R7" id="wun-Uq-yf4"/>
+            </connections>
+            <point key="canvasLocation" x="152.17391304347828" y="106.47321428571428"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="login1" width="514" height="654"/>
+        <image name="wand.and.rays" catalog="system" width="128" height="121"/>
+        <image name="xmark" catalog="system" width="128" height="113"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

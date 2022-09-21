@@ -9,6 +9,8 @@ import UIKit
 
 class WriteViewController: UIViewController {
     
+    @IBOutlet weak var collectionView: UICollectionView!
+    
     @IBOutlet weak var bottomButtonView: UIView!
     @IBOutlet weak var payButton: UIButton!
     @IBOutlet weak var writeButton: UIButton!
@@ -19,6 +21,10 @@ class WriteViewController: UIViewController {
         configureNavigationBar()
         configureBottomButtonView()
         configureButtons()
+        
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.register(UINib(nibName: "WriteCollectionReusableView", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "WriteView")
     }
     
     func configureNavigationBar() {
@@ -34,7 +40,7 @@ class WriteViewController: UIViewController {
     }
     
     @objc func dismissViewController() {
-        self.dismiss(animated: true)
+        self.dismiss(animated: true, completion: nil)
     }
     
     func configureBottomButtonView() {
@@ -47,16 +53,38 @@ class WriteViewController: UIViewController {
         payButton.layer.borderColor = UIColor(named: "lightgray")?.cgColor
         payButton.layer.borderWidth = 1
     }
-    
 
-    /*
-    // MARK: - Navigation
+}
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+extension WriteViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 1
     }
-    */
-
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "WriteCell", for: indexPath)
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.frame.width, height: 500)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        switch kind {
+        case UICollectionView.elementKindSectionHeader:
+            guard let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "WriteView", for: indexPath) as? WriteCollectionReusableView else {
+                return UICollectionReusableView()
+            }
+            return headerView
+        default:
+            assert(false, "test")
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: collectionView.frame.width, height: 100)
+    }
+    
+    
 }

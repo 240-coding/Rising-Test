@@ -7,6 +7,7 @@
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -195,18 +196,49 @@
                                     <constraint firstItem="ODH-eA-aCy" firstAttribute="top" secondItem="61T-Ut-ZqT" secondAttribute="bottom" constant="16" id="zzq-ml-VfH"/>
                                 </constraints>
                             </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="xR7-1N-pcA">
+                                <rect key="frame" x="0.0" y="88" width="414" height="658"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="bjz-0r-TJS">
+                                    <size key="itemSize" width="414" height="342"/>
+                                    <size key="headerReferenceSize" width="50" height="246"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="WriteCell" id="hb5-GE-rMA">
+                                        <rect key="frame" x="0.0" y="246" width="414" height="342"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="xaq-nA-Gpf">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="342"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                        <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                        <size key="customSize" width="414" height="342"/>
+                                    </collectionViewCell>
+                                </cells>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="427-j5-upF" customClass="WriteCollectionReusableView" customModule="RisingTest" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="246"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </collectionReusableView>
+                            </collectionView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="tlb-Eq-Bt1"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="tlb-Eq-Bt1" firstAttribute="trailing" secondItem="zZI-q1-zBS" secondAttribute="trailing" id="Ezq-NW-d7h"/>
                             <constraint firstAttribute="bottom" secondItem="zZI-q1-zBS" secondAttribute="bottom" id="U66-Ok-Wdk"/>
+                            <constraint firstItem="zZI-q1-zBS" firstAttribute="top" secondItem="xR7-1N-pcA" secondAttribute="bottom" id="bX3-4p-fjj"/>
                             <constraint firstItem="zZI-q1-zBS" firstAttribute="leading" secondItem="tlb-Eq-Bt1" secondAttribute="leading" id="ckY-PL-lec"/>
+                            <constraint firstItem="xR7-1N-pcA" firstAttribute="leading" secondItem="tlb-Eq-Bt1" secondAttribute="leading" id="dpX-cG-d6S"/>
+                            <constraint firstItem="xR7-1N-pcA" firstAttribute="top" secondItem="tlb-Eq-Bt1" secondAttribute="top" id="oIG-2o-G2T"/>
+                            <constraint firstItem="tlb-Eq-Bt1" firstAttribute="trailing" secondItem="xR7-1N-pcA" secondAttribute="trailing" id="smZ-7i-5X5"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Zvu-Mg-iX7"/>
                     <connections>
                         <outlet property="bottomButtonView" destination="zZI-q1-zBS" id="vhk-pP-nbf"/>
+                        <outlet property="collectionView" destination="xR7-1N-pcA" id="axL-zm-w6h"/>
                         <outlet property="payButton" destination="9P1-De-C5r" id="nn8-Dt-CFp"/>
                         <outlet property="writeButton" destination="vOb-2C-8y1" id="wVB-pd-qf0"/>
                     </connections>
@@ -285,6 +317,9 @@
         </systemColor>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
