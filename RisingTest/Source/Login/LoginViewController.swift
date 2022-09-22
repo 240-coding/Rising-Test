@@ -6,6 +6,9 @@
 //
 
 import UIKit
+import KakaoSDKCommon
+import KakaoSDKAuth
+import KakaoSDKUser
 
 struct LoginCellData {
     let title: String
@@ -53,6 +56,20 @@ class LoginViewController: UIViewController {
     @objc func pageValueDidChanged() {
         let indexPath = IndexPath(row: pageControl.currentPage, section: 0)
         loginCollectionView.scrollToItem(at: indexPath, at: .left, animated: true)
+    }
+    
+    @IBAction func pressKakaoLogin() {
+        UserApi.shared.loginWithKakaoAccount {(oauthToken, error) in
+            if let error = error {
+                print(error)
+            }
+            else {
+                print("loginWithKakaoAccount() success.")
+                
+                //do something
+                _ = oauthToken
+            }
+        }
     }
 }
 

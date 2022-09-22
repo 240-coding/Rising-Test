@@ -15,6 +15,9 @@
 		8965255428DCCCD4004A7D1F /* SearchRecentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8965255328DCCCD4004A7D1F /* SearchRecentCollectionViewCell.swift */; };
 		8965255628DD1EB5004A7D1F /* SearchPopularCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8965255528DD1EB5004A7D1F /* SearchPopularCollectionViewCell.swift */; };
 		8965255828DD2637004A7D1F /* SearchCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8965255728DD2637004A7D1F /* SearchCategoryCollectionViewCell.swift */; };
+		8965255B28DD2B3A004A7D1F /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 8965255A28DD2B3A004A7D1F /* KakaoSDKAuth */; };
+		8965255D28DD2B3A004A7D1F /* KakaoSDKCommon in Frameworks */ = {isa = PBXBuildFile; productRef = 8965255C28DD2B3A004A7D1F /* KakaoSDKCommon */; };
+		8965255F28DD2B3A004A7D1F /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = 8965255E28DD2B3A004A7D1F /* KakaoSDKUser */; };
 		8994934C28D9911A00333811 /* WriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8994934B28D9911A00333811 /* WriteViewController.swift */; };
 		8994934E28D9918600333811 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8994934D28D9918600333811 /* MainTabBarController.swift */; };
 		8994935028D99C4000333811 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8994934F28D99C4000333811 /* SearchViewController.swift */; };
@@ -71,6 +74,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8965255D28DD2B3A004A7D1F /* KakaoSDKCommon in Frameworks */,
+				8965255B28DD2B3A004A7D1F /* KakaoSDKAuth in Frameworks */,
+				8965255F28DD2B3A004A7D1F /* KakaoSDKUser in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,6 +245,11 @@
 			dependencies = (
 			);
 			name = RisingTest;
+			packageProductDependencies = (
+				8965255A28DD2B3A004A7D1F /* KakaoSDKAuth */,
+				8965255C28DD2B3A004A7D1F /* KakaoSDKCommon */,
+				8965255E28DD2B3A004A7D1F /* KakaoSDKUser */,
+			);
 			productName = RisingTest;
 			productReference = 89E4797228D7681900C3E1E0 /* RisingTest.app */;
 			productType = "com.apple.product-type.application";
@@ -267,6 +278,9 @@
 				Base,
 			);
 			mainGroup = 89E4796928D7681900C3E1E0;
+			packageReferences = (
+				8965255928DD2B3A004A7D1F /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
+			);
 			productRefGroup = 89E4797328D7681900C3E1E0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -468,6 +482,7 @@
 				INFOPLIST_FILE = RisingTest/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = MainStoryboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -498,6 +513,7 @@
 				INFOPLIST_FILE = RisingTest/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = MainStoryboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -538,6 +554,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8965255928DD2B3A004A7D1F /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kakao/kakao-ios-sdk";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8965255A28DD2B3A004A7D1F /* KakaoSDKAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8965255928DD2B3A004A7D1F /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKAuth;
+		};
+		8965255C28DD2B3A004A7D1F /* KakaoSDKCommon */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8965255928DD2B3A004A7D1F /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKCommon;
+		};
+		8965255E28DD2B3A004A7D1F /* KakaoSDKUser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8965255928DD2B3A004A7D1F /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKUser;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 89E4796A28D7681900C3E1E0 /* Project object */;
 }
