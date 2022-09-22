@@ -11,6 +11,10 @@
 		890F196128D8EBCD00927292 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890F196028D8EBCD00927292 /* UIButton.swift */; };
 		89152A9C28D83F490071225D /* LoginStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89152A9B28D83F490071225D /* LoginStoryboard.storyboard */; };
 		89152A9E28D840670071225D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89152A9D28D840670071225D /* LoginViewController.swift */; };
+		8965255228DCCAD5004A7D1F /* SearchChildViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8965255128DCCAD5004A7D1F /* SearchChildViewController.swift */; };
+		8965255428DCCCD4004A7D1F /* SearchRecentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8965255328DCCCD4004A7D1F /* SearchRecentCollectionViewCell.swift */; };
+		8965255628DD1EB5004A7D1F /* SearchPopularCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8965255528DD1EB5004A7D1F /* SearchPopularCollectionViewCell.swift */; };
+		8965255828DD2637004A7D1F /* SearchCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8965255728DD2637004A7D1F /* SearchCategoryCollectionViewCell.swift */; };
 		8994934C28D9911A00333811 /* WriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8994934B28D9911A00333811 /* WriteViewController.swift */; };
 		8994934E28D9918600333811 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8994934D28D9918600333811 /* MainTabBarController.swift */; };
 		8994935028D99C4000333811 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8994934F28D99C4000333811 /* SearchViewController.swift */; };
@@ -36,6 +40,10 @@
 		890F196028D8EBCD00927292 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		89152A9B28D83F490071225D /* LoginStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginStoryboard.storyboard; sourceTree = "<group>"; };
 		89152A9D28D840670071225D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		8965255128DCCAD5004A7D1F /* SearchChildViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchChildViewController.swift; sourceTree = "<group>"; };
+		8965255328DCCCD4004A7D1F /* SearchRecentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRecentCollectionViewCell.swift; sourceTree = "<group>"; };
+		8965255528DD1EB5004A7D1F /* SearchPopularCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPopularCollectionViewCell.swift; sourceTree = "<group>"; };
+		8965255728DD2637004A7D1F /* SearchCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		8994934B28D9911A00333811 /* WriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteViewController.swift; sourceTree = "<group>"; };
 		8994934D28D9918600333811 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		8994934F28D99C4000333811 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -93,6 +101,7 @@
 				89152A9928D83C7E0071225D /* Main */,
 				89E4797B28D7681900C3E1E0 /* MainStoryboard.storyboard */,
 				89E4797928D7681900C3E1E0 /* ViewController.swift */,
+				8994934D28D9918600333811 /* MainTabBarController.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -117,7 +126,6 @@
 			children = (
 				8965254B28DCAE77004A7D1F /* Search */,
 				8994935128D99E5600333811 /* Write */,
-				8994934D28D9918600333811 /* MainTabBarController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -135,9 +143,21 @@
 		8965254B28DCAE77004A7D1F /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				8965254C28DCBC12004A7D1F /* View */,
 				8994934F28D99C4000333811 /* SearchViewController.swift */,
+				8965255128DCCAD5004A7D1F /* SearchChildViewController.swift */,
 			);
 			path = Search;
+			sourceTree = "<group>";
+		};
+		8965254C28DCBC12004A7D1F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8965255328DCCCD4004A7D1F /* SearchRecentCollectionViewCell.swift */,
+				8965255528DD1EB5004A7D1F /* SearchPopularCollectionViewCell.swift */,
+				8965255728DD2637004A7D1F /* SearchCategoryCollectionViewCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		8994935128D99E5600333811 /* Write */ = {
@@ -278,9 +298,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8965255828DD2637004A7D1F /* SearchCategoryCollectionViewCell.swift in Sources */,
 				89152A9E28D840670071225D /* LoginViewController.swift in Sources */,
 				890F195E28D8DA9C00927292 /* LoginCollectionViewCell.swift in Sources */,
 				89E6C35F28DAFA5900A48052 /* WriteCollectionViewCell.swift in Sources */,
+				8965255228DCCAD5004A7D1F /* SearchChildViewController.swift in Sources */,
+				8965255628DD1EB5004A7D1F /* SearchPopularCollectionViewCell.swift in Sources */,
 				8994934E28D9918600333811 /* MainTabBarController.swift in Sources */,
 				8994935928D9B98E00333811 /* WriteUploadCollectionViewCell.swift in Sources */,
 				8994935028D99C4000333811 /* SearchViewController.swift in Sources */,
@@ -288,6 +311,7 @@
 				89BE704528DB7CC10093A704 /* TextViewCollectionViewCell.swift in Sources */,
 				89E4797628D7681900C3E1E0 /* AppDelegate.swift in Sources */,
 				89E4797828D7681900C3E1E0 /* SceneDelegate.swift in Sources */,
+				8965255428DCCCD4004A7D1F /* SearchRecentCollectionViewCell.swift in Sources */,
 				890F196128D8EBCD00927292 /* UIButton.swift in Sources */,
 				89E6C36128DB071A00A48052 /* UIView.swift in Sources */,
 				89E6C35B28DAF5A100A48052 /* WritePhotoCollectionViewCell.swift in Sources */,

@@ -8,12 +8,27 @@
 import UIKit
 
 class SearchViewController: UIViewController {
-
+    
+    let childViewController = UIStoryboard(name: "MainStoryboard", bundle: nil).instantiateViewController(withIdentifier: "SearchChildViewController")
+    let resultChildViewController = UIStoryboard(name: "MainStoryboard", bundle: nil).instantiateViewController(withIdentifier: "SearchResultChildViewController")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         configureNavigationBar()
+        
+        addChild(childViewController)
+        addChild(resultChildViewController)
+        self.view.addSubview(childViewController.view)
+        self.view.addSubview(resultChildViewController.view)
+        
+        childViewController.didMove(toParent: self)
+        resultChildViewController.didMove(toParent: self)
+        
+        childViewController.view.frame = self.view.bounds
+        resultChildViewController.view.frame = self.view.bounds
+        resultChildViewController.view.isHidden = true
     }
     
     func configureNavigationBar() {
@@ -32,6 +47,8 @@ class SearchViewController: UIViewController {
             return searchBar
         }()
         
+        searchBar.delegate = self
+        
         navigationItem.leftBarButtonItem = backButton
         navigationItem.rightBarButtonItem = rightButton
         self.navigationItem.titleView = searchBar
@@ -48,4 +65,18 @@ class SearchViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
 
+}
+
+extension SearchViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if let text = searchBar.text {
+            if text.isEmpty {
+                childViewController.view.isHidden = false
+                resultChildViewController.view.isHidden = true
+            } else {
+                childViewController.view.isHidden = true
+                resultChildViewController.view.isHidden = false
+            }
+        }
+    }
 }
