@@ -20,9 +20,7 @@ class MainTabBarController: UITabBarController {
 extension MainTabBarController: UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
         if viewController == tabBarController.viewControllers?[1] {
-            guard let searchViewController = UIStoryboard(name: "MainStoryboard", bundle: nil).instantiateViewController(withIdentifier: "SearchViewController") as? SearchViewController else {
-                return true
-            }
+            let searchViewController = UIStoryboard(name: "MainStoryboard", bundle: nil).instantiateViewController(withIdentifier: "SearchNavigationController")
             searchViewController.modalPresentationStyle = .fullScreen
             present(searchViewController, animated: true)
             return false

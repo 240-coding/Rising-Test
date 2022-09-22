@@ -115,9 +115,9 @@
 		89152A9928D83C7E0071225D /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				8965254B28DCAE77004A7D1F /* Search */,
 				8994935128D99E5600333811 /* Write */,
 				8994934D28D9918600333811 /* MainTabBarController.swift */,
-				8994934F28D99C4000333811 /* SearchViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -130,6 +130,14 @@
 				89152A9D28D840670071225D /* LoginViewController.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		8965254B28DCAE77004A7D1F /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				8994934F28D99C4000333811 /* SearchViewController.swift */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 		8994935128D99E5600333811 /* Write */ = {
