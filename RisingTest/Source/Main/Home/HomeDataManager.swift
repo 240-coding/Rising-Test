@@ -16,8 +16,7 @@ class HomeDataManager {
             .responseDecodable(of: HomeResponse.self) { response in
                 switch response.result {
                 case .success(let response):
-                    // 수고용
-                    debugPrint(response)
+                    delegate.didFetchHomeData(result: response.result)
                 case .failure(let error):
                     print(error.localizedDescription)
                 }

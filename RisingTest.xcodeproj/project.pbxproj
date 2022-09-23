@@ -25,6 +25,8 @@
 		89939DC128DE1622002004C2 /* BannerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89939DC028DE1622002004C2 /* BannerCollectionViewCell.swift */; };
 		89939DC428DE1D28002004C2 /* HomeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89939DC328DE1D28002004C2 /* HomeResponse.swift */; };
 		89939DC628DE1E07002004C2 /* HomeDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89939DC528DE1E07002004C2 /* HomeDataManager.swift */; };
+		89939DC828DE25D9002004C2 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89939DC728DE25D9002004C2 /* UIImageView.swift */; };
+		89939DCA28DE2E08002004C2 /* HomeCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89939DC928DE2E08002004C2 /* HomeCategoryCollectionViewCell.swift */; };
 		8994934C28D9911A00333811 /* WriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8994934B28D9911A00333811 /* WriteViewController.swift */; };
 		8994934E28D9918600333811 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8994934D28D9918600333811 /* MainTabBarController.swift */; };
 		8994935028D99C4000333811 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8994934F28D99C4000333811 /* SearchViewController.swift */; };
@@ -61,6 +63,8 @@
 		89939DC028DE1622002004C2 /* BannerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCollectionViewCell.swift; sourceTree = "<group>"; };
 		89939DC328DE1D28002004C2 /* HomeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeResponse.swift; sourceTree = "<group>"; };
 		89939DC528DE1E07002004C2 /* HomeDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDataManager.swift; sourceTree = "<group>"; };
+		89939DC728DE25D9002004C2 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
+		89939DC928DE2E08002004C2 /* HomeCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		8994934B28D9911A00333811 /* WriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteViewController.swift; sourceTree = "<group>"; };
 		8994934D28D9918600333811 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		8994934F28D99C4000333811 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -111,6 +115,7 @@
 				890F196028D8EBCD00927292 /* UIButton.swift */,
 				89E6C36028DB071A00A48052 /* UIView.swift */,
 				89939DBC28DE0F68002004C2 /* UIViewController.swift */,
+				89939DC728DE25D9002004C2 /* UIImageView.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -207,6 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				89939DC028DE1622002004C2 /* BannerCollectionViewCell.swift */,
+				89939DC928DE2E08002004C2 /* HomeCategoryCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -366,6 +372,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8965255828DD2637004A7D1F /* SearchCategoryCollectionViewCell.swift in Sources */,
+				89939DC828DE25D9002004C2 /* UIImageView.swift in Sources */,
 				89152A9E28D840670071225D /* LoginViewController.swift in Sources */,
 				890F195E28D8DA9C00927292 /* LoginCollectionViewCell.swift in Sources */,
 				89E6C35F28DAFA5900A48052 /* WriteCollectionViewCell.swift in Sources */,
@@ -373,6 +380,7 @@
 				8965255628DD1EB5004A7D1F /* SearchPopularCollectionViewCell.swift in Sources */,
 				89939DC128DE1622002004C2 /* BannerCollectionViewCell.swift in Sources */,
 				89939DBD28DE0F68002004C2 /* UIViewController.swift in Sources */,
+				89939DCA28DE2E08002004C2 /* HomeCategoryCollectionViewCell.swift in Sources */,
 				8994934E28D9918600333811 /* MainTabBarController.swift in Sources */,
 				89939DB628DDD07E002004C2 /* Constant.swift in Sources */,
 				89939DC628DE1E07002004C2 /* HomeDataManager.swift in Sources */,

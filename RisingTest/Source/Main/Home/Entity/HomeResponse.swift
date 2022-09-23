@@ -11,10 +11,10 @@ struct HomeResponse: Decodable {
     let isSuccess: Bool
     let code: Int
     let message: String
-    let result: Result
+    let result: HomeResult
 }
 
-struct Result: Decodable {
+struct HomeResult: Decodable {
     let getHomeDataRes: [HomeData]
     let getMainPageImgRes: [MainPageImageResult]
 }
