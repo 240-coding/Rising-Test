@@ -31,7 +31,7 @@
         <!--홈-->
         <scene sceneID="Tqq-d0-LQj">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ywf-C7-XJl" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="HomeNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="ywf-C7-XJl" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="홈" image="house" catalog="system" id="n3V-66-rba"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="els-hX-3bf">
@@ -50,7 +50,7 @@
         <!--Main Tab Bar Controller-->
         <scene sceneID="R2W-Gw-a9t">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="17W-fR-A8h" customClass="MainTabBarController" customModule="RisingTest" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="MainTabBarController" automaticallyAdjustsScrollViewInsets="NO" id="17W-fR-A8h" customClass="MainTabBarController" customModule="RisingTest" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="a9s-zD-0vb">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>

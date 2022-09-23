@@ -65,14 +65,27 @@ class LoginViewController: UIViewController {
             }
             else {
                 print("loginWithKakaoAccount() success.")
-                
-                //do something
-                _ = oauthToken
+
+                if let myToken = oauthToken?.accessToken {
+                    LoginDataManager().getKakaoLogin(accessToken: myToken, delegate: self)
+                }
             }
         }
+
+    }
+}
+// MARK: - Networking
+extension LoginViewController {
+    func didSuccessLogin(_ result: LoginReponseResult) {
+        UserDefaults.standard.set(result.jwt, forKey: "KakaoLoginUserIdentifier")
+        
+        let mainStoryboard = UIStoryboard(name: "MainStoryboard", bundle: nil)
+        let mainTabBarController = mainStoryboard.instantiateViewController(withIdentifier: "MainTabBarController")
+        self.changeRootViewController(mainTabBarController)
     }
 }
 
+// MARK: - Banner
 extension LoginViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView.frame.size.width != 0 {
@@ -82,7 +95,6 @@ extension LoginViewController: UIScrollViewDelegate {
     }
 }
 
-// MARK: - UICollectionView
 extension LoginViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return loginCellData.count
