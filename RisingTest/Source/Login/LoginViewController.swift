@@ -77,6 +77,7 @@ class LoginViewController: UIViewController {
 // MARK: - Networking
 extension LoginViewController {
     func didSuccessLogin(_ result: LoginReponseResult) {
+        UserDefaults.standard.set(true, forKey: "isLogin")
         UserDefaults.standard.set(result.jwt, forKey: "KakaoLoginUserIdentifier")
         
         let mainStoryboard = UIStoryboard(name: "MainStoryboard", bundle: nil)

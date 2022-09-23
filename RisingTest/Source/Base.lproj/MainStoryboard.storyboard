@@ -12,21 +12,96 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="RisingTest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="RisingTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BaU-Kx-n8M">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KGn-VO-ABP" userLabel="ContentView">
+                                        <rect key="frame" x="0.0" y="-88" width="414" height="861"/>
+                                        <subviews>
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="xZv-FH-2uZ">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="350"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="350" id="JS9-Ha-fGu"/>
+                                                </constraints>
+                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="221-mN-12t">
+                                                    <size key="itemSize" width="414" height="363"/>
+                                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                </collectionViewFlowLayout>
+                                                <cells>
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="BannerCell" id="aKC-Dt-SWv" customClass="BannerCollectionViewCell" customModule="RisingTest" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="-6.5" width="414" height="363"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Py2-2C-W9j">
+                                                            <rect key="frame" x="0.0" y="0.0" width="414" height="363"/>
+                                                            <autoresizingMask key="autoresizingMask"/>
+                                                            <subviews>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Mk4-9D-W4P">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="363"/>
+                                                                </imageView>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="Mk4-9D-W4P" firstAttribute="top" secondItem="Py2-2C-W9j" secondAttribute="top" id="Bx8-Cp-EZq"/>
+                                                                <constraint firstItem="Mk4-9D-W4P" firstAttribute="leading" secondItem="Py2-2C-W9j" secondAttribute="leading" id="fW6-tY-BMW"/>
+                                                                <constraint firstAttribute="trailing" secondItem="Mk4-9D-W4P" secondAttribute="trailing" id="lcL-A6-rzK"/>
+                                                                <constraint firstAttribute="bottom" secondItem="Mk4-9D-W4P" secondAttribute="bottom" id="nkT-qA-Wke"/>
+                                                            </constraints>
+                                                        </collectionViewCellContentView>
+                                                        <size key="customSize" width="414" height="363"/>
+                                                        <connections>
+                                                            <outlet property="bannerImageView" destination="Mk4-9D-W4P" id="r07-7h-DgO"/>
+                                                        </connections>
+                                                    </collectionViewCell>
+                                                </cells>
+                                            </collectionView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="xZv-FH-2uZ" secondAttribute="trailing" id="Bh1-aT-Dea"/>
+                                            <constraint firstItem="xZv-FH-2uZ" firstAttribute="leading" secondItem="KGn-VO-ABP" secondAttribute="leading" id="Rxv-Il-66h"/>
+                                            <constraint firstItem="xZv-FH-2uZ" firstAttribute="top" secondItem="KGn-VO-ABP" secondAttribute="top" id="ac0-jK-gAz"/>
+                                            <constraint firstAttribute="height" constant="861" id="jNY-J4-Tml"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="KGn-VO-ABP" firstAttribute="trailing" secondItem="J76-cb-9Ff" secondAttribute="trailing" id="KoX-tU-GtT"/>
+                                    <constraint firstItem="KGn-VO-ABP" firstAttribute="width" secondItem="r24-uT-JJ4" secondAttribute="width" id="emf-au-ahb"/>
+                                    <constraint firstItem="J76-cb-9Ff" firstAttribute="top" secondItem="KGn-VO-ABP" secondAttribute="top" constant="88" id="mxj-vm-4pC"/>
+                                    <constraint firstItem="KGn-VO-ABP" firstAttribute="bottom" secondItem="J76-cb-9Ff" secondAttribute="bottom" id="pcc-qW-d3Z"/>
+                                    <constraint firstItem="KGn-VO-ABP" firstAttribute="leading" secondItem="J76-cb-9Ff" secondAttribute="leading" id="zml-5N-yYd"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="J76-cb-9Ff"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="r24-uT-JJ4"/>
+                            </scrollView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBrownColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="BaU-Kx-n8M" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="HfT-pa-YMN"/>
+                            <constraint firstItem="BaU-Kx-n8M" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Vn3-Wu-oFP"/>
+                            <constraint firstItem="BaU-Kx-n8M" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="eHQ-cf-apR"/>
+                            <constraint firstItem="BaU-Kx-n8M" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="qCg-HE-Rt7"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ODx-gC-9Ou"/>
+                    <connections>
+                        <outlet property="bannerCollectionView" destination="xZv-FH-2uZ" id="Jvr-FZ-vZg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="729" y="70"/>
+            <point key="canvasLocation" x="728.98550724637687" y="69.642857142857139"/>
         </scene>
         <!--홈-->
         <scene sceneID="Tqq-d0-LQj">
@@ -812,9 +887,6 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemBrownColor">
-            <color red="0.63529411764705879" green="0.51764705882352946" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray3Color">
             <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
