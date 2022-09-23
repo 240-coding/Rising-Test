@@ -51,3 +51,26 @@
     - 상품 설명 부분 구현
         - UITextView
         - ⚠️ 입력한 텍스트 내용에 따라 UITextView의 높이가 동적으로 바뀌어야 하는데 이 부분은 방법을 더 찾아봐야 할 것 같다.
+ ## 🗓 2022.09.22 진행상황
+
+### 검색 화면
+
+- 내비게이션 바 UI 구현
+    - 뒤로 가기 버튼
+    - UISearchBar
+    - 홈 버튼
+- 검색어 입력 여부에 따라 다른 view controller 띄우기
+    - Custom container view controller 사용
+    - [참고 영상](https://www.youtube.com/watch?v=tcdEjazeYtY&ab_channel=iOSAcademy)
+    - 최근 검색어, 요즘 많이 찾는 검색어 UI 구현
+
+## 🗓 2022.09.23 진행상황
+
+### 검색 화면
+
+- 인기 카테고리 UI 구현
+    - UICollectionView
+- 카카오 소셜로그인 구현
+    - 서버 로그인 API 호출하는 과정에서 500 Internal Server Error가 발생했다.
+    - → 사용자 이메일을 동의 항목으로 선택하지 않아서 발생하는 문제였다.
+        - [참고했던 링크](https://devtalk.kakao.com/t/api/124184/2)
