@@ -23,6 +23,8 @@
 		89939DBB28DDD29D002004C2 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89939DBA28DDD29D002004C2 /* LoginResponse.swift */; };
 		89939DBD28DE0F68002004C2 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89939DBC28DE0F68002004C2 /* UIViewController.swift */; };
 		89939DC128DE1622002004C2 /* BannerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89939DC028DE1622002004C2 /* BannerCollectionViewCell.swift */; };
+		89939DC428DE1D28002004C2 /* HomeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89939DC328DE1D28002004C2 /* HomeResponse.swift */; };
+		89939DC628DE1E07002004C2 /* HomeDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89939DC528DE1E07002004C2 /* HomeDataManager.swift */; };
 		8994934C28D9911A00333811 /* WriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8994934B28D9911A00333811 /* WriteViewController.swift */; };
 		8994934E28D9918600333811 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8994934D28D9918600333811 /* MainTabBarController.swift */; };
 		8994935028D99C4000333811 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8994934F28D99C4000333811 /* SearchViewController.swift */; };
@@ -57,6 +59,8 @@
 		89939DBA28DDD29D002004C2 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		89939DBC28DE0F68002004C2 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		89939DC028DE1622002004C2 /* BannerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCollectionViewCell.swift; sourceTree = "<group>"; };
+		89939DC328DE1D28002004C2 /* HomeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeResponse.swift; sourceTree = "<group>"; };
+		89939DC528DE1E07002004C2 /* HomeDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDataManager.swift; sourceTree = "<group>"; };
 		8994934B28D9911A00333811 /* WriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteViewController.swift; sourceTree = "<group>"; };
 		8994934D28D9918600333811 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		8994934F28D99C4000333811 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -191,8 +195,10 @@
 		89939DBE28DE160D002004C2 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				89939DC228DE1D22002004C2 /* Entity */,
 				89939DBF28DE1618002004C2 /* View */,
 				89E4797928D7681900C3E1E0 /* HomeViewController.swift */,
+				89939DC528DE1E07002004C2 /* HomeDataManager.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -203,6 +209,14 @@
 				89939DC028DE1622002004C2 /* BannerCollectionViewCell.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		89939DC228DE1D22002004C2 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				89939DC328DE1D28002004C2 /* HomeResponse.swift */,
+			);
+			path = Entity;
 			sourceTree = "<group>";
 		};
 		8994935128D99E5600333811 /* Write */ = {
@@ -361,7 +375,9 @@
 				89939DBD28DE0F68002004C2 /* UIViewController.swift in Sources */,
 				8994934E28D9918600333811 /* MainTabBarController.swift in Sources */,
 				89939DB628DDD07E002004C2 /* Constant.swift in Sources */,
+				89939DC628DE1E07002004C2 /* HomeDataManager.swift in Sources */,
 				8994935928D9B98E00333811 /* WriteUploadCollectionViewCell.swift in Sources */,
+				89939DC428DE1D28002004C2 /* HomeResponse.swift in Sources */,
 				8994935028D99C4000333811 /* SearchViewController.swift in Sources */,
 				89E4797A28D7681900C3E1E0 /* HomeViewController.swift in Sources */,
 				89BE704528DB7CC10093A704 /* TextViewCollectionViewCell.swift in Sources */,
