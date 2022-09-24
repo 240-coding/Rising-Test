@@ -48,6 +48,21 @@ class HomeViewController: UIViewController {
         if !bannerImageData.isEmpty {
             bannerCollectionView.scrollToItem(at: NSIndexPath(item: currentBannerPage, section: 0) as IndexPath, at: .right, animated: true)
         }
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = .clear
+        appearance.shadowColor = .clear
+        appearance.shadowImage = UIImage()
+        
+        if contentScrollView.contentOffset.y <= 0 {
+            navigationController?.navigationBar.tintColor = .white
+            appearance.backgroundColor = .clear
+        } else {
+            navigationController?.navigationBar.tintColor = .black
+            appearance.backgroundColor = .white
+        }
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
     }
     
     // MARK: - Configure UI

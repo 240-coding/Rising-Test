@@ -17,11 +17,37 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        configureNavigationBar()
         configureBottomButtonView()
         configureButtons()
 
-        navigationController?.navigationBar.backgroundColor = .white
         navigationController?.navigationBar.tintColor = .black
+    }
+    
+    func configureNavigationBar() {
+        let backButton = UIBarButtonItem(image: UIImage(systemName: "chevron.left"), style: .plain, target: self, action: #selector(popViewController))
+        let searchBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "magnifyingglass"), style: .plain, target: self, action: #selector(searchBarButtonTapped))
+        let shareBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "square.and.arrow.up"), style: .done, target: self, action: #selector(shareBarButtonTapped))
+        
+        navigationItem.leftBarButtonItem = backButton
+        navigationItem.rightBarButtonItems = [shareBarButtonItem, searchBarButtonItem]
+        
+        navigationController?.navigationBar.tintColor = .white
+    }
+    
+    @objc func popViewController() {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    @objc func searchBarButtonTapped() {
+        let searchViewController = UIStoryboard(name: "MainStoryboard", bundle: nil).instantiateViewController(withIdentifier: "SearchNavigationController")
+//        navigationController?.pushViewController(searchViewController, animated: true)
+        searchViewController.modalPresentationStyle = .fullScreen
+        present(searchViewController, animated: true)
+    }
+    
+    @objc func shareBarButtonTapped() {
+        print("Share Button Tapped")
     }
     
     func configureBottomButtonView() {
