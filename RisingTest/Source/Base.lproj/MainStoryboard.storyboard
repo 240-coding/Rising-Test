@@ -1125,6 +1125,81 @@
             </objects>
             <point key="canvasLocation" x="3013" y="-206"/>
         </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="GaL-jC-NE0">
+            <objects>
+                <viewController storyboardIdentifier="DetailViewController" wantsFullScreenLayout="YES" hidesBottomBarWhenPushed="YES" id="2M1-Jz-tc3" customClass="DetailViewController" customModule="RisingTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="EP4-Iw-fx8">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yCs-b3-uhP">
+                                <rect key="frame" x="0.0" y="776" width="414" height="120"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="my0-G5-itQ">
+                                        <rect key="frame" x="16" y="16" width="382" height="50"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VNm-2P-PKw">
+                                                <rect key="frame" x="0.0" y="0.0" width="48.5" height="50"/>
+                                                <color key="tintColor" name="gray"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal">
+                                                    <imageReference key="image" image="heart" catalog="system" symbolScale="large"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3x3-Te-Qu0">
+                                                <rect key="frame" x="56.5" y="0.0" width="100" height="50"/>
+                                                <color key="backgroundColor" red="0.98039215686274506" green="0.93725490196078431" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="100" id="F0K-Gx-hD3"/>
+                                                    <constraint firstAttribute="height" constant="50" id="jgL-BM-115"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="번개톡">
+                                                    <color key="titleColor" name="red"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a5B-mw-tPP">
+                                                <rect key="frame" x="164.5" y="0.0" width="217.5" height="50"/>
+                                                <color key="backgroundColor" name="red"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="안전하게 결제하기">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="my0-G5-itQ" secondAttribute="trailing" constant="16" id="0VM-Gy-8eD"/>
+                                    <constraint firstItem="my0-G5-itQ" firstAttribute="leading" secondItem="yCs-b3-uhP" secondAttribute="leading" constant="16" id="BH8-bn-xEJ"/>
+                                    <constraint firstItem="my0-G5-itQ" firstAttribute="top" secondItem="yCs-b3-uhP" secondAttribute="top" constant="16" id="Da4-sV-2kx"/>
+                                    <constraint firstAttribute="height" constant="120" id="mPU-YR-0f6"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Kh3-zv-E9k"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="yCs-b3-uhP" firstAttribute="leading" secondItem="Kh3-zv-E9k" secondAttribute="leading" id="Ufn-AV-lmK"/>
+                            <constraint firstAttribute="bottom" secondItem="yCs-b3-uhP" secondAttribute="bottom" id="kes-7h-m7w"/>
+                            <constraint firstItem="Kh3-zv-E9k" firstAttribute="trailing" secondItem="yCs-b3-uhP" secondAttribute="trailing" id="tBv-Ht-WDe"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="bottomButtonView" destination="yCs-b3-uhP" id="pbX-Z5-iEg"/>
+                        <outlet property="buyButton" destination="a5B-mw-tPP" id="NXw-y2-WMF"/>
+                        <outlet property="heartButton" destination="VNm-2P-PKw" id="kwq-yb-oLO"/>
+                        <outlet property="talkButton" destination="3x3-Te-Qu0" id="0xF-Au-iSZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2HE-RK-Jm5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4243" y="249"/>
+        </scene>
     </scenes>
     <resources>
         <image name="bell" catalog="system" width="128" height="124"/>

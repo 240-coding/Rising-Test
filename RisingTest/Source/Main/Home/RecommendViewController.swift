@@ -60,5 +60,13 @@ extension RecommendViewController: UICollectionViewDelegate, UICollectionViewDat
         return CGSize(width: (collectionView.frame.width - 32) / 2, height: 300)
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        NotificationCenter.default.post(name: Notification.Name.recommendCellTapped, object: nil, userInfo: ["goodsId": homeData[indexPath.row].goodsIdx])
+        guard let detailViewController = UIStoryboard(name: "MainStoryboard", bundle: nil).instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController else {
+            return
+        }
+        self.navigationController?.pushViewController(detailViewController, animated: true)
+    }
+    
     
 }

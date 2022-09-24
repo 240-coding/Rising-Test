@@ -25,6 +25,7 @@
 		8991A4E828DF00A200D5AC2B /* BrandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8991A4E728DF00A200D5AC2B /* BrandViewController.swift */; };
 		8991A4EA28DF15F800D5AC2B /* RecommendCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8991A4E928DF15F800D5AC2B /* RecommendCollectionViewCell.swift */; };
 		8991A4EC28DF57B900D5AC2B /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8991A4EB28DF57B900D5AC2B /* String.swift */; };
+		8991A4EF28DF718600D5AC2B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8991A4EE28DF718600D5AC2B /* DetailViewController.swift */; };
 		89939DB628DDD07E002004C2 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89939DB528DDD07E002004C2 /* Constant.swift */; };
 		89939DB828DDD0E3002004C2 /* LoginDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89939DB728DDD0E3002004C2 /* LoginDataManager.swift */; };
 		89939DBB28DDD29D002004C2 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89939DBA28DDD29D002004C2 /* LoginResponse.swift */; };
@@ -69,6 +70,7 @@
 		8991A4E728DF00A200D5AC2B /* BrandViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandViewController.swift; sourceTree = "<group>"; };
 		8991A4E928DF15F800D5AC2B /* RecommendCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendCollectionViewCell.swift; sourceTree = "<group>"; };
 		8991A4EB28DF57B900D5AC2B /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		8991A4EE28DF718600D5AC2B /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		89939DB528DDD07E002004C2 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		89939DB728DDD0E3002004C2 /* LoginDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDataManager.swift; sourceTree = "<group>"; };
 		89939DBA28DDD29D002004C2 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 			children = (
 				89939DBE28DE160D002004C2 /* Home */,
 				8965254B28DCAE77004A7D1F /* Search */,
+				8991A4ED28DF717800D5AC2B /* Detail */,
 				8994935128D99E5600333811 /* Write */,
 			);
 			path = Main;
@@ -203,6 +206,14 @@
 				8965255728DD2637004A7D1F /* SearchCategoryCollectionViewCell.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		8991A4ED28DF717800D5AC2B /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				8991A4EE28DF718600D5AC2B /* DetailViewController.swift */,
+			);
+			path = Detail;
 			sourceTree = "<group>";
 		};
 		89939DB928DDD290002004C2 /* Entity */ = {
@@ -420,6 +431,7 @@
 				8965255428DCCCD4004A7D1F /* SearchRecentCollectionViewCell.swift in Sources */,
 				890F196128D8EBCD00927292 /* UIButton.swift in Sources */,
 				89E6C36128DB071A00A48052 /* UIView.swift in Sources */,
+				8991A4EF28DF718600D5AC2B /* DetailViewController.swift in Sources */,
 				8991A4E828DF00A200D5AC2B /* BrandViewController.swift in Sources */,
 				89E6C35B28DAF5A100A48052 /* WritePhotoCollectionViewCell.swift in Sources */,
 				8991A4DF28DEF68A00D5AC2B /* UINavigationBar.swift in Sources */,

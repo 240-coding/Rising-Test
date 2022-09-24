@@ -16,7 +16,7 @@ extension UINavigationBar {
             self.isTranslucent = newValue
             self.setBackgroundImage(newValue ? UIImage() : nil, for: .default)
             self.shadowImage = newValue ? UIImage() : nil
-            self.backgroundColor = newValue ? .clear : nil
+            self.backgroundColor = newValue ? .clear : .white
         }
     }
 }

@@ -9,6 +9,7 @@ import UIKit
 
 extension Notification.Name {
     static let recommend = Notification.Name("Recommend")
+    static let recommendCellTapped = Notification.Name("RecommendCellTapped")
 //    static let postData = Notification.Name("PostData")
 }
 
@@ -38,6 +39,7 @@ class HomeViewController: UIViewController {
         HomeDataManager().fetchHomeData(delegate: self)
         
         NotificationCenter.default.addObserver(self, selector: #selector(changeContentScrollViewHeight(notification:)), name: Notification.Name.recommend, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(recommendCellTapped(notification:)), name: Notification.Name.recommendCellTapped, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -87,12 +89,6 @@ class HomeViewController: UIViewController {
         bannerPageLabel.layer.cornerRadius = 5
         bannerPageLabel.backgroundColor = UIColor(white: 0, alpha: 0.2)
     }
-    
-    @objc func changeContentScrollViewHeight(notification: Notification) {
-        containerViewHeight.constant = notification.userInfo?["height"] as! CGFloat
-        contentScrollViewHeight.constant = view.frame.height
-        self.viewWillAppear(true)
-    }
 }
 
 // MARK: - Networking
@@ -109,6 +105,21 @@ extension HomeViewController {
     }
 }
 
+// MARK: - Notification
+extension HomeViewController {
+    @objc func changeContentScrollViewHeight(notification: Notification) {
+        containerViewHeight.constant = notification.userInfo?["height"] as! CGFloat
+        contentScrollViewHeight.constant = view.frame.height
+        self.viewWillAppear(true)
+    }
+    
+    @objc func recommendCellTapped(notification: Notification) {
+        guard let detailViewController = UIStoryboard(name: "MainStoryboard", bundle: nil).instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController else {
+            return
+        }
+        self.navigationController?.pushViewController(detailViewController, animated: true)
+    }
+}
 // MARK: - Banner
 extension HomeViewController {
     func setBannerPageLabelText(_ currentPage: Int) {
@@ -142,13 +153,21 @@ extension HomeViewController: UIScrollViewDelegate {
             setBannerPageLabelText(Int(round(value))+1)
             currentBannerPage = Int(round(value))
         } else {
+            let appearance = UINavigationBarAppearance()
+            appearance.configureWithOpaqueBackground()
+            appearance.backgroundColor = .clear
+            appearance.shadowColor = .clear
+            appearance.shadowImage = UIImage()
+            
             if scrollView.contentOffset.y <= 0 {
                 navigationController?.navigationBar.tintColor = .white
-                navigationController?.navigationBar.isTransparent = true
+                appearance.backgroundColor = .clear
             } else {
                 navigationController?.navigationBar.tintColor = .black
-                navigationController?.navigationBar.isTransparent = false
+                appearance.backgroundColor = .white
             }
+            navigationController?.navigationBar.standardAppearance = appearance
+            navigationController?.navigationBar.scrollEdgeAppearance = appearance
         }
     }
 }
