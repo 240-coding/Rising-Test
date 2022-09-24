@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         self.window = UIWindow(windowScene: windowScene)
-        
+
         if UserDefaults.standard.bool(forKey: "isLogin") {
             let storyboard = UIStoryboard(name: "MainStoryboard", bundle: nil)
             guard let rootViewController = storyboard.instantiateViewController(withIdentifier: "MainTabBarController") as? MainTabBarController else {

@@ -13,6 +13,8 @@ class HomeViewController: UIViewController {
     var bannerImageData = [String]()
     let category = ["찜", "갤럭시", "최근본상품", "스타굿즈", "내피드", "카메라/DSLR", "내폰시세", "피규어/인형", "우리동네", "유아동/출산", "친구초대", "여성가방", "전체메뉴", "스니커즈"]
     
+    @IBOutlet weak var contentScrollView: UIScrollView!
+    
     @IBOutlet weak var bannerCollectionView: UICollectionView!
     @IBOutlet weak var bannerPageLabel: UILabel!
     @IBOutlet weak var homeCategoryCollectionView: UICollectionView!
@@ -25,6 +27,7 @@ class HomeViewController: UIViewController {
         
         configureCollectionView()
         configureBannerPageLabel()
+        configureNavigationBar()
         HomeDataManager().fetchHomeData(delegate: self)
     }
     
@@ -34,6 +37,32 @@ class HomeViewController: UIViewController {
         if !bannerImageData.isEmpty {
             bannerCollectionView.scrollToItem(at: NSIndexPath(item: currentBannerPage, section: 0) as IndexPath, at: .right, animated: true)
         }
+    }
+    
+    func configureNavigationBar() {
+        let menuBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "line.3.horizontal"), style: .plain, target: self, action: #selector(menuBarButtonTapped))
+        let searchBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "magnifyingglass"), style: .plain, target: self, action: #selector(searchBarButtonTapped))
+        let notificationBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "bell"), style: .done, target: self, action: #selector(noficiationBarButtonTapped))
+        
+        navigationItem.leftBarButtonItem = menuBarButtonItem
+        navigationItem.rightBarButtonItems = [notificationBarButtonItem, searchBarButtonItem]
+        
+        navigationController?.navigationBar.tintColor = .white
+    }
+    
+    @objc func menuBarButtonTapped() {
+        print("Menu Button Tapped")
+    }
+    
+    @objc func searchBarButtonTapped() {
+        let searchViewController = UIStoryboard(name: "MainStoryboard", bundle: nil).instantiateViewController(withIdentifier: "SearchNavigationController")
+//        navigationController?.pushViewController(searchViewController, animated: true)
+        searchViewController.modalPresentationStyle = .fullScreen
+        present(searchViewController, animated: true)
+    }
+    
+    @objc func noficiationBarButtonTapped() {
+        print("Noti Button Tapped")
     }
     
     func configureCollectionView() {
@@ -93,6 +122,14 @@ extension HomeViewController: UIScrollViewDelegate {
             let value = (scrollView.contentOffset.x / scrollView.frame.width)
             setBannerPageLabelText(Int(round(value))+1)
             currentBannerPage = Int(round(value))
+        } else {
+            if scrollView.contentOffset.y <= 0 {
+                navigationController?.navigationBar.tintColor = .white
+                navigationController?.navigationBar.isTransparent = true
+            } else {
+                navigationController?.navigationBar.tintColor = .black
+                navigationController?.navigationBar.isTransparent = false
+            }
         }
     }
 }
@@ -108,7 +145,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BannerCell", for: indexPath) as? BannerCollectionViewCell else {
                 return UICollectionViewCell()
             }
-            guard let url = URL(string: "https://pbs.twimg.com/media/Errj1nvUYAAJVrl?format=jpg&name=large") else {
+            guard let url = URL(string: bannerImageData[indexPath.row]) else {
                 print("Fail to load banner image")
                 return cell
             }

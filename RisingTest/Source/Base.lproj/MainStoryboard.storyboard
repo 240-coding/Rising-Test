@@ -20,11 +20,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BaU-Kx-n8M">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" contentInsetAdjustmentBehavior="never" translatesAutoresizingMaskIntoConstraints="NO" id="BaU-Kx-n8M">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KGn-VO-ABP" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="-88" width="414" height="861"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="861"/>
                                         <subviews>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="xZv-FH-2uZ">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="350"/>
@@ -145,12 +145,15 @@
                                 <constraints>
                                     <constraint firstItem="KGn-VO-ABP" firstAttribute="trailing" secondItem="J76-cb-9Ff" secondAttribute="trailing" id="KoX-tU-GtT"/>
                                     <constraint firstItem="KGn-VO-ABP" firstAttribute="width" secondItem="r24-uT-JJ4" secondAttribute="width" id="emf-au-ahb"/>
-                                    <constraint firstItem="J76-cb-9Ff" firstAttribute="top" secondItem="KGn-VO-ABP" secondAttribute="top" constant="88" id="mxj-vm-4pC"/>
+                                    <constraint firstItem="J76-cb-9Ff" firstAttribute="top" secondItem="KGn-VO-ABP" secondAttribute="top" id="mxj-vm-4pC"/>
                                     <constraint firstItem="KGn-VO-ABP" firstAttribute="bottom" secondItem="J76-cb-9Ff" secondAttribute="bottom" id="pcc-qW-d3Z"/>
                                     <constraint firstItem="KGn-VO-ABP" firstAttribute="leading" secondItem="J76-cb-9Ff" secondAttribute="leading" id="zml-5N-yYd"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="J76-cb-9Ff"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="r24-uT-JJ4"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="lS4-Pg-fVc"/>
+                                </connections>
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -166,6 +169,7 @@
                     <connections>
                         <outlet property="bannerCollectionView" destination="xZv-FH-2uZ" id="Jvr-FZ-vZg"/>
                         <outlet property="bannerPageLabel" destination="B96-V7-S7p" id="LIk-W7-eNG"/>
+                        <outlet property="contentScrollView" destination="BaU-Kx-n8M" id="U0U-Fo-IXA"/>
                         <outlet property="homeCategoryCollectionView" destination="gKk-72-dbD" id="pQH-CB-Dva"/>
                     </connections>
                 </viewController>
@@ -176,7 +180,7 @@
         <!--홈-->
         <scene sceneID="Tqq-d0-LQj">
             <objects>
-                <navigationController storyboardIdentifier="HomeNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="ywf-C7-XJl" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="HomeNavigationController" automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="ywf-C7-XJl" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="홈" image="house" catalog="system" id="n3V-66-rba"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="els-hX-3bf">
@@ -916,7 +920,7 @@
         <!--Navigation Controller-->
         <scene sceneID="7qJ-jd-dSc">
             <objects>
-                <navigationController storyboardIdentifier="SearchNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="fpe-ZS-IU6" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="SearchNavigationController" automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="fpe-ZS-IU6" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="IKv-DY-uAl">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
