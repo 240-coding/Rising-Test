@@ -12,6 +12,8 @@ class RecommendViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet var collectionViewHeight: NSLayoutConstraint!
     
+    var homeData = [HomeData]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -19,14 +21,21 @@ class RecommendViewController: UIViewController {
         collectionView.dataSource = self
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        collectionView.reloadData()
+        self.viewDidLayoutSubviews()
+    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         collectionViewHeight.constant = collectionView.contentSize.height + 100
+        print(collectionViewHeight.constant)
+        NotificationCenter.default.post(name: Notification.Name.recommend, object: nil, userInfo: ["height": collectionViewHeight.constant])
     }
 }
 extension RecommendViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return homeData.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -34,11 +43,15 @@ extension RecommendViewController: UICollectionViewDelegate, UICollectionViewDat
             return UICollectionViewCell()
         }
         
-        cell.imageView.image = UIImage(named: "category1")
-        cell.priceLabel.text = "10000원"
-        cell.titleLabel.text = "냠"
-        cell.locationLabel.text = "ㅇㅇ시"
-        cell.timeLabel.text = "1분 전"
+        let data = homeData[indexPath.row]
+        if let url = URL(string: data.gimgs[0].goodsImgUrl) {
+            cell.imageView.load(url: url)
+        }
+        cell.priceLabel.text = String(data.goodsPrice).insertComma + "원"
+        cell.titleLabel.text = data.goodsName
+        cell.locationLabel.text = data.address.substring(from: 0, to: 10)
+        cell.timeLabel.text = data.goodsUpdatedAtTime
+        cell.payImageView.isHidden = data.isSecurePayment == "Y" ? false : true
         
         return cell
     }

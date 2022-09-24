@@ -7,6 +7,11 @@
 
 import UIKit
 
+extension Notification.Name {
+    static let recommend = Notification.Name("Recommend")
+//    static let postData = Notification.Name("PostData")
+}
+
 class HomeViewController: UIViewController {
     
     var currentBannerPage = 0
@@ -31,6 +36,8 @@ class HomeViewController: UIViewController {
         configureBannerPageLabel()
         configureNavigationBar()
         HomeDataManager().fetchHomeData(delegate: self)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(changeContentScrollViewHeight(notification:)), name: Notification.Name.recommend, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -41,17 +48,7 @@ class HomeViewController: UIViewController {
         }
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-//        changeContentScrollViewHeight()
-    }
-    
     // MARK: - Configure UI
-    func changeContentScrollViewHeight(_ containerContentSize: CGFloat) {
-        containerViewHeight.constant = containerContentSize
-        contentScrollViewHeight.constant = view.frame.height
-    }
-    
     func configureNavigationBar() {
         let menuBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "line.3.horizontal"), style: .plain, target: self, action: #selector(menuBarButtonTapped))
         let searchBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "magnifyingglass"), style: .plain, target: self, action: #selector(searchBarButtonTapped))
@@ -91,6 +88,11 @@ class HomeViewController: UIViewController {
         bannerPageLabel.backgroundColor = UIColor(white: 0, alpha: 0.2)
     }
     
+    @objc func changeContentScrollViewHeight(notification: Notification) {
+        containerViewHeight.constant = notification.userInfo?["height"] as! CGFloat
+        contentScrollViewHeight.constant = view.frame.height
+        self.viewWillAppear(true)
+    }
 }
 
 // MARK: - Networking
@@ -100,8 +102,10 @@ extension HomeViewController {
         setBannerPageLabelText(1)
         bannerCollectionView.reloadData()
 //        bannerTimer()
-//        homeData = result.getHomeDataRes
-        
+        if let childViewController = children.last as? TabManViewController {
+            childViewController.homeData = result.getHomeDataRes
+            childViewController.viewWillAppear(true)
+        }
     }
 }
 

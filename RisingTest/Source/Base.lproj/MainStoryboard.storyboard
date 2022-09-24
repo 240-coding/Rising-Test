@@ -15,7 +15,7 @@
         <!--Home View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="RisingTest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" id="BYZ-38-t0r" customClass="HomeViewController" customModule="RisingTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -128,7 +128,7 @@
                                                 </cells>
                                             </collectionView>
                                             <containerView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="393.5" translatesAutoresizingMaskIntoConstraints="NO" id="cfS-su-kfC">
-                                                <rect key="frame" x="0.0" y="590" width="414" height="500"/>
+                                                <rect key="frame" x="0.0" y="590.5" width="414" height="500"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="500" id="Kl2-Ut-zoG"/>
                                                 </constraints>
@@ -993,17 +993,17 @@
                                     <size key="itemSize" width="209" height="350"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="8" minY="0.0" maxX="8" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="8" minY="8" maxX="8" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="RecommendCell" id="Geo-LU-eeO" customClass="RecommendCollectionViewCell" customModule="RisingTest" customModuleProvider="target">
-                                        <rect key="frame" x="102.5" y="0.0" width="209" height="350"/>
+                                        <rect key="frame" x="102.5" y="8" width="209" height="350"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="xL0-iB-Jfp">
                                             <rect key="frame" x="0.0" y="0.0" width="209" height="350"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qhS-AB-FnO">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qhS-AB-FnO">
                                                     <rect key="frame" x="0.0" y="0.0" width="209" height="270"/>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OxW-sC-xil">
@@ -1019,7 +1019,7 @@
                                                     </state>
                                                 </button>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pay" translatesAutoresizingMaskIntoConstraints="NO" id="8Hp-Nv-gom">
-                                                    <rect key="frame" x="8" y="232" width="40" height="30"/>
+                                                    <rect key="frame" x="8" y="236" width="40" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="BXv-P1-YuW"/>
                                                         <constraint firstAttribute="width" constant="40" id="VrN-3U-WSj"/>
@@ -1037,8 +1037,8 @@
                                                     <color key="textColor" name="darkgray"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="9pD-Ox-urf">
-                                                    <rect key="frame" x="8" y="327.5" width="86.5" height="14.5"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9pD-Ox-urf">
+                                                    <rect key="frame" x="8" y="327.5" width="78.5" height="14.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DH2-a8-zLx">
                                                             <rect key="frame" x="0.0" y="0.0" width="33" height="14.5"/>
@@ -1047,13 +1047,13 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="﹒" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oc6-rl-YLg">
-                                                            <rect key="frame" x="37" y="0.0" width="12.5" height="14.5"/>
+                                                            <rect key="frame" x="33" y="0.0" width="12.5" height="14.5"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                                             <color key="textColor" name="gray"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qqf-3a-L9r">
-                                                            <rect key="frame" x="53.5" y="0.0" width="33" height="14.5"/>
+                                                            <rect key="frame" x="45.5" y="0.0" width="33" height="14.5"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                                             <color key="textColor" name="gray"/>
                                                             <nil key="highlightedColor"/>
@@ -1067,7 +1067,7 @@
                                                 <constraint firstItem="6Jd-fk-Rvj" firstAttribute="leading" secondItem="xL0-iB-Jfp" secondAttribute="leading" constant="8" id="Ova-bI-hhy"/>
                                                 <constraint firstItem="6Jd-fk-Rvj" firstAttribute="top" secondItem="qhS-AB-FnO" secondAttribute="bottom" constant="8" id="PcB-zJ-3Si"/>
                                                 <constraint firstItem="qhS-AB-FnO" firstAttribute="leading" secondItem="xL0-iB-Jfp" secondAttribute="leading" id="VQQ-T3-vn0"/>
-                                                <constraint firstItem="qhS-AB-FnO" firstAttribute="bottom" secondItem="8Hp-Nv-gom" secondAttribute="bottom" constant="8" id="XxY-rp-KS0"/>
+                                                <constraint firstItem="qhS-AB-FnO" firstAttribute="bottom" secondItem="8Hp-Nv-gom" secondAttribute="bottom" constant="4" id="XxY-rp-KS0"/>
                                                 <constraint firstAttribute="bottom" secondItem="qhS-AB-FnO" secondAttribute="bottom" constant="80" id="cn0-3Y-6Cz"/>
                                                 <constraint firstItem="9pD-Ox-urf" firstAttribute="leading" secondItem="xL0-iB-Jfp" secondAttribute="leading" constant="8" id="ejB-GG-d7A"/>
                                                 <constraint firstItem="8Hp-Nv-gom" firstAttribute="leading" secondItem="xL0-iB-Jfp" secondAttribute="leading" constant="8" id="gZf-rY-xKo"/>

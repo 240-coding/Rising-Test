@@ -51,10 +51,20 @@ class TabManViewController: TabmanViewController {
         view.translatesAutoresizingMaskIntoConstraints = false
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if !viewControllers.isEmpty {
+            guard let recommendViewController = viewControllers[0] as? RecommendViewController else {
+                return
+            }
+            recommendViewController.homeData = self.homeData
+            recommendViewController.viewWillAppear(true)
+        }
+    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         preferredContentSize = view.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
-        setContainerViewSize()
     }
     
     func setViewControllers() {
@@ -64,16 +74,6 @@ class TabManViewController: TabmanViewController {
         }
         viewControllers = [recommendViewController, brandViewController]
     }
-    
-    func setContainerViewSize() {
-        guard let vc = viewControllers[0] as? RecommendViewController else {
-            return
-        }
-        print("\(vc.collectionViewHeight.constant)입니당")
-        let parentViewController = parent as! HomeViewController
-        parentViewController.changeContentScrollViewHeight(vc.collectionViewHeight.constant)
-    }
-
 }
 
 extension TabManViewController: TMBarDataSource, PageboyViewControllerDataSource {
