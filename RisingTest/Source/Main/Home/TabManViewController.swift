@@ -12,6 +12,7 @@ import Pageboy
 class TabManViewController: TabmanViewController {
     
     var viewControllers = [UIViewController]()
+    var homeData = [HomeData]()
     
 
     override func viewDidLoad() {
@@ -41,7 +42,19 @@ class TabManViewController: TabmanViewController {
         bar.indicator.overscrollBehavior = .bounce
         bar.indicator.tintColor = .black
 
-        addBar(bar, dataSource: self, at:.top)
+        addBar(bar, dataSource: self, at: .top)
+        
+    }
+    
+    override func loadView() {
+        super.loadView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        preferredContentSize = view.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
+        setContainerViewSize()
     }
     
     func setViewControllers() {
@@ -50,6 +63,15 @@ class TabManViewController: TabmanViewController {
             return
         }
         viewControllers = [recommendViewController, brandViewController]
+    }
+    
+    func setContainerViewSize() {
+        guard let vc = viewControllers[0] as? RecommendViewController else {
+            return
+        }
+        print("\(vc.collectionViewHeight.constant)입니당")
+        let parentViewController = parent as! HomeViewController
+        parentViewController.changeContentScrollViewHeight(vc.collectionViewHeight.constant)
     }
 
 }

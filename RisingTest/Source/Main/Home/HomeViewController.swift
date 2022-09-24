@@ -14,6 +14,8 @@ class HomeViewController: UIViewController {
     let category = ["찜", "갤럭시", "최근본상품", "스타굿즈", "내피드", "카메라/DSLR", "내폰시세", "피규어/인형", "우리동네", "유아동/출산", "친구초대", "여성가방", "전체메뉴", "스니커즈"]
     
     @IBOutlet weak var contentScrollView: UIScrollView!
+    @IBOutlet var contentScrollViewHeight: NSLayoutConstraint!
+    @IBOutlet var containerViewHeight: NSLayoutConstraint!
     
     @IBOutlet weak var bannerCollectionView: UICollectionView!
     @IBOutlet weak var bannerPageLabel: UILabel!
@@ -37,6 +39,17 @@ class HomeViewController: UIViewController {
         if !bannerImageData.isEmpty {
             bannerCollectionView.scrollToItem(at: NSIndexPath(item: currentBannerPage, section: 0) as IndexPath, at: .right, animated: true)
         }
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+//        changeContentScrollViewHeight()
+    }
+    
+    // MARK: - Configure UI
+    func changeContentScrollViewHeight(_ containerContentSize: CGFloat) {
+        containerViewHeight.constant = containerContentSize
+        contentScrollViewHeight.constant = view.frame.height
     }
     
     func configureNavigationBar() {
@@ -87,6 +100,8 @@ extension HomeViewController {
         setBannerPageLabelText(1)
         bannerCollectionView.reloadData()
 //        bannerTimer()
+//        homeData = result.getHomeDataRes
+        
     }
 }
 
