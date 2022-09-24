@@ -19,6 +19,10 @@
 		8965255D28DD2B3A004A7D1F /* KakaoSDKCommon in Frameworks */ = {isa = PBXBuildFile; productRef = 8965255C28DD2B3A004A7D1F /* KakaoSDKCommon */; };
 		8965255F28DD2B3A004A7D1F /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = 8965255E28DD2B3A004A7D1F /* KakaoSDKUser */; };
 		8991A4DF28DEF68A00D5AC2B /* UINavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8991A4DE28DEF68A00D5AC2B /* UINavigationBar.swift */; };
+		8991A4E228DEFACF00D5AC2B /* Tabman in Frameworks */ = {isa = PBXBuildFile; productRef = 8991A4E128DEFACF00D5AC2B /* Tabman */; };
+		8991A4E428DEFEDB00D5AC2B /* TabManViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8991A4E328DEFEDB00D5AC2B /* TabManViewController.swift */; };
+		8991A4E628DF009800D5AC2B /* RecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8991A4E528DF009800D5AC2B /* RecommendViewController.swift */; };
+		8991A4E828DF00A200D5AC2B /* BrandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8991A4E728DF00A200D5AC2B /* BrandViewController.swift */; };
 		89939DB628DDD07E002004C2 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89939DB528DDD07E002004C2 /* Constant.swift */; };
 		89939DB828DDD0E3002004C2 /* LoginDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89939DB728DDD0E3002004C2 /* LoginDataManager.swift */; };
 		89939DBB28DDD29D002004C2 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89939DBA28DDD29D002004C2 /* LoginResponse.swift */; };
@@ -58,6 +62,9 @@
 		8965255528DD1EB5004A7D1F /* SearchPopularCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPopularCollectionViewCell.swift; sourceTree = "<group>"; };
 		8965255728DD2637004A7D1F /* SearchCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		8991A4DE28DEF68A00D5AC2B /* UINavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationBar.swift; sourceTree = "<group>"; };
+		8991A4E328DEFEDB00D5AC2B /* TabManViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabManViewController.swift; sourceTree = "<group>"; };
+		8991A4E528DF009800D5AC2B /* RecommendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendViewController.swift; sourceTree = "<group>"; };
+		8991A4E728DF00A200D5AC2B /* BrandViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandViewController.swift; sourceTree = "<group>"; };
 		89939DB528DDD07E002004C2 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		89939DB728DDD0E3002004C2 /* LoginDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDataManager.swift; sourceTree = "<group>"; };
 		89939DBA28DDD29D002004C2 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
@@ -95,6 +102,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8965255D28DD2B3A004A7D1F /* KakaoSDKCommon in Frameworks */,
+				8991A4E228DEFACF00D5AC2B /* Tabman in Frameworks */,
 				8965255B28DD2B3A004A7D1F /* KakaoSDKAuth in Frameworks */,
 				8965255F28DD2B3A004A7D1F /* KakaoSDKUser in Frameworks */,
 			);
@@ -207,6 +215,9 @@
 				89939DBF28DE1618002004C2 /* View */,
 				89E4797928D7681900C3E1E0 /* HomeViewController.swift */,
 				89939DC528DE1E07002004C2 /* HomeDataManager.swift */,
+				8991A4E328DEFEDB00D5AC2B /* TabManViewController.swift */,
+				8991A4E528DF009800D5AC2B /* RecommendViewController.swift */,
+				8991A4E728DF00A200D5AC2B /* BrandViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -311,6 +322,7 @@
 				8965255A28DD2B3A004A7D1F /* KakaoSDKAuth */,
 				8965255C28DD2B3A004A7D1F /* KakaoSDKCommon */,
 				8965255E28DD2B3A004A7D1F /* KakaoSDKUser */,
+				8991A4E128DEFACF00D5AC2B /* Tabman */,
 			);
 			productName = RisingTest;
 			productReference = 89E4797228D7681900C3E1E0 /* RisingTest.app */;
@@ -342,6 +354,7 @@
 			mainGroup = 89E4796928D7681900C3E1E0;
 			packageReferences = (
 				8965255928DD2B3A004A7D1F /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
+				8991A4E028DEFACF00D5AC2B /* XCRemoteSwiftPackageReference "Tabman" */,
 			);
 			productRefGroup = 89E4797328D7681900C3E1E0 /* Products */;
 			projectDirPath = "";
@@ -387,8 +400,10 @@
 				8994934E28D9918600333811 /* MainTabBarController.swift in Sources */,
 				89939DB628DDD07E002004C2 /* Constant.swift in Sources */,
 				89939DC628DE1E07002004C2 /* HomeDataManager.swift in Sources */,
+				8991A4E428DEFEDB00D5AC2B /* TabManViewController.swift in Sources */,
 				8994935928D9B98E00333811 /* WriteUploadCollectionViewCell.swift in Sources */,
 				89939DC428DE1D28002004C2 /* HomeResponse.swift in Sources */,
+				8991A4E628DF009800D5AC2B /* RecommendViewController.swift in Sources */,
 				8994935028D99C4000333811 /* SearchViewController.swift in Sources */,
 				89E4797A28D7681900C3E1E0 /* HomeViewController.swift in Sources */,
 				89BE704528DB7CC10093A704 /* TextViewCollectionViewCell.swift in Sources */,
@@ -398,6 +413,7 @@
 				8965255428DCCCD4004A7D1F /* SearchRecentCollectionViewCell.swift in Sources */,
 				890F196128D8EBCD00927292 /* UIButton.swift in Sources */,
 				89E6C36128DB071A00A48052 /* UIView.swift in Sources */,
+				8991A4E828DF00A200D5AC2B /* BrandViewController.swift in Sources */,
 				89E6C35B28DAF5A100A48052 /* WritePhotoCollectionViewCell.swift in Sources */,
 				8991A4DF28DEF68A00D5AC2B /* UINavigationBar.swift in Sources */,
 				8994934C28D9911A00333811 /* WriteViewController.swift in Sources */,
@@ -636,6 +652,14 @@
 				kind = branch;
 			};
 		};
+		8991A4E028DEFACF00D5AC2B /* XCRemoteSwiftPackageReference "Tabman" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/uias/Tabman";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -653,6 +677,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 8965255928DD2B3A004A7D1F /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
 			productName = KakaoSDKUser;
+		};
+		8991A4E128DEFACF00D5AC2B /* Tabman */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8991A4E028DEFACF00D5AC2B /* XCRemoteSwiftPackageReference "Tabman" */;
+			productName = Tabman;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
