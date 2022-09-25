@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UserGoodsCollectionReusableView" customModule="RisingTest" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="UserGoodsHeader" id="U6b-Vx-4bR" customClass="UserGoodsCollectionReusableView" customModule="RisingTest" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uv3-aU-fiX">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이 상점의 상품" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TrP-Dv-jqr">
+                            <rect key="frame" x="16" y="12" width="119" height="26"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="TrP-Dv-jqr" firstAttribute="centerY" secondItem="uv3-aU-fiX" secondAttribute="centerY" id="amB-LK-zpV"/>
+                        <constraint firstItem="TrP-Dv-jqr" firstAttribute="leading" secondItem="uv3-aU-fiX" secondAttribute="leading" constant="16" id="yuT-sO-f0G"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="uv3-aU-fiX" secondAttribute="bottom" id="4ZY-Wo-tKV"/>
+                <constraint firstItem="uv3-aU-fiX" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" id="RSR-em-bvK"/>
+                <constraint firstAttribute="trailing" secondItem="uv3-aU-fiX" secondAttribute="trailing" id="kIc-V1-7uv"/>
+                <constraint firstItem="uv3-aU-fiX" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" id="wfT-7m-P4V"/>
+            </constraints>
+            <connections>
+                <outlet property="goodsLabel" destination="TrP-Dv-jqr" id="Ar5-zQ-sZI"/>
+            </connections>
+            <point key="canvasLocation" x="139" y="69"/>
+        </collectionReusableView>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

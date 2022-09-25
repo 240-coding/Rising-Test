@@ -11,6 +11,8 @@ class DetailViewController: UIViewController {
     
     var goodsIndex: Int?
     var goodsImages = [String]()
+    var userGoods = [GetStoreGoodsRe]()
+    var userReviews = [GetStoreReviewRe]()
     
     @IBOutlet weak var bottomButtonView: UIView!
     @IBOutlet weak var heartButton: UIButton!
@@ -18,6 +20,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var buyButton: UIButton!
     
     @IBOutlet var scrollView: UIScrollView!
+    @IBOutlet var scrollViewHeight: NSLayoutConstraint!
     @IBOutlet weak var imageCollectionView: UICollectionView!
     @IBOutlet weak var pageLabel: UILabel!
     
@@ -43,6 +46,13 @@ class DetailViewController: UIViewController {
     @IBOutlet var userRateLabel: UILabel!
     @IBOutlet var userFollowerLabel: UILabel!
     @IBOutlet var userFollowButton: UIButton!
+
+    @IBOutlet weak var userGoodsCollectionView: UICollectionView!
+    @IBOutlet var userGoodsCollectionViewHeight: NSLayoutConstraint!
+    
+    // 상점 거래후기
+    @IBOutlet weak var reviewCollectionView: UICollectionView!
+    @IBOutlet var reviewCollectionViewHeight: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,7 +66,12 @@ class DetailViewController: UIViewController {
         
         imageCollectionView.delegate = self
         imageCollectionView.dataSource = self
+        userGoodsCollectionView.delegate = self
+        userGoodsCollectionView.dataSource = self
+        reviewCollectionView.delegate = self
+        reviewCollectionView.dataSource = self
         
+        userGoodsCollectionView.register(UINib(nibName: "UserGoodsCollectionReusableView", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "UserGoodsHeader")
         if let goodsIndex = goodsIndex {
             GoodsDataManager().fetchGoodsData(goodsIndex: String(goodsIndex), delegate: self)
         }
@@ -64,7 +79,14 @@ class DetailViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        scrollView.contentSize.height = (scrollView.subviews.sorted(by: { $0.frame.maxY < $1.frame.maxY }).last?.frame.maxY ?? scrollView.contentSize.height) + 50
+        userGoodsCollectionViewHeight.constant = userGoodsCollectionView.contentSize.height
+        reviewCollectionViewHeight.constant = reviewCollectionView.contentSize.height
+        
+        scrollView.contentSize.height = (scrollView.subviews.sorted(by: { $0.frame.maxY < $1.frame.maxY }).last?.frame.maxY ?? scrollView.contentSize.height) * 1.4
+        
+        print("======")
+
+        
         view.layoutIfNeeded()
     }
     
@@ -104,6 +126,8 @@ class DetailViewController: UIViewController {
         talkButton.layer.cornerRadius = 5
         buyButton.layer.cornerRadius = 5
         
+        reportButton.layer.borderWidth = 1
+        reportButton.layer.borderColor = UIColor(named: "lightgray")?.cgColor
         reportButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: view.frame.width - 100, bottom: 0, right: 0)
         userFollowButton.layer.cornerRadius = 5
         
@@ -152,11 +176,29 @@ extension DetailViewController {
                 profileImageView.load(url: url)
             }
         } else {
-            profileImageView.image = UIImage(named: "defaultprofile") ?? UIImage()g
+            profileImageView.image = UIImage(named: "defaultprofile") ?? UIImage()
         }
         
         userNameLabel.text = userData.userNickName
         userRateLabel.text = String(userData.score)
+        
+        // 상점 상품
+        userGoods = result.getStoreGoodsRes
+        if userGoods.isEmpty {
+            userGoodsCollectionView.isHidden = true
+        } else {
+            userGoodsCollectionView.reloadData()
+        }
+        
+        // 상점 거래후기
+        userReviews = result.getStoreReviewRes
+        if userReviews.isEmpty {
+            reviewCollectionView.isHidden = true
+        } else {
+            reviewCollectionView.reloadData()
+        }
+        
+        self.viewDidLayoutSubviews()
     }
 }
 
@@ -172,22 +214,131 @@ extension DetailViewController: UIScrollViewDelegate {
 // MARK: - UICollectionView
 extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return goodsImages.count
+        if collectionView == imageCollectionView {
+            return goodsImages.count
+        } else if collectionView == userGoodsCollectionView {
+            return userGoods.count
+        } else {
+            return userReviews.count > 3 ? 2 : userReviews.count
+        }
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GoodsImageCell", for: indexPath) as? ImageCollectionViewCell else {
-            return UICollectionViewCell()
+        if collectionView == imageCollectionView {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GoodsImageCell", for: indexPath) as? ImageCollectionViewCell else {
+                return UICollectionViewCell()
+            }
+            
+            if let url = URL(string: goodsImages[indexPath.row]) {
+                cell.imageView.load(url: url)
+            }
+            
+            return cell
+        } else if collectionView == userGoodsCollectionView {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "UserGoodsCell", for: indexPath) as? UserGoodsCollectionViewCell else {
+                return UICollectionViewCell()
+            }
+            
+            let data = userGoods[indexPath.row]
+            
+            if let url = URL(string: data.getGoodsImgRes[0].goodsImgUrl) {
+                cell.imageView.load(url: url)
+            }
+//            cell.payImageView.isHidden = data
+            cell.priceLabel.text = String(data.goodsPrice).insertComma + "원"
+            cell.titleLabel.text = data.goodsName
+            
+            return cell
+        } else {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ReviewCell", for: indexPath) as? ReviewCollectionViewCell else {
+                return UICollectionViewCell()
+            }
+            
+            let data = userReviews[indexPath.row]
+            cell.ratingLabel.text = String(data.score)
+            cell.contentLabel.text = data.reviewContent
+            cell.usernameLabel.text = String(data.reviewIdx)
+            cell.timeLabel.text = data.reviewUpdatedAtTime
+            
+            return cell
         }
         
-        if let url = URL(string: goodsImages[indexPath.row]) {
-            cell.imageView.load(url: url)
-        }
-        
-        return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width, height: 400)
+        let width = view.frame.width
+        if collectionView == imageCollectionView {
+            return CGSize(width: width, height: 400.0)
+        } else if collectionView == userGoodsCollectionView {
+            return CGSize(width: (width - 56) / 3, height: 225)
+        } else {
+            let label: UILabel = {
+                let label = UILabel()
+                label.text = userReviews[indexPath.row].reviewContent
+                label.font = .systemFont(ofSize: 14)
+                label.sizeToFit()
+                
+                return label
+            }()
+            return CGSize(width: width, height: label.frame.height + 70)
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        if collectionView == userGoodsCollectionView {
+            switch kind {
+            case UICollectionView.elementKindSectionHeader:
+                guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "UserGoodsHeader", for: indexPath) as? UserGoodsCollectionReusableView else {
+                    return UICollectionReusableView()
+                }
+                header.goodsLabel.text = "이 상점의 상품 \(userGoods.count)"
+                
+                return header
+            case UICollectionView.elementKindSectionFooter:
+                guard let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "UserGoodsFooter", for: indexPath) as? UserGoodsFooterCollectionReusableView else {
+                    return UICollectionReusableView()
+                }
+                return footer
+            default:
+                assert(false)
+            }
+        } else if collectionView == userGoodsCollectionView {
+            return UICollectionReusableView()
+        } else {
+            switch kind {
+            case UICollectionView.elementKindSectionHeader:
+                guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "ReviewHeader", for: indexPath) as? ReviewHeaderCollectionReusableView else {
+                    return UICollectionReusableView()
+                }
+                header.titleLabel.text = "이 상점의 거래후기 \(userReviews.count)"
+                
+                return header
+            case UICollectionView.elementKindSectionFooter:
+                guard let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "ReviewFooter", for: indexPath) as? ReviewFooterCollectionReusableView else {
+                    return UICollectionReusableView()
+                }
+                
+                return footer
+            default:
+                assert(false)
+            }
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        if collectionView == imageCollectionView {
+            return CGSize()
+        } else {
+            return CGSize(width: collectionView.frame.width, height: 50)
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+        if collectionView == imageCollectionView {
+            return CGSize()
+        } else {
+            return CGSize(width: collectionView.frame.width, height: 60)
+        }
     }
 }
