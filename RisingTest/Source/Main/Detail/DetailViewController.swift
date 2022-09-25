@@ -11,6 +11,7 @@ class DetailViewController: UIViewController {
     
     var goodsIndex: Int?
     var goodsImages = [String]()
+    var goodsData: GetGoodsDataRes?
     var userGoods = [GetStoreGoodsRe]()
     var userReviews = [GetStoreReviewRe]()
     
@@ -94,10 +95,6 @@ class DetailViewController: UIViewController {
         }
         
         scrollView.contentSize.height = height * 1.4
-        print("======")
-        print(scrollView.contentSize.height)
-
-        
         view.layoutIfNeeded()
     }
     
@@ -153,14 +150,28 @@ class DetailViewController: UIViewController {
     func setImagePageLabelText(_ currentPage: Int) {
         pageLabel.text = "\(currentPage) / \(goodsImages.count)"
     }
-
+    
+    // MARK: - Action
+    @IBAction func orderButtonTapped(_ sender: Any) {
+        guard let orderViewController = UIStoryboard(name: "MainStoryboard", bundle: nil).instantiateViewController(withIdentifier: "OrderViewController") as? OrderViewController else {
+            return
+        }
+        orderViewController.modalPresentationStyle = .fullScreen
+        orderViewController.goodsIndex = goodsData?.goodsIdx
+        orderViewController.goodsName = goodsData?.goodsName
+        orderViewController.goodsImage = goodsData?.imgs.first?.goodsImgUrl
+        orderViewController.goodsPrice = goodsData?.goodsPrice
+        
+        present(orderViewController, animated: true, completion: nil)
+    }
 }
 
 // MARK: - Networking
 extension DetailViewController {
     func didFetchGoodsData(result: GoodsResult) {
         // 상품 정보
-        let goodsData = result.getGoodsDataRes
+        goodsData = result.getGoodsDataRes
+        guard let goodsData = goodsData else { return }
         priceLabel.text = String(goodsData.goodsPrice).insertComma + "원"
         titleLabel.text = goodsData.goodsName
         locationLabel.text = goodsData.goodsAddress ?? "지역 정보 없음"
@@ -277,6 +288,15 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
         
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let detailViewController = UIStoryboard(name: "MainStoryboard", bundle: nil).instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController else {
+            return
+        }
+        detailViewController.goodsIndex = userGoods[indexPath.row].goodsIdx
+        navigationController?.pushViewController(detailViewController, animated: true)
+    }
+    
+    // Cell Size
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = view.frame.width
         if collectionView == imageCollectionView {
@@ -296,6 +316,7 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
         }
     }
     
+    // Reusable View
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         if collectionView == userGoodsCollectionView {
             switch kind {
