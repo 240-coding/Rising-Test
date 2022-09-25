@@ -23,6 +23,7 @@ class DetailViewController: UIViewController {
     
     @IBOutlet var labelHeight: NSLayoutConstraint!
     
+    // 상품 정보
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet var payImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -34,7 +35,15 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var deliveryFeeLabel: UILabel!
     @IBOutlet weak var exchangeLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
-
+    @IBOutlet var reportButton: UIButton!
+    
+    // 상점 정보
+    @IBOutlet var profileImageView: UIImageView!
+    @IBOutlet var userNameLabel: UILabel!
+    @IBOutlet var userRateLabel: UILabel!
+    @IBOutlet var userFollowerLabel: UILabel!
+    @IBOutlet var userFollowButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -50,7 +59,7 @@ class DetailViewController: UIViewController {
         
         if let goodsIndex = goodsIndex {
             GoodsDataManager().fetchGoodsData(goodsIndex: String(goodsIndex), delegate: self)
-        }        
+        }
     }
     
     override func viewDidLayoutSubviews() {
@@ -94,6 +103,11 @@ class DetailViewController: UIViewController {
     func configureButtons() {
         talkButton.layer.cornerRadius = 5
         buyButton.layer.cornerRadius = 5
+        
+        reportButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: view.frame.width - 100, bottom: 0, right: 0)
+        userFollowButton.layer.cornerRadius = 5
+        
+        profileImageView.layer.cornerRadius = profileImageView.frame.height / 2
     }
     
     func configurePageLabel() {
@@ -110,6 +124,7 @@ class DetailViewController: UIViewController {
 // MARK: - Networking
 extension DetailViewController {
     func didFetchGoodsData(result: GoodsResult) {
+        // 상품 정보
         let goodsData = result.getGoodsDataRes
         priceLabel.text = String(goodsData.goodsPrice).insertComma + "원"
         titleLabel.text = goodsData.goodsName
@@ -130,6 +145,18 @@ extension DetailViewController {
         setImagePageLabelText(1)
         imageCollectionView.reloadData()
         
+        // 상점 정보
+        let userData = result.getStoreDataRes
+        if let urlString = userData.userImgUrl {
+            if let url = URL(string: urlString) {
+                profileImageView.load(url: url)
+            }
+        } else {
+            profileImageView.image = UIImage(named: "defaultprofile") ?? UIImage()g
+        }
+        
+        userNameLabel.text = userData.userNickName
+        userRateLabel.text = String(userData.score)
     }
 }
 

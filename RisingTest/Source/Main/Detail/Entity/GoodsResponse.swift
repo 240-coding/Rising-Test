@@ -20,6 +20,7 @@ struct GoodsResult: Codable {
     let getGoodsDataRes: GetGoodsDataRes
     let getStoreGoodsRes: [GetStoreGoodsRe]
     let getStoreReviewRes: [GetStoreReviewRe]
+    let getStoreDataRes: GetStoreDataRes
 }
 
 // MARK: - GetGoodsDataRes
@@ -61,4 +62,10 @@ struct GetStoreReviewRe: Codable {
     let reviewContent: String
     let score: Double
     let reviewCreatedAt, reviewUpdatedAtTime: String
+}
+
+struct GetStoreDataRes: Codable {
+    let score: Double
+    let userImgUrl: String?
+    let userNickName: String
 }

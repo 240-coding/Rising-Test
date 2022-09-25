@@ -49,7 +49,7 @@ extension RecommendViewController: UICollectionViewDelegate, UICollectionViewDat
         }
         cell.priceLabel.text = String(data.goodsPrice).insertComma + "원"
         cell.titleLabel.text = data.goodsName
-        cell.locationLabel.text = data.address.substring(from: 0, to: 10)
+        cell.locationLabel.text = data.address?.substring(from: 0, to: 10) ?? "지역 정보 없음"
         cell.timeLabel.text = data.goodsUpdatedAtTime
         cell.payImageView.isHidden = data.isSecurePayment == "Y" ? false : true
         
