@@ -54,6 +54,7 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var reviewCollectionView: UICollectionView!
     @IBOutlet var reviewCollectionViewHeight: NSLayoutConstraint!
     
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -82,9 +83,19 @@ class DetailViewController: UIViewController {
         userGoodsCollectionViewHeight.constant = userGoodsCollectionView.contentSize.height
         reviewCollectionViewHeight.constant = reviewCollectionView.contentSize.height
         
-        scrollView.contentSize.height = (scrollView.subviews.sorted(by: { $0.frame.maxY < $1.frame.maxY }).last?.frame.maxY ?? scrollView.contentSize.height) * 1.4
         
+        var height = scrollView.subviews.sorted(by: { $0.frame.maxY < $1.frame.maxY }).last?.frame.maxY ?? scrollView.contentSize.height
+        
+        if userGoodsCollectionView.isHidden {
+            height -= userGoodsCollectionViewHeight.constant + 250
+        }
+        if reviewCollectionView.isHidden {
+            height -= reviewCollectionViewHeight.constant + 250
+        }
+        
+        scrollView.contentSize.height = height * 1.4
         print("======")
+        print(scrollView.contentSize.height)
 
         
         view.layoutIfNeeded()

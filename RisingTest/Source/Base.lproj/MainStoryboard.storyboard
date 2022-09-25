@@ -128,7 +128,7 @@
                                                 </cells>
                                             </collectionView>
                                             <containerView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="393.5" translatesAutoresizingMaskIntoConstraints="NO" id="cfS-su-kfC">
-                                                <rect key="frame" x="0.0" y="590" width="414" height="500"/>
+                                                <rect key="frame" x="0.0" y="590.5" width="414" height="500"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="500" id="Kl2-Ut-zoG"/>
                                                 </constraints>
@@ -964,6 +964,7 @@
                     <view key="view" contentMode="scaleToFill" id="dtx-N0-ldb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="500"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="4lg-wH-9yj"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                 </viewController>
