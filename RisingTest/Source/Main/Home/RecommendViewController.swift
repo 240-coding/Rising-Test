@@ -65,6 +65,7 @@ extension RecommendViewController: UICollectionViewDelegate, UICollectionViewDat
         guard let detailViewController = UIStoryboard(name: "MainStoryboard", bundle: nil).instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController else {
             return
         }
+        detailViewController.goodsIndex = homeData[indexPath.row].goodsIdx
         self.navigationController?.pushViewController(detailViewController, animated: true)
     }
     
