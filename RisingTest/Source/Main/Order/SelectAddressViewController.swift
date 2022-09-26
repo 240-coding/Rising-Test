@@ -28,12 +28,22 @@ class SelectAddressViewController: UIViewController {
         navigationController?.navigationBar.tintColor = .black
         navigationItem.title = "주소 선택"
         
-        let editBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "pencil"), style: .plain, target: self, action: nil)
+        let editBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "pencil"), style: .plain, target: self, action: #selector(editBarButtonTapped))
         let closeBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "xmark"), style: .plain, target: self, action: #selector(dismissViewController))
         navigationItem.rightBarButtonItems = [closeBarButtonItem, editBarButtonItem]
     }
     
     // MARK: - Actions
+    @objc func editBarButtonTapped() {
+        guard let addressManagementViewController = UIStoryboard(name: "MainStoryboard", bundle: nil).instantiateViewController(withIdentifier: "AddressManagementViewController") as? AddressManagementViewController else {
+            return
+        }
+        addressManagementViewController.modalPresentationStyle = .overFullScreen
+        addressManagementViewController.addresses = self.addresses
+        
+        present(addressManagementViewController, animated: false, completion: nil)
+    }
+    
     @objc func dismissViewController() {
         self.dismiss(animated: true, completion: nil)
     }

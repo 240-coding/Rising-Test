@@ -74,6 +74,8 @@
 		89E6C36128DB071A00A48052 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E6C36028DB071A00A48052 /* UIView.swift */; };
 		89E89A5C28E1B5FF0029D0BA /* AddressManagementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E89A5B28E1B5FF0029D0BA /* AddressManagementTableViewCell.swift */; };
 		89E89A5E28E1C3C20029D0BA /* SelectReceiptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E89A5D28E1C3C20029D0BA /* SelectReceiptViewController.swift */; };
+		89E89A6028E1F0BD0029D0BA /* AddressManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E89A5F28E1F0BD0029D0BA /* AddressManagementViewController.swift */; };
+		89E89A6228E1F9E50029D0BA /* AddressManagementHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E89A6128E1F9E50029D0BA /* AddressManagementHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -142,6 +144,8 @@
 		89E6C36028DB071A00A48052 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		89E89A5B28E1B5FF0029D0BA /* AddressManagementTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressManagementTableViewCell.swift; sourceTree = "<group>"; };
 		89E89A5D28E1C3C20029D0BA /* SelectReceiptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectReceiptViewController.swift; sourceTree = "<group>"; };
+		89E89A5F28E1F0BD0029D0BA /* AddressManagementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressManagementViewController.swift; sourceTree = "<group>"; };
+		89E89A6128E1F9E50029D0BA /* AddressManagementHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressManagementHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -260,6 +264,7 @@
 				8987BA9428E0E3CA00A9C871 /* OrderViewController.swift */,
 				89C0EB5B28E177C900243D00 /* SelectAddressViewController.swift */,
 				89E89A5D28E1C3C20029D0BA /* SelectReceiptViewController.swift */,
+				89E89A5F28E1F0BD0029D0BA /* AddressManagementViewController.swift */,
 				89C0EB5928E1740300243D00 /* AddressesDataManager.swift */,
 			);
 			path = Order;
@@ -273,6 +278,7 @@
 				8987BA9628E0E47800A9C871 /* OrderTitleCollectionViewCell.swift */,
 				89C0EB5D28E1799100243D00 /* AddressSelectTableViewCell.swift */,
 				89E89A5B28E1B5FF0029D0BA /* AddressManagementTableViewCell.swift */,
+				89E89A6128E1F9E50029D0BA /* AddressManagementHeaderView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -512,6 +518,7 @@
 				8965255828DD2637004A7D1F /* SearchCategoryCollectionViewCell.swift in Sources */,
 				8991A4FF28E0CA9300D5AC2B /* UserGoodsCollectionViewCell.swift in Sources */,
 				89939DC828DE25D9002004C2 /* UIImageView.swift in Sources */,
+				89E89A6028E1F0BD0029D0BA /* AddressManagementViewController.swift in Sources */,
 				89152A9E28D840670071225D /* LoginViewController.swift in Sources */,
 				890F195E28D8DA9C00927292 /* LoginCollectionViewCell.swift in Sources */,
 				8991A4F428E06F6100D5AC2B /* PaddingLabel.swift in Sources */,
@@ -549,6 +556,7 @@
 				89E4797828D7681900C3E1E0 /* SceneDelegate.swift in Sources */,
 				8965255428DCCCD4004A7D1F /* SearchRecentCollectionViewCell.swift in Sources */,
 				890F196128D8EBCD00927292 /* UIButton.swift in Sources */,
+				89E89A6228E1F9E50029D0BA /* AddressManagementHeaderView.swift in Sources */,
 				89E6C36128DB071A00A48052 /* UIView.swift in Sources */,
 				8991A4EF28DF718600D5AC2B /* DetailViewController.swift in Sources */,
 				8991A4E828DF00A200D5AC2B /* BrandViewController.swift in Sources */,
