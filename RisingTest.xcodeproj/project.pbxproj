@@ -73,6 +73,7 @@
 		89E6C35F28DAFA5900A48052 /* WriteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E6C35E28DAFA5900A48052 /* WriteCollectionViewCell.swift */; };
 		89E6C36128DB071A00A48052 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E6C36028DB071A00A48052 /* UIView.swift */; };
 		89E89A5C28E1B5FF0029D0BA /* AddressManagementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E89A5B28E1B5FF0029D0BA /* AddressManagementTableViewCell.swift */; };
+		89E89A5E28E1C3C20029D0BA /* SelectReceiptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E89A5D28E1C3C20029D0BA /* SelectReceiptViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -140,6 +141,7 @@
 		89E6C35E28DAFA5900A48052 /* WriteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteCollectionViewCell.swift; sourceTree = "<group>"; };
 		89E6C36028DB071A00A48052 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		89E89A5B28E1B5FF0029D0BA /* AddressManagementTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressManagementTableViewCell.swift; sourceTree = "<group>"; };
+		89E89A5D28E1C3C20029D0BA /* SelectReceiptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectReceiptViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -257,6 +259,7 @@
 				8987BA8F28E0DF9B00A9C871 /* View */,
 				8987BA9428E0E3CA00A9C871 /* OrderViewController.swift */,
 				89C0EB5B28E177C900243D00 /* SelectAddressViewController.swift */,
+				89E89A5D28E1C3C20029D0BA /* SelectReceiptViewController.swift */,
 				89C0EB5928E1740300243D00 /* AddressesDataManager.swift */,
 			);
 			path = Order;
@@ -551,6 +554,7 @@
 				8991A4E828DF00A200D5AC2B /* BrandViewController.swift in Sources */,
 				8991A50528E0D11000D5AC2B /* ReviewHeaderCollectionReusableView.swift in Sources */,
 				89E6C35B28DAF5A100A48052 /* WritePhotoCollectionViewCell.swift in Sources */,
+				89E89A5E28E1C3C20029D0BA /* SelectReceiptViewController.swift in Sources */,
 				8991A4DF28DEF68A00D5AC2B /* UINavigationBar.swift in Sources */,
 				8987BA9728E0E47800A9C871 /* OrderTitleCollectionViewCell.swift in Sources */,
 				89C0EB5C28E177C900243D00 /* SelectAddressViewController.swift in Sources */,

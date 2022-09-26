@@ -2101,6 +2101,74 @@
             </objects>
             <point key="canvasLocation" x="5960.8695652173919" y="247.76785714285714"/>
         </scene>
+        <!--Select Receipt View Controller-->
+        <scene sceneID="ZGz-EC-f67">
+            <objects>
+                <viewController storyboardIdentifier="SelectReceiptViewController" id="wdy-0a-bnK" customClass="SelectReceiptViewController" customModule="RisingTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wze-1S-s8f">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="9bH-yb-kg2">
+                                <rect key="frame" x="103" y="313.5" width="208" height="269"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gH4-3C-gtB">
+                                        <rect key="frame" x="0.0" y="0.0" width="208" height="41"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                        <color key="tintColor" name="red"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="문앞"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fGE-rX-ADx">
+                                        <rect key="frame" x="0.0" y="57" width="208" height="41"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                        <color key="tintColor" name="gray"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="직접 받고 부재 시 문앞"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hqg-VJ-nPO">
+                                        <rect key="frame" x="0.0" y="114" width="208" height="41"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                        <color key="tintColor" name="gray"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="경비실"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iSr-Mv-Bby">
+                                        <rect key="frame" x="0.0" y="171" width="208" height="41"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                        <color key="tintColor" name="gray"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="우편함"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8fP-m8-JDM">
+                                        <rect key="frame" x="0.0" y="228" width="208" height="41"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                        <color key="tintColor" name="gray"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="직접입력"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="0NJ-Qn-bgx"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="9bH-yb-kg2" firstAttribute="centerX" secondItem="wze-1S-s8f" secondAttribute="centerX" id="58E-QQ-0Z2"/>
+                            <constraint firstItem="9bH-yb-kg2" firstAttribute="centerY" secondItem="wze-1S-s8f" secondAttribute="centerY" id="ZNC-99-ZhJ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outletCollection property="receiptButtons" destination="gH4-3C-gtB" collectionClass="NSMutableArray" id="vqE-aw-TAR"/>
+                        <outletCollection property="receiptButtons" destination="fGE-rX-ADx" collectionClass="NSMutableArray" id="H4M-fQ-FZD"/>
+                        <outletCollection property="receiptButtons" destination="Hqg-VJ-nPO" collectionClass="NSMutableArray" id="vGL-Gj-aQl"/>
+                        <outletCollection property="receiptButtons" destination="iSr-Mv-Bby" collectionClass="NSMutableArray" id="Gk5-y9-VLk"/>
+                        <outletCollection property="receiptButtons" destination="8fP-m8-JDM" collectionClass="NSMutableArray" id="t2j-hu-yYQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GDu-LE-w55" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6786" y="248"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="FhT-2c-p6V">
             <objects>
@@ -2222,7 +2290,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S19-18-XH4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6794" y="248"/>
+            <point key="canvasLocation" x="7568" y="248"/>
         </scene>
     </scenes>
     <designables>

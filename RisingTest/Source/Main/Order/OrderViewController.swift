@@ -11,6 +11,10 @@ protocol SelectAddressDelegate {
     func setSelectedAddress(index: Int)
 }
 
+protocol SelectReceiptDelegate {
+    func setSelectedReceipt(index: Int)
+}
+
 class OrderViewController: UIViewController {
     
     var goodsIndex: Int?
@@ -20,6 +24,9 @@ class OrderViewController: UIViewController {
     
     var addresses = [AddressesResult]()
     var selectedAddress: AddressesResult?
+    var selectedReceiptIndex = 0
+    
+    let receiptOptions = ["문앞", "직접 받고 부재 시 문앞", "경비실", "우편함", "직접입력"]
     
     @IBOutlet var navigationBar: UINavigationBar!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -78,11 +85,32 @@ class OrderViewController: UIViewController {
         }
         self.present(nav, animated: true, completion: nil)
     }
+    
+    @objc func selectReceiptButtonTapped() {
+        guard let selectReceiptViewController = UIStoryboard(name: "MainStoryboard", bundle: nil).instantiateViewController(withIdentifier: "SelectReceiptViewController") as? SelectReceiptViewController else {
+            return
+        }
+        selectReceiptViewController.delegate = self
+        selectReceiptViewController.selectedReceiptIndex = self.selectedReceiptIndex
+        selectReceiptViewController.modalPresentationStyle = .pageSheet
+        if #available(iOS 15.0, *) {
+            if let sheet = selectReceiptViewController.sheetPresentationController {
+                sheet.detents = [.medium()]
+                sheet.preferredCornerRadius = 15
+            }
+        }
+        self.present(selectReceiptViewController, animated: true, completion: nil)
+    }
 }
 
-extension OrderViewController: SelectAddressDelegate {
+extension OrderViewController: SelectAddressDelegate, SelectReceiptDelegate {
     func setSelectedAddress(index: Int) {
         selectedAddress = addresses[index]
+        collectionView.reloadData()
+    }
+    
+    func setSelectedReceipt(index: Int) {
+        selectedReceiptIndex = index
         collectionView.reloadData()
     }
 }
@@ -118,7 +146,7 @@ extension OrderViewController: UICollectionViewDelegate, UICollectionViewDataSou
             cell.nameLabel.text = goodsName ?? ""
             
             return cell
-        case 1:
+        case 1: // 배송지
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AddressCell", for: indexPath) as? AddressCollectionViewCell else {
                 return UICollectionViewCell()
             }
@@ -126,7 +154,13 @@ extension OrderViewController: UICollectionViewDelegate, UICollectionViewDataSou
                 cell.nameLabel.text = selectedAddress.userName
                 cell.addressLabel.text = "\(selectedAddress.address)  \(selectedAddress.addressDetail)\n\(selectedAddress.userPhoneNum)"
             }
+            
+            cell.receiptLabel.text = receiptOptions[selectedReceiptIndex]
+            
+            
             cell.editAddressButton.addTarget(self, action: #selector(editAddressButtonTapped), for: .touchUpInside)
+            let receiptGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(selectReceiptButtonTapped))
+            cell.receiptView.addGestureRecognizer(receiptGestureRecognizer)
             
             return cell
         default:

@@ -112,7 +112,7 @@ extension HomeViewController {
         bannerImageData = result.getMainPageImgRes.map{ $0.mainPageImgUrl }
         setBannerPageLabelText(1)
         bannerCollectionView.reloadData()
-//        bannerTimer()
+        bannerTimer()
         if let childViewController = children.last as? TabManViewController {
             childViewController.homeData = result.getHomeDataRes
             childViewController.viewWillAppear(true)
