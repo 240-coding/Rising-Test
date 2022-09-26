@@ -12,6 +12,9 @@ class AddressManagementTableViewCell: UITableViewCell {
     @IBOutlet weak var baseAddressLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
+    
+    @IBOutlet weak var editButton: UIButton!
+    @IBOutlet weak var removeButton: UIButton!
 
     override func awakeFromNib() {
         super.awakeFromNib()
