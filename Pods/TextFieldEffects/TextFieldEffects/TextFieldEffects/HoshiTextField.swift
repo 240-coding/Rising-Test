@@ -108,8 +108,7 @@ import UIKit
 		UIView.animate(withDuration: 0.4, animations: {
 			self.placeholderLabel.alpha = 1.0
 		})
-
-        activeBorderLayer.frame = rectForBorder(borderThickness.active, isFilled: true)
+        activeBorderLayer.frame = rectForBorder(borderThickness.active, isFilled: isFirstResponder)
     }
     
     override open func animateViewsForTextDisplay() {
@@ -120,9 +119,8 @@ import UIKit
             }), completion: { _ in
                 self.animationCompletionHandler?(.textDisplay)
             })
-            
-            activeBorderLayer.frame = self.rectForBorder(self.borderThickness.active, isFilled: false)
         }
+        activeBorderLayer.frame = self.rectForBorder(self.borderThickness.active, isFilled: false)
     }
     
     // MARK: - Private

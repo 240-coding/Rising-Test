@@ -11,9 +11,10 @@ import TextFieldEffects
 class AddressEditViewController: UIViewController {
     
     var isBaseAddress = false
+    var address: AddressesResult?
     
     @IBOutlet weak var navigationBar: UINavigationBar!
-    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var nameTextField: HoshiTextField!
     @IBOutlet weak var phoneTextField: UITextField!
     @IBOutlet weak var addressTextField: UITextField!
     @IBOutlet weak var detailAddressTextField: UITextField!
@@ -29,6 +30,7 @@ class AddressEditViewController: UIViewController {
         super.viewDidLoad()
         
         configureNavigationBar()
+        configureTextFields()
         configureBaseAddressComponents()
         configureBaseAddressView()
         configureDoneButton()
@@ -59,8 +61,22 @@ class AddressEditViewController: UIViewController {
         }
     }
     
+    func configureTextFields() {
+        guard let address = address else {
+            return
+        }
+        
+        
+        nameTextField.text = address.userName
+        phoneTextField.text = address.userPhoneNum
+        addressTextField.text = address.address
+        detailAddressTextField.text = address.addressDetail
+    }
+    
     func configureBaseAddressComponents() {
-        if isBaseAddress {
+        guard let isBaseAddress = address?.isBaseAddress else { return }
+        
+        if isBaseAddress == "Y" {
             checkImageView.tintColor = UIColor(named: "red")
             baseAddressLabel.textColor = .black
         } else {

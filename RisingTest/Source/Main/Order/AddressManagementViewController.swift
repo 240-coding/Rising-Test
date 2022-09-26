@@ -55,11 +55,14 @@ class AddressManagementViewController: UIViewController {
         self.dismiss(animated: false, completion: nil)
     }
     
-    @objc func editButtonTapped() {
+    @objc func editButtonTapped(_ sender: UIButton) {
         guard let addressEditViewController = UIStoryboard(name: "MainStoryboard", bundle: nil).instantiateViewController(withIdentifier: "AddressEditViewController") as? AddressEditViewController else {
             return
         }
+        
+        addressEditViewController.address = addresses[sender.tag]
         addressEditViewController.modalPresentationStyle = .overFullScreen
+        
         present(addressEditViewController, animated: false, completion: nil)
     }
 }
@@ -85,6 +88,7 @@ extension AddressManagementViewController: UITableViewDelegate, UITableViewDataS
         cell.nameLabel.text = address.userName
         cell.addressLabel.text = "\(address.address) \(address.addressDetail)\n\(address.userPhoneNum)"
         
+        cell.editButton.tag = indexPath.row
         cell.editButton.addTarget(self, action: #selector(editButtonTapped), for: .touchUpInside)
         
         return cell

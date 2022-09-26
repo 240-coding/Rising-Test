@@ -2570,6 +2570,9 @@
         <designable name="bJY-QR-w6c">
             <size key="intrinsicContentSize" width="75" height="24.5"/>
         </designable>
+        <designable name="cre-W7-Pxs">
+            <size key="intrinsicContentSize" width="29.5" height="22"/>
+        </designable>
         <designable name="hZI-th-UQu">
             <size key="intrinsicContentSize" width="62" height="24.5"/>
         </designable>
