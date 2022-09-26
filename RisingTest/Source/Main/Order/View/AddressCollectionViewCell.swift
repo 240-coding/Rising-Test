@@ -16,6 +16,7 @@ class AddressCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet var receiptView: UIView!
     @IBOutlet var receiptLabel: UILabel!
+    @IBOutlet var editAddressButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -27,10 +28,6 @@ class AddressCollectionViewCell: UICollectionViewCell {
         receiptView.layer.cornerRadius = 5
         receiptView.layer.borderWidth = 1
         receiptView.layer.borderColor = UIColor(named: "lightgray")?.cgColor
-    }
-    
-    @IBAction func changeAddressButtonTap(_ sender: Any) {
-        print("주소 변경")
     }
     
 

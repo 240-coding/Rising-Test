@@ -58,9 +58,6 @@
                                         <state key="normal" title="변경">
                                             <color key="titleColor" red="0.0039215686274509803" green="0.58039215686274503" blue="0.44705882352941173" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
-                                        <connections>
-                                            <action selector="changeAddressButtonTap:" destination="gTV-IL-0wX" eventType="touchUpInside" id="NIr-Hz-1pv"/>
-                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hgx-Oj-Bi6">
                                         <rect key="frame" x="16" y="28" width="45" height="21"/>
@@ -142,6 +139,7 @@
                 <outlet property="addressLabel" destination="NTy-4y-yZv" id="dKw-rf-73N"/>
                 <outlet property="addressView" destination="z8I-Yp-sRg" id="HlM-u9-MhX"/>
                 <outlet property="baseAddressLabel" destination="Fsy-bh-Ics" id="89y-23-d8F"/>
+                <outlet property="editAddressButton" destination="wx4-7a-pjd" id="egs-Wx-UD4"/>
                 <outlet property="nameLabel" destination="Hgx-Oj-Bi6" id="gDf-ph-Euv"/>
                 <outlet property="receiptLabel" destination="lHU-RI-jqP" id="4Ld-NY-bc7"/>
                 <outlet property="receiptView" destination="eg8-rf-v8n" id="gsh-33-DhM"/>

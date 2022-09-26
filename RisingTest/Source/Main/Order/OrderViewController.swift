@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol SelectAddressDelegate {
+    func setSelectedAddress(index: Int)
+}
+
 class OrderViewController: UIViewController {
     
     var goodsIndex: Int?
@@ -15,6 +19,7 @@ class OrderViewController: UIViewController {
     var goodsPrice: Int?
     
     var addresses = [AddressesResult]()
+    var selectedAddress: AddressesResult?
     
     @IBOutlet var navigationBar: UINavigationBar!
     @IBOutlet weak var collectionView: UICollectionView!
@@ -50,14 +55,44 @@ class OrderViewController: UIViewController {
         navigationBar.items = [item]
     }
     
+    // MARK: - Action
     @objc func closeViewController() {
         dismiss(animated: true)
+    }
+    
+    @objc func editAddressButtonTapped() {
+        guard let selectAddressViewController = UIStoryboard(name: "MainStoryboard", bundle: nil).instantiateViewController(withIdentifier: "SelectAddressViewController") as? SelectAddressViewController else {
+            print("엉?")
+            return
+        }
+        selectAddressViewController.addresses = self.addresses
+        selectAddressViewController.delegate = self
+        
+        let nav = UINavigationController(rootViewController: selectAddressViewController)
+        nav.modalPresentationStyle = .pageSheet
+        if #available(iOS 15.0, *) {
+            if let sheet = nav.sheetPresentationController {
+                sheet.detents = [.medium(), .large()]
+                sheet.preferredCornerRadius = 15
+            }
+        }
+        self.present(nav, animated: true, completion: nil)
+    }
+}
+
+extension OrderViewController: SelectAddressDelegate {
+    func setSelectedAddress(index: Int) {
+        selectedAddress = addresses[index]
+        collectionView.reloadData()
     }
 }
 // MARK: - Networking
 extension OrderViewController {
     func didFetchAddressesData(result: [AddressesResult]) {
         addresses = result
+        if let baseAddress = addresses.filter({ $0.isBaseAddress == "Y" }).first {
+            selectedAddress = baseAddress
+        }
         collectionView.reloadData()
     }
 }
@@ -87,10 +122,12 @@ extension OrderViewController: UICollectionViewDelegate, UICollectionViewDataSou
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AddressCell", for: indexPath) as? AddressCollectionViewCell else {
                 return UICollectionViewCell()
             }
-            if let baseAddress = addresses.filter({ $0.isBaseAddress == "Y" }).first {
-                cell.nameLabel.text = baseAddress.userName
-                cell.addressLabel.text = "\(baseAddress.address + baseAddress.addressDetail)\n\(baseAddress.userPhoneNum)"
+            if let selectedAddress = self.selectedAddress {
+                cell.nameLabel.text = selectedAddress.userName
+                cell.addressLabel.text = "\(selectedAddress.address)  \(selectedAddress.addressDetail)\n\(selectedAddress.userPhoneNum)"
             }
+            cell.editAddressButton.addTarget(self, action: #selector(editAddressButtonTapped), for: .touchUpInside)
+            
             return cell
         default:
             return UICollectionViewCell()
