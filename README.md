@@ -122,3 +122,41 @@
             - 처음에는 delegate 패턴을 사용해서 새로 바뀐 높이 값을 홈에 전달하려고 했지만 두 view controller가 바로 연결된 게 아니라서 사용하기가 어려웠다. 그래서 NotificationCenter를 사용해서 RecommendViewController의 `viewDidLayoutSubviews` 메소드가 호출될 때 HomeViewController에 Notification을 보내고, container view의 높이를 설정하는 메소드가 호출되도록 했다.
         
         홈 화면 구현을 내가 늦게 한 편이라 서버쪽에서 구현한 방식을 그대로 따랐는데, 다음부터는 서버측의 작업 속도와 맞추면서 효율적인 데이터 전달 형식을 서버 개발자분들과 함께 생각해봐야 할 것 같다고 느꼈다. 
+## 🗓 2022.09.25 진행상황
+
+### 홈 화면 내비게이션 바 UI 구현 방법 변경
+
+- 홈 화면에서 템플릿에 있는 `isTransparent` 를 적용하면 내비게이션 바의 backgroundImage와 shadowImage가 없는 것처럼 적용된다. 그래서 홈 화면에서 상품 상세페이지 화면으로 들어가면 내비게이션 바 위에 status bar 부분이 검은 색으로 보여지는 문제가 있었다.
+- 이를 해결하기 위해 `UINavigationBarAppearance()` 를 사용해서 배경색을 투명 또는 흰색으로 설정하는 방식으로 구현 방법을 변경하였다.
+
+### 상품 상세페이지
+
+- 내비게이션 바
+- UIScrollView 사용
+    - 상품 설명 내용에 따라 ScrollView의 높이가 동적으로 조절되어야 한다.
+    - [구글링](https://stackoverflow.com/questions/44839101/how-to-dynamically-increase-the-height-of-scroll-view/44839329#44839329)을 해서 스크롤뷰의 높이를 조절하는 코드는 찾았지만 스크롤뷰의 끝부분까지 스크롤이 되지 않는다.
+        - ⚠️ 스크롤뷰 높이에 임시 방편으로 상수값을 더하거나 곱해서 아래부분까지 다 보여지도록 했지만.. 더 알맞은 방법을 찾아봐야 할 것 같다.
+- 서버에서 상품 데이터 받아오기
+    - 어떤 상품 상세페이지에서는 `The data couldn’t be read because it is missing.` 라는 에러 메시지가 발생했다.
+        - 특정 상품의 `goodsAddress` 값이 서버에 `null` 로 저장되어 있는데 이 변수를 옵셔널로 설정하지 않아서 발생한 에러였다.
+- 상점 상품/거래후기
+    - 각각을 collection view로 구현했다.
+    - 판매 상품/거래후기 존재 여부에 따라 각각의 collection view를 숨기거나 보이도록 했다.
+    - 거래후기는 최대 2개까지만 보여지도록 했다.
+
+## 🗓 2022.09.26 진행상황
+
+### 상품 결제 화면
+
+- UICollectionView를 사용해서 각 부분(타이틀/배송지/번개포인트…)을 UICollectionViewCell로 구현했다.
+- 배송지
+    - 주소 변경
+        - 배송지 변경 버튼을 누르면 `sheetPresentationController` 를 사용해서 bottom sheet 형태로 주소 선택 화면이 뜨도록 했다.
+        - 처음에는 기본배송지로 설정된 주소 정보가 뜨고, 주소 변경 화면에서 다른 주소를 누르면 배송지가 그 주소로 바뀐다.
+    - 수령 방법
+        - 버튼들을 배열에 저장한 후 인덱스 값을 사용해서 수령 방법을 구분한다.
+        - 주소 변경 화면과 마찬가지로 delegate 패턴을 사용한다.
+    - 주소 수정
+        - TextFieldEffects 라이브러리 사용
+            - 기존에는 텍스트필드에 내용이 있으면 하단 선 색상이 Border Active Color로 쭉 설정되었다.
+            - 텍스트필드에서 입력 중일 때만 하단 선이 검정색이 되도록 코드를 수정했다.
