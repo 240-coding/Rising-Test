@@ -14,6 +14,8 @@ class OrderViewController: UIViewController {
     var goodsImage: String?
     var goodsPrice: Int?
     
+    var addresses = [AddressesResult]()
+    
     @IBOutlet var navigationBar: UINavigationBar!
     @IBOutlet weak var collectionView: UICollectionView!
 
@@ -26,6 +28,8 @@ class OrderViewController: UIViewController {
         collectionView.dataSource = self
         
         collectionView.register(UINib(nibName: "AddressCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "AddressCell")
+        
+        AddressesDataManager().fetchAddressesData(delegate: self)
         
     }
     
@@ -50,7 +54,15 @@ class OrderViewController: UIViewController {
         dismiss(animated: true)
     }
 }
+// MARK: - Networking
+extension OrderViewController {
+    func didFetchAddressesData(result: [AddressesResult]) {
+        addresses = result
+        collectionView.reloadData()
+    }
+}
 
+// MARK: - UICollectionView
 extension OrderViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 2
@@ -74,6 +86,10 @@ extension OrderViewController: UICollectionViewDelegate, UICollectionViewDataSou
         case 1:
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AddressCell", for: indexPath) as? AddressCollectionViewCell else {
                 return UICollectionViewCell()
+            }
+            if let baseAddress = addresses.filter({ $0.isBaseAddress == "Y" }).first {
+                cell.nameLabel.text = baseAddress.userName
+                cell.addressLabel.text = "\(baseAddress.address + baseAddress.addressDetail)\n\(baseAddress.userPhoneNum)"
             }
             return cell
         default:

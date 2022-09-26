@@ -31,7 +31,7 @@
                                 <rect key="frame" x="16" y="77" width="329" height="150"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="기본배송지" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fsy-bh-Ics" customClass="PaddingLabel" customModule="RisingTest" customModuleProvider="target">
-                                        <rect key="frame" x="16" y="16" width="52" height="14.5"/>
+                                        <rect key="frame" x="69" y="26.5" width="72" height="24.5"/>
                                         <color key="backgroundColor" name="lightred"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                         <color key="textColor" name="red"/>
@@ -52,7 +52,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wx4-7a-pjd">
-                                        <rect key="frame" x="283" y="16" width="30" height="29"/>
+                                        <rect key="frame" x="283" y="24" width="30" height="29"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="변경">
@@ -63,13 +63,13 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hgx-Oj-Bi6">
-                                        <rect key="frame" x="16" y="52" width="45" height="21"/>
+                                        <rect key="frame" x="16" y="28" width="45" height="21"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NTy-4y-yZv">
-                                        <rect key="frame" x="16" y="89" width="297" height="17"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NTy-4y-yZv">
+                                        <rect key="frame" x="16" y="65" width="297" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" name="darkgray"/>
                                         <nil key="highlightedColor"/>
@@ -77,23 +77,23 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstItem="Fsy-bh-Ics" firstAttribute="top" secondItem="z8I-Yp-sRg" secondAttribute="top" constant="16" id="1a4-2D-8lo"/>
-                                    <constraint firstItem="wx4-7a-pjd" firstAttribute="top" secondItem="z8I-Yp-sRg" secondAttribute="top" constant="16" id="O8g-2i-A8o"/>
+                                    <constraint firstItem="wx4-7a-pjd" firstAttribute="top" secondItem="z8I-Yp-sRg" secondAttribute="top" constant="24" id="O8g-2i-A8o"/>
                                     <constraint firstItem="NTy-4y-yZv" firstAttribute="leading" secondItem="z8I-Yp-sRg" secondAttribute="leading" constant="16" id="PCg-Jv-msg"/>
                                     <constraint firstAttribute="height" constant="150" id="RYd-h2-yfE"/>
                                     <constraint firstAttribute="trailing" secondItem="wx4-7a-pjd" secondAttribute="trailing" constant="16" id="Wq6-kP-Grh"/>
-                                    <constraint firstItem="Hgx-Oj-Bi6" firstAttribute="top" secondItem="z8I-Yp-sRg" secondAttribute="top" constant="52" id="ad6-bK-wwC"/>
+                                    <constraint firstItem="Hgx-Oj-Bi6" firstAttribute="centerY" secondItem="wx4-7a-pjd" secondAttribute="centerY" id="aY6-8Q-DhQ"/>
                                     <constraint firstItem="Hgx-Oj-Bi6" firstAttribute="leading" secondItem="z8I-Yp-sRg" secondAttribute="leading" constant="16" id="fn3-m9-dvX"/>
                                     <constraint firstAttribute="trailing" secondItem="NTy-4y-yZv" secondAttribute="trailing" constant="16" id="k6O-R9-UjV"/>
-                                    <constraint firstItem="Fsy-bh-Ics" firstAttribute="leading" secondItem="z8I-Yp-sRg" secondAttribute="leading" constant="16" id="oDv-fG-iav"/>
+                                    <constraint firstItem="Fsy-bh-Ics" firstAttribute="centerY" secondItem="Hgx-Oj-Bi6" secondAttribute="centerY" id="qRp-Hv-wNt"/>
                                     <constraint firstItem="NTy-4y-yZv" firstAttribute="top" secondItem="Hgx-Oj-Bi6" secondAttribute="bottom" constant="16" id="yaV-JL-PrN"/>
+                                    <constraint firstItem="Fsy-bh-Ics" firstAttribute="leading" secondItem="Hgx-Oj-Bi6" secondAttribute="trailing" constant="8" id="yaf-79-Uve"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eg8-rf-v8n">
                                 <rect key="frame" x="16" y="235" width="329" height="50"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lHU-RI-jqP">
-                                        <rect key="frame" x="16" y="14.5" width="42" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="문앞" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lHU-RI-jqP">
+                                        <rect key="frame" x="16" y="14.5" width="29.5" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -151,7 +151,7 @@
     </objects>
     <designables>
         <designable name="Fsy-bh-Ics">
-            <size key="intrinsicContentSize" width="52" height="14.5"/>
+            <size key="intrinsicContentSize" width="72" height="24.5"/>
         </designable>
     </designables>
     <resources>

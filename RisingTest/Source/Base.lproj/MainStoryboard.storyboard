@@ -1334,10 +1334,10 @@
                                                         </constraints>
                                                     </view>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="u2z-2o-bGb">
-                                                        <rect key="frame" x="16" y="126" width="114" height="14.5"/>
+                                                        <rect key="frame" x="16" y="126" width="194" height="24.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kMz-hQ-D5c" customClass="PaddingLabel" customModule="RisingTest" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="25.5" height="14.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="45.5" height="24.5"/>
                                                                 <color key="backgroundColor" name="detailgray"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
                                                                 <color key="textColor" name="gray"/>
@@ -1358,7 +1358,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DcQ-k9-pCa" customClass="PaddingLabel" customModule="RisingTest" customModuleProvider="target">
-                                                                <rect key="frame" x="29.5" y="0.0" width="25.5" height="14.5"/>
+                                                                <rect key="frame" x="49.5" y="0.0" width="45.5" height="24.5"/>
                                                                 <color key="backgroundColor" name="detailgray"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
                                                                 <color key="textColor" name="gray"/>
@@ -1379,7 +1379,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z0W-73-Odx" customClass="PaddingLabel" customModule="RisingTest" customModuleProvider="target">
-                                                                <rect key="frame" x="59" y="0.0" width="25.5" height="14.5"/>
+                                                                <rect key="frame" x="99" y="0.0" width="45.5" height="24.5"/>
                                                                 <color key="backgroundColor" name="detailgray"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
                                                                 <color key="textColor" name="gray"/>
@@ -1400,7 +1400,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JMC-q3-Rtb" customClass="PaddingLabel" customModule="RisingTest" customModuleProvider="target">
-                                                                <rect key="frame" x="88.5" y="0.0" width="25.5" height="14.5"/>
+                                                                <rect key="frame" x="148.5" y="0.0" width="45.5" height="24.5"/>
                                                                 <color key="backgroundColor" name="detailgray"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
                                                                 <color key="textColor" name="gray"/>
@@ -1423,7 +1423,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ih2-PC-hqU">
-                                                        <rect key="frame" x="16" y="172.5" width="382" height="20.5"/>
+                                                        <rect key="frame" x="16" y="182.5" width="382" height="20.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -1998,16 +1998,16 @@
     </scenes>
     <designables>
         <designable name="DcQ-k9-pCa">
-            <size key="intrinsicContentSize" width="25.5" height="14.5"/>
+            <size key="intrinsicContentSize" width="45.5" height="24.5"/>
         </designable>
         <designable name="JMC-q3-Rtb">
-            <size key="intrinsicContentSize" width="25.5" height="14.5"/>
+            <size key="intrinsicContentSize" width="45.5" height="24.5"/>
         </designable>
         <designable name="Z0W-73-Odx">
-            <size key="intrinsicContentSize" width="25.5" height="14.5"/>
+            <size key="intrinsicContentSize" width="45.5" height="24.5"/>
         </designable>
         <designable name="kMz-hQ-D5c">
-            <size key="intrinsicContentSize" width="25.5" height="14.5"/>
+            <size key="intrinsicContentSize" width="45.5" height="24.5"/>
         </designable>
     </designables>
     <resources>
