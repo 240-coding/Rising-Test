@@ -10,7 +10,6 @@ import TextFieldEffects
 
 class AddressEditViewController: UIViewController {
     
-    var isBaseAddress = false
     var address: AddressesResult?
     
     @IBOutlet weak var navigationBar: UINavigationBar!
@@ -100,12 +99,24 @@ class AddressEditViewController: UIViewController {
     }
     
     @objc func baseAddressViewTapped() {
-        isBaseAddress.toggle()
+        guard let isBaseAddress = address?.isBaseAddress else { return }
+        address?.isBaseAddress = isBaseAddress == "Y" ? "N" : "Y"
         configureBaseAddressComponents()
     }
     
     @IBAction func doneButtonTapped(_ sender: UIButton) {
-        print("주소 저장")
+        if let addressIdx = address?.addressIdx, let name = nameTextField.text, let phone = phoneTextField.text, let userAddress = addressTextField.text, let detailAddress = detailAddressTextField.text, let isBaseAddress = address?.isBaseAddress {
+            let parameters = AddressEditRequest(userName: name, userPhoneNum: phone, address: userAddress, addressDetail: detailAddress, isBaseAddress: isBaseAddress)
+            
+            AddressesDataManager().patchAddress(addressIdx: String(addressIdx), parameters: parameters, delegate: self)
+        }
+    }
+}
+
+// MARK: - Networking
+extension AddressEditViewController {
+    func didPatchAddress() {
+        print("주소 수정")
         dismiss(animated: false, completion: nil)
     }
 }

@@ -24,6 +24,11 @@ class SelectAddressViewController: UIViewController {
         configureNavigationBar()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        AddressesDataManager().fetchAddressesData(delegate: self)
+    }
+    
     func configureNavigationBar() {
         navigationController?.navigationBar.tintColor = .black
         navigationItem.title = "주소 선택"
@@ -38,17 +43,25 @@ class SelectAddressViewController: UIViewController {
         guard let addressManagementViewController = UIStoryboard(name: "MainStoryboard", bundle: nil).instantiateViewController(withIdentifier: "AddressManagementViewController") as? AddressManagementViewController else {
             return
         }
-        addressManagementViewController.modalPresentationStyle = .overFullScreen
+        addressManagementViewController.modalPresentationStyle = .fullScreen
         addressManagementViewController.addresses = self.addresses
         
         present(addressManagementViewController, animated: false, completion: nil)
     }
     
     @objc func dismissViewController() {
-        self.dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: {
+            NotificationCenter.default.post(name: Notification.Name.addressEdited, object: nil)
+        })
     }
 }
-
+// MARK: - Networking
+extension SelectAddressViewController: AddressDataDelegate {
+    func didFetchAddressesData(result: [AddressesResult]) {
+        addresses = result
+        tableView.reloadData()
+    }
+}
 // MARK: - UITableView
 extension SelectAddressViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

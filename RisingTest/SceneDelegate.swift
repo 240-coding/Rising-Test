@@ -6,7 +6,9 @@
 //
 
 import UIKit
+import KakaoSDKCommon
 import KakaoSDKAuth
+import KakaoSDKUser
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -21,14 +23,29 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         self.window = UIWindow(windowScene: windowScene)
 
-        if UserDefaults.standard.bool(forKey: "isLogin") {
-            let storyboard = UIStoryboard(name: "MainStoryboard", bundle: nil)
-            guard let rootViewController = storyboard.instantiateViewController(withIdentifier: "MainTabBarController") as? MainTabBarController else {
-                return
+        if (AuthApi.hasToken() && UserDefaults.standard.bool(forKey: "isLogin")) {
+            UserApi.shared.accessTokenInfo { (_, error) in
+                if let error = error {
+                    if let sdkError = error as? SdkError, sdkError.isInvalidTokenError() == true  {
+                        //로그인 필요
+                    }
+                    else {
+                        //기타 에러
+                    }
+                }
+                else {
+                    //토큰 유효성 체크 성공(필요 시 토큰 갱신됨)
+                    let storyboard = UIStoryboard(name: "MainStoryboard", bundle: nil)
+                    guard let rootViewController = storyboard.instantiateViewController(withIdentifier: "MainTabBarController") as? MainTabBarController else {
+                        return
+                    }
+                    self.window?.rootViewController = rootViewController
+                    self.window?.makeKeyAndVisible()
+                }
             }
-            self.window?.rootViewController = rootViewController
-            self.window?.makeKeyAndVisible()
-        } else {
+        }
+        else {
+            //로그인 필요
             let storyboard = UIStoryboard(name: "LoginStoryboard", bundle: nil)
             guard let rootViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController else {
                 return
@@ -36,6 +53,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             self.window?.rootViewController = rootViewController
             self.window?.makeKeyAndVisible()
         }
+//        if UserDefaults.standard.bool(forKey: "isLogin") {
+//            let storyboard = UIStoryboard(name: "MainStoryboard", bundle: nil)
+//            guard let rootViewController = storyboard.instantiateViewController(withIdentifier: "MainTabBarController") as? MainTabBarController else {
+//                return
+//            }
+//            self.window?.rootViewController = rootViewController
+//            self.window?.makeKeyAndVisible()
+//        } else {
+//            let storyboard = UIStoryboard(name: "LoginStoryboard", bundle: nil)
+//            guard let rootViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController else {
+//                return
+//            }
+//            self.window?.rootViewController = rootViewController
+//            self.window?.makeKeyAndVisible()
+//        }
     }
     
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {

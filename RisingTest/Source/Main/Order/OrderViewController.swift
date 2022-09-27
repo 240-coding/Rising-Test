@@ -43,6 +43,8 @@ class OrderViewController: UIViewController {
         
         AddressesDataManager().fetchAddressesData(delegate: self)
         
+        NotificationCenter.default.addObserver(self, selector: #selector(fetchEditedAddress), name: Notification.Name.addressEdited, object: nil)
+        
     }
     
     func setNavigationItem() {
@@ -69,7 +71,6 @@ class OrderViewController: UIViewController {
     
     @objc func editAddressButtonTapped() {
         guard let selectAddressViewController = UIStoryboard(name: "MainStoryboard", bundle: nil).instantiateViewController(withIdentifier: "SelectAddressViewController") as? SelectAddressViewController else {
-            print("엉?")
             return
         }
         selectAddressViewController.addresses = self.addresses
@@ -83,6 +84,7 @@ class OrderViewController: UIViewController {
                 sheet.preferredCornerRadius = 15
             }
         }
+        nav.presentationController?.delegate = self
         self.present(nav, animated: true, completion: nil)
     }
     
@@ -101,6 +103,11 @@ class OrderViewController: UIViewController {
         }
         self.present(selectReceiptViewController, animated: true, completion: nil)
     }
+    
+    @objc func fetchEditedAddress() {
+        AddressesDataManager().fetchAddressesData(delegate: self)
+        collectionView.reloadData()
+    }
 }
 
 extension OrderViewController: SelectAddressDelegate, SelectReceiptDelegate {
@@ -114,8 +121,15 @@ extension OrderViewController: SelectAddressDelegate, SelectReceiptDelegate {
         collectionView.reloadData()
     }
 }
+
+// MARK: - UIAdaptivePresentationControllerDelegate
+extension OrderViewController: UIAdaptivePresentationControllerDelegate {
+    func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
+        fetchEditedAddress()
+    }
+}
 // MARK: - Networking
-extension OrderViewController {
+extension OrderViewController: AddressDataDelegate {
     func didFetchAddressesData(result: [AddressesResult]) {
         addresses = result
         if let baseAddress = addresses.filter({ $0.isBaseAddress == "Y" }).first {

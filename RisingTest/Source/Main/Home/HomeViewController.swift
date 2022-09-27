@@ -7,12 +7,6 @@
 
 import UIKit
 
-extension Notification.Name {
-    static let recommend = Notification.Name("Recommend")
-    static let recommendCellTapped = Notification.Name("RecommendCellTapped")
-//    static let postData = Notification.Name("PostData")
-}
-
 class HomeViewController: UIViewController {
     
     var currentBannerPage = 0

@@ -14,6 +14,7 @@ class AddressManagementViewController: UIViewController {
     @IBOutlet var navigationBar: UINavigationBar!
     @IBOutlet var tableView: UITableView!
 
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -24,6 +25,11 @@ class AddressManagementViewController: UIViewController {
         self.tableView.estimatedRowHeight = 50
         
         configureNavigationBar()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        AddressesDataManager().fetchAddressesData(delegate: self)
     }
     
     func configureNavigationBar() {
@@ -61,9 +67,17 @@ class AddressManagementViewController: UIViewController {
         }
         
         addressEditViewController.address = addresses[sender.tag]
-        addressEditViewController.modalPresentationStyle = .overFullScreen
+        addressEditViewController.modalPresentationStyle = .fullScreen
         
         present(addressEditViewController, animated: false, completion: nil)
+    }
+}
+
+// MARK: - Networking
+extension AddressManagementViewController: AddressDataDelegate {
+    func didFetchAddressesData(result: [AddressesResult]) {
+        addresses = result
+        tableView.reloadData()
     }
 }
 

@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		28180A8DE51D32C3F7854CDF /* Pods_RisingTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1C2728AA16F1022018E204F /* Pods_RisingTest.framework */; };
+		8902130F28E2C6A9001D71E9 /* AddressEditResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8902130E28E2C6A9001D71E9 /* AddressEditResponse.swift */; };
+		8902131128E2D076001D71E9 /* AddressEditRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8902131028E2D076001D71E9 /* AddressEditRequest.swift */; };
+		8902131328E2D7E5001D71E9 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8902131228E2D7E5001D71E9 /* Notification.swift */; };
 		890F195E28D8DA9C00927292 /* LoginCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890F195D28D8DA9C00927292 /* LoginCollectionViewCell.swift */; };
 		890F196128D8EBCD00927292 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 890F196028D8EBCD00927292 /* UIButton.swift */; };
 		891179FF28E20D2900985C10 /* AddressEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891179FE28E20D2900985C10 /* AddressEditViewController.swift */; };
@@ -82,6 +85,9 @@
 
 /* Begin PBXFileReference section */
 		7EF7B189EF1D211D9607F2D7 /* Pods-RisingTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RisingTest.release.xcconfig"; path = "Target Support Files/Pods-RisingTest/Pods-RisingTest.release.xcconfig"; sourceTree = "<group>"; };
+		8902130E28E2C6A9001D71E9 /* AddressEditResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressEditResponse.swift; sourceTree = "<group>"; };
+		8902131028E2D076001D71E9 /* AddressEditRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressEditRequest.swift; sourceTree = "<group>"; };
+		8902131228E2D7E5001D71E9 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		890F195D28D8DA9C00927292 /* LoginCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCollectionViewCell.swift; sourceTree = "<group>"; };
 		890F196028D8EBCD00927292 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		891179FE28E20D2900985C10 /* AddressEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressEditViewController.swift; sourceTree = "<group>"; };
@@ -196,6 +202,7 @@
 				89939DC728DE25D9002004C2 /* UIImageView.swift */,
 				8991A4DE28DEF68A00D5AC2B /* UINavigationBar.swift */,
 				8991A4EB28DF57B900D5AC2B /* String.swift */,
+				8902131228E2D7E5001D71E9 /* Notification.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -397,6 +404,8 @@
 			isa = PBXGroup;
 			children = (
 				89C0EB5728E171E800243D00 /* AddressesResponse.swift */,
+				8902130E28E2C6A9001D71E9 /* AddressEditResponse.swift */,
+				8902131028E2D076001D71E9 /* AddressEditRequest.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -599,6 +608,7 @@
 				8965255628DD1EB5004A7D1F /* SearchPopularCollectionViewCell.swift in Sources */,
 				8991A4F928E094F500D5AC2B /* GoodsDataManager.swift in Sources */,
 				89939DC128DE1622002004C2 /* BannerCollectionViewCell.swift in Sources */,
+				8902130F28E2C6A9001D71E9 /* AddressEditResponse.swift in Sources */,
 				89939DBD28DE0F68002004C2 /* UIViewController.swift in Sources */,
 				89939DCA28DE2E08002004C2 /* HomeCategoryCollectionViewCell.swift in Sources */,
 				8991A4FC28E0B1C400D5AC2B /* UserGoodsCollectionReusableView.swift in Sources */,
@@ -621,6 +631,7 @@
 				89C0EB5828E171E800243D00 /* AddressesResponse.swift in Sources */,
 				89E4797A28D7681900C3E1E0 /* HomeViewController.swift in Sources */,
 				89BE704528DB7CC10093A704 /* TextViewCollectionViewCell.swift in Sources */,
+				8902131128E2D076001D71E9 /* AddressEditRequest.swift in Sources */,
 				8991A50928E0D15F00D5AC2B /* ReviewCollectionViewCell.swift in Sources */,
 				89E4797628D7681900C3E1E0 /* AppDelegate.swift in Sources */,
 				89939DB828DDD0E3002004C2 /* LoginDataManager.swift in Sources */,
@@ -640,6 +651,7 @@
 				89C0EB5C28E177C900243D00 /* SelectAddressViewController.swift in Sources */,
 				8987BA9228E0DFC900A9C871 /* AddressCollectionViewCell.swift in Sources */,
 				8991A4EA28DF15F800D5AC2B /* RecommendCollectionViewCell.swift in Sources */,
+				8902131328E2D7E5001D71E9 /* Notification.swift in Sources */,
 				8994934C28D9911A00333811 /* WriteViewController.swift in Sources */,
 				89939DBB28DDD29D002004C2 /* LoginResponse.swift in Sources */,
 				8994935528D9B75000333811 /* WriteCollectionReusableView.swift in Sources */,
