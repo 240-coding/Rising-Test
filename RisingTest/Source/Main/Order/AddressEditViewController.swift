@@ -61,11 +61,14 @@ class AddressEditViewController: UIViewController {
     }
     
     func configureTextFields() {
+        nameTextField.addTarget(self, action: #selector(textFieldValueChanged), for: .editingChanged)
+        phoneTextField.addTarget(self, action: #selector(textFieldValueChanged), for: .editingChanged)
+        addressTextField.addTarget(self, action: #selector(textFieldValueChanged), for: .editingChanged)
+        detailAddressTextField.addTarget(self, action: #selector(textFieldValueChanged), for: .editingChanged)
+
         guard let address = address else {
             return
         }
-        
-        
         nameTextField.text = address.userName
         phoneTextField.text = address.userPhoneNum
         addressTextField.text = address.address
@@ -91,11 +94,29 @@ class AddressEditViewController: UIViewController {
     
     func configureDoneButton() {
         doneButton.layer.cornerRadius = 5
+        doneButton.backgroundColor = doneButton.isEnabled ? UIColor(named: "red") : UIColor(named: "lightred")
+    }
+    
+    func checkDoneButtonIsEnabled() {
+        doneButton.isEnabled = areTextFieldsTextExists()
+        doneButton.backgroundColor = doneButton.isEnabled ? UIColor(named: "red") : UIColor(named: "lightred")
+    }
+    
+    func areTextFieldsTextExists() -> Bool {
+        if let name = nameTextField.text, let phone = phoneTextField.text, let userAddress = addressTextField.text, let addressDetail = detailAddressTextField.text {
+            return name.isExists && phone.isExists && userAddress.isExists && addressDetail.isExists ? true : false
+        } else {
+            return false
+        }
     }
     
     // MARK: - Action
     @objc func dismissViewController() {
         dismiss(animated: false, completion: nil)
+    }
+    
+    @objc func textFieldValueChanged() {
+        checkDoneButtonIsEnabled()
     }
     
     @objc func baseAddressViewTapped() {
@@ -116,7 +137,6 @@ class AddressEditViewController: UIViewController {
 // MARK: - Networking
 extension AddressEditViewController {
     func didPatchAddress() {
-        print("주소 수정")
         dismiss(animated: false, completion: nil)
     }
 }
