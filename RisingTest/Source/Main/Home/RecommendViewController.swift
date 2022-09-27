@@ -44,7 +44,7 @@ extension RecommendViewController: UICollectionViewDelegate, UICollectionViewDat
         }
         
         let data = homeData[indexPath.row]
-        if let url = URL(string: data.gimgs[0].goodsImgUrl) {
+        if let urlString = data.gimgs.first?.goodsImgUrl, let url = URL(string: urlString) {
             cell.imageView.load(url: url)
         }
         cell.priceLabel.text = String(data.goodsPrice).insertComma + "원"

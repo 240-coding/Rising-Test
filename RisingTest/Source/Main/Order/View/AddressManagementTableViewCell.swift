@@ -9,6 +9,7 @@ import UIKit
 
 class AddressManagementTableViewCell: UITableViewCell {
 
+    @IBOutlet var borderView: UIView!
     @IBOutlet weak var baseAddressLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
@@ -18,6 +19,10 @@ class AddressManagementTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        borderView.layer.cornerRadius = 5
+        borderView.layer.borderColor = UIColor(named: "lightgray")?.cgColor
+        borderView.layer.borderWidth = 1
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct AddressEditRequest: Encodable {
+struct NewAddressRequest: Encodable {
     var userName: String
     var userPhoneNum: String
     var address: String

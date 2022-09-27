@@ -1,5 +1,5 @@
 //
-//  AddressEditViewController.swift
+//  AddressAddViewController.swift
 //  RisingTest
 //
 //  Created by 이서영 on 2022/09/27.
@@ -8,9 +8,10 @@
 import UIKit
 import TextFieldEffects
 
-class AddressEditViewController: UIViewController {
+class AddressAddViewController: UIViewController {
     
-    var address: AddressesResult?
+    var address = NewAddressRequest(userName: "", userPhoneNum: "", address: "", addressDetail: "", isBaseAddress: "N")
+    var isBaseAddress = false
     
     @IBOutlet weak var navigationBar: UINavigationBar!
     @IBOutlet weak var nameTextField: HoshiTextField!
@@ -23,13 +24,12 @@ class AddressEditViewController: UIViewController {
     @IBOutlet weak var baseAddressLabel: UILabel!
     
     @IBOutlet weak var doneButton: UIButton!
-    
-    // MARK: - Lifecycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.dismissKeyboardWhenTappedAround()
-        
+
         configureNavigationBar()
         configureTextFields()
         configureBaseAddressComponents()
@@ -67,20 +67,10 @@ class AddressEditViewController: UIViewController {
         phoneTextField.addTarget(self, action: #selector(textFieldValueChanged), for: .editingChanged)
         addressTextField.addTarget(self, action: #selector(textFieldValueChanged), for: .editingChanged)
         detailAddressTextField.addTarget(self, action: #selector(textFieldValueChanged), for: .editingChanged)
-
-        guard let address = address else {
-            return
-        }
-        nameTextField.text = address.userName
-        phoneTextField.text = address.userPhoneNum
-        addressTextField.text = address.address
-        detailAddressTextField.text = address.addressDetail
     }
     
     func configureBaseAddressComponents() {
-        guard let isBaseAddress = address?.isBaseAddress else { return }
-        
-        if isBaseAddress == "Y" {
+        if isBaseAddress {
             checkImageView.tintColor = UIColor(named: "red")
             baseAddressLabel.textColor = .black
         } else {
@@ -96,6 +86,7 @@ class AddressEditViewController: UIViewController {
     
     func configureDoneButton() {
         doneButton.layer.cornerRadius = 5
+        doneButton.isEnabled = false
         doneButton.backgroundColor = doneButton.isEnabled ? UIColor(named: "red") : UIColor(named: "lightred")
     }
     
@@ -122,23 +113,21 @@ class AddressEditViewController: UIViewController {
     }
     
     @objc func baseAddressViewTapped() {
-        guard let isBaseAddress = address?.isBaseAddress else { return }
-        address?.isBaseAddress = isBaseAddress == "Y" ? "N" : "Y"
+        isBaseAddress.toggle()
         configureBaseAddressComponents()
     }
     
     @IBAction func doneButtonTapped(_ sender: UIButton) {
-        if let addressIdx = address?.addressIdx, let name = nameTextField.text, let phone = phoneTextField.text, let userAddress = addressTextField.text, let detailAddress = detailAddressTextField.text, let isBaseAddress = address?.isBaseAddress {
-            let parameters = NewAddressRequest(userName: name, userPhoneNum: phone, address: userAddress, addressDetail: detailAddress, isBaseAddress: isBaseAddress)
-            
-            AddressesDataManager().patchAddress(addressIdx: String(addressIdx), parameters: parameters, delegate: self)
+        if let name = nameTextField.text, let phone = phoneTextField.text, let userAddress = addressTextField.text, let addressDetail = detailAddressTextField.text {
+            let parameters = NewAddressRequest(userName: name, userPhoneNum: phone, address: userAddress, addressDetail: addressDetail, isBaseAddress: isBaseAddress ? "Y" : "N")
+            AddressesDataManager().postNewAddress(parameters: parameters, delegate: self)
         }
     }
 }
 
 // MARK: - Networking
-extension AddressEditViewController {
-    func didPatchAddress() {
-        dismiss(animated: false, completion: nil)
+extension AddressAddViewController {
+    func didPostAddress() {
+        dismiss(animated: true, completion: nil)
     }
 }

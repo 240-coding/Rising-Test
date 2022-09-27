@@ -71,6 +71,14 @@ class AddressManagementViewController: UIViewController {
         
         present(addressEditViewController, animated: false, completion: nil)
     }
+    
+    @IBAction func addAddressButtonTapped() {
+        guard let addressAddViewController = UIStoryboard(name: "MainStoryboard", bundle: nil).instantiateViewController(withIdentifier: "AddressAddViewController") as? AddressAddViewController else {
+            return
+        }
+        addressAddViewController.modalPresentationStyle = .fullScreen
+        present(addressAddViewController, animated: false, completion: nil)
+    }
 }
 
 // MARK: - Networking
@@ -81,7 +89,7 @@ extension AddressManagementViewController: AddressDataDelegate {
     }
 }
 
-
+// MARK: - UITableView
 extension AddressManagementViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return addresses.count
@@ -93,10 +101,6 @@ extension AddressManagementViewController: UITableViewDelegate, UITableViewDataS
         }
         
         let address = addresses[indexPath.row]
-        
-        cell.layer.cornerRadius = 5
-        cell.layer.borderWidth = 1
-        cell.layer.borderColor = UIColor(named: "lightgray")?.cgColor
         
         cell.baseAddressLabel.isHidden = address.isBaseAddress == "Y" ? false : true
         cell.nameLabel.text = address.userName
