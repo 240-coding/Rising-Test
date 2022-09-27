@@ -17,11 +17,9 @@ class SelectAddressViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        tableView.delegate = self
-        tableView.dataSource = self
         
         configureNavigationBar()
+        configureTableView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -36,6 +34,15 @@ class SelectAddressViewController: UIViewController {
         let editBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "pencil"), style: .plain, target: self, action: #selector(editBarButtonTapped))
         let closeBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "xmark"), style: .plain, target: self, action: #selector(dismissViewController))
         navigationItem.rightBarButtonItems = [closeBarButtonItem, editBarButtonItem]
+    }
+    
+    func configureTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        if #available(iOS 15.0, *) {
+            tableView.tableHeaderView = UIView()
+        }
     }
     
     // MARK: - Actions
@@ -73,9 +80,8 @@ extension SelectAddressViewController: UITableViewDelegate, UITableViewDataSourc
             return UITableViewCell()
         }
         
-        
-        if indexPath.row == 0 {
-            cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: .greatestFiniteMagnitude)
+        if indexPath.row == tableView.numberOfRows(inSection: indexPath.section) - 1 {
+            cell.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: tableView.bounds.width)
         }
         
         let address = addresses[indexPath.row]
