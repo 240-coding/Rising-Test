@@ -69,4 +69,24 @@ class AddressesDataManager {
                 }
             }
     }
+    
+    func deleteAddress(addressIdx: String, delegate: AddressManagementViewController) {
+        let url = Constant.BASE_URL + "/app/addresses/\(addressIdx)"
+        guard let userToken = UserDefaults.standard.string(forKey: "KakaoLoginUserIdentifier") else { return }
+        let headers: HTTPHeaders = [
+            "X_ACCESS_TOKEN": userToken
+        ]
+        
+        AF.request(url, method: .delete, headers: headers)
+            .validate()
+            .responseDecodable(of: AddressEditResponse.self) { response in
+                switch response.result {
+                case .success(let response):
+                    print(response.result)
+                    delegate.didRemoveAddress()
+                case .failure(let error):
+                    print(error.localizedDescription)
+                }
+            }
+    }
 }

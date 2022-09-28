@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol AddressRemoveDelegate {
+    func removeAddress(addressIdx: String)
+}
+
 class AddressManagementViewController: UIViewController {
     
     var addresses = [AddressesResult]()
@@ -61,6 +65,14 @@ class AddressManagementViewController: UIViewController {
         self.dismiss(animated: false, completion: nil)
     }
     
+    @IBAction func addAddressButtonTapped() {
+        guard let addressAddViewController = UIStoryboard(name: "MainStoryboard", bundle: nil).instantiateViewController(withIdentifier: "AddressAddViewController") as? AddressAddViewController else {
+            return
+        }
+        addressAddViewController.modalPresentationStyle = .fullScreen
+        present(addressAddViewController, animated: false, completion: nil)
+    }
+    
     @objc func editButtonTapped(_ sender: UIButton) {
         guard let addressEditViewController = UIStoryboard(name: "MainStoryboard", bundle: nil).instantiateViewController(withIdentifier: "AddressEditViewController") as? AddressEditViewController else {
             return
@@ -72,12 +84,18 @@ class AddressManagementViewController: UIViewController {
         present(addressEditViewController, animated: false, completion: nil)
     }
     
-    @IBAction func addAddressButtonTapped() {
-        guard let addressAddViewController = UIStoryboard(name: "MainStoryboard", bundle: nil).instantiateViewController(withIdentifier: "AddressAddViewController") as? AddressAddViewController else {
-            return
-        }
-        addressAddViewController.modalPresentationStyle = .fullScreen
-        present(addressAddViewController, animated: false, completion: nil)
+    @objc func removeButtonTapped(_ sender: UIButton) {
+        guard let addressRemoveViewController = UIStoryboard(name: "MainStoryboard", bundle: nil).instantiateViewController(withIdentifier: "AddressRemoveViewController") as? AddressRemoveViewController else { return }
+        
+        addressRemoveViewController.modalPresentationStyle = .overFullScreen
+        addressRemoveViewController.delegate = self
+        addressRemoveViewController.addressIdx = addresses[sender.tag].addressIdx
+        
+        present(addressRemoveViewController, animated: false, completion: nil)
+    }
+    
+    @objc func didRemoveAddress() {
+        self.viewWillAppear(true)
     }
 }
 
@@ -86,6 +104,12 @@ extension AddressManagementViewController: AddressDataDelegate {
     func didFetchAddressesData(result: [AddressesResult]) {
         addresses = result
         tableView.reloadData()
+    }
+}
+
+extension AddressManagementViewController: AddressRemoveDelegate {
+    func removeAddress(addressIdx: String) {
+        AddressesDataManager().deleteAddress(addressIdx: addressIdx, delegate: self)
     }
 }
 
@@ -108,6 +132,9 @@ extension AddressManagementViewController: UITableViewDelegate, UITableViewDataS
         
         cell.editButton.tag = indexPath.row
         cell.editButton.addTarget(self, action: #selector(editButtonTapped), for: .touchUpInside)
+        
+        cell.removeButton.tag = indexPath.row
+        cell.removeButton.addTarget(self, action: #selector(removeButtonTapped), for: .touchUpInside)
         
         return cell
     }
