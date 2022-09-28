@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PointCell" id="gTV-IL-0wX" customClass="PointCollectionViewCell" customModule="RisingTest" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="352" height="200"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="352" height="200"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PpL-Tv-YjZ">
+                        <rect key="frame" x="0.0" y="0.0" width="352" height="200"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="번개포인트" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dA6-Zf-fQr">
+                                <rect key="frame" x="16" y="32" width="104" height="29"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k7b-d6-nvC">
+                                <rect key="frame" x="16" y="77" width="320" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tdv-fE-g4W">
+                                        <rect key="frame" x="239" y="8" width="65" height="34"/>
+                                        <color key="backgroundColor" name="detailgray"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="65" id="g6V-af-MQg"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="전액사용">
+                                            <color key="titleColor" name="gray"/>
+                                        </state>
+                                    </button>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GdU-qx-0zM">
+                                        <rect key="frame" x="16" y="0.0" width="215" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="Tdv-fE-g4W" secondAttribute="bottom" constant="8" id="86M-1W-1ad"/>
+                                    <constraint firstItem="GdU-qx-0zM" firstAttribute="leading" secondItem="k7b-d6-nvC" secondAttribute="leading" constant="16" id="Kyb-Ur-KRq"/>
+                                    <constraint firstAttribute="height" constant="50" id="NRi-kc-BK9"/>
+                                    <constraint firstAttribute="trailing" secondItem="Tdv-fE-g4W" secondAttribute="trailing" constant="16" id="SRN-uJ-z7y"/>
+                                    <constraint firstAttribute="bottom" secondItem="GdU-qx-0zM" secondAttribute="bottom" id="WzB-2N-e3N"/>
+                                    <constraint firstItem="GdU-qx-0zM" firstAttribute="top" secondItem="k7b-d6-nvC" secondAttribute="top" id="XWe-TH-31s"/>
+                                    <constraint firstItem="Tdv-fE-g4W" firstAttribute="leading" secondItem="GdU-qx-0zM" secondAttribute="trailing" constant="8" id="huN-W2-JYL"/>
+                                    <constraint firstItem="Tdv-fE-g4W" firstAttribute="top" secondItem="k7b-d6-nvC" secondAttribute="top" constant="8" id="zhl-U7-hXE"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="1Bu-QA-wDc">
+                                <rect key="frame" x="16" y="143" width="146" height="17"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="사용 가능한 번개 포인트" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i3G-NS-jpy">
+                                        <rect key="frame" x="0.0" y="0.0" width="132.5" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" name="gray"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ixL-dp-yLf">
+                                        <rect key="frame" x="136.5" y="0.0" width="9.5" height="17"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="1Bu-QA-wDc" firstAttribute="top" secondItem="k7b-d6-nvC" secondAttribute="bottom" constant="16" id="2QZ-zO-9S2"/>
+                            <constraint firstItem="k7b-d6-nvC" firstAttribute="top" secondItem="dA6-Zf-fQr" secondAttribute="bottom" constant="16" id="9wc-ei-iIt"/>
+                            <constraint firstAttribute="trailing" secondItem="k7b-d6-nvC" secondAttribute="trailing" constant="16" id="Jlk-RM-GUY"/>
+                            <constraint firstItem="dA6-Zf-fQr" firstAttribute="leading" secondItem="PpL-Tv-YjZ" secondAttribute="leading" constant="16" id="RvO-gi-Rwe"/>
+                            <constraint firstItem="1Bu-QA-wDc" firstAttribute="leading" secondItem="PpL-Tv-YjZ" secondAttribute="leading" constant="16" id="fPt-gv-9sh"/>
+                            <constraint firstItem="k7b-d6-nvC" firstAttribute="leading" secondItem="PpL-Tv-YjZ" secondAttribute="leading" constant="16" id="gGd-ta-9aI"/>
+                            <constraint firstItem="dA6-Zf-fQr" firstAttribute="top" secondItem="PpL-Tv-YjZ" secondAttribute="top" constant="32" id="vyX-Ey-RjC"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="PpL-Tv-YjZ" secondAttribute="bottom" id="49P-Xb-UOS"/>
+                <constraint firstItem="PpL-Tv-YjZ" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="UYb-4N-b0v"/>
+                <constraint firstItem="PpL-Tv-YjZ" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="i8f-HC-n60"/>
+                <constraint firstAttribute="trailing" secondItem="PpL-Tv-YjZ" secondAttribute="trailing" id="xPa-dw-AVG"/>
+            </constraints>
+            <size key="customSize" width="352" height="200"/>
+            <connections>
+                <outlet property="allButton" destination="Tdv-fE-g4W" id="Y5b-iN-6Sk"/>
+                <outlet property="textFieldView" destination="k7b-d6-nvC" id="B5V-GY-tTv"/>
+            </connections>
+            <point key="canvasLocation" x="356.52173913043481" y="130.58035714285714"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <namedColor name="detailgray">
+            <color red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="gray">
+            <color red="0.54509803921568623" green="0.54509803921568623" blue="0.54509803921568623" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -70,6 +70,8 @@
 		89C0EB5C28E177C900243D00 /* SelectAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C0EB5B28E177C900243D00 /* SelectAddressViewController.swift */; };
 		89C0EB5E28E1799100243D00 /* AddressSelectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C0EB5D28E1799100243D00 /* AddressSelectTableViewCell.swift */; };
 		89D87C7E28E4385D005D5756 /* AddressRemoveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D87C7D28E4385D005D5756 /* AddressRemoveViewController.swift */; };
+		89D87C8128E447C8005D5756 /* PointCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D87C7F28E447C8005D5756 /* PointCollectionViewCell.swift */; };
+		89D87C8228E447C8005D5756 /* PointCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89D87C8028E447C8005D5756 /* PointCollectionViewCell.xib */; };
 		89E4797628D7681900C3E1E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E4797528D7681900C3E1E0 /* AppDelegate.swift */; };
 		89E4797828D7681900C3E1E0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E4797728D7681900C3E1E0 /* SceneDelegate.swift */; };
 		89E4797A28D7681900C3E1E0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E4797928D7681900C3E1E0 /* HomeViewController.swift */; };
@@ -146,6 +148,8 @@
 		89C0EB5B28E177C900243D00 /* SelectAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAddressViewController.swift; sourceTree = "<group>"; };
 		89C0EB5D28E1799100243D00 /* AddressSelectTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressSelectTableViewCell.swift; sourceTree = "<group>"; };
 		89D87C7D28E4385D005D5756 /* AddressRemoveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressRemoveViewController.swift; sourceTree = "<group>"; };
+		89D87C7F28E447C8005D5756 /* PointCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointCollectionViewCell.swift; sourceTree = "<group>"; };
+		89D87C8028E447C8005D5756 /* PointCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PointCollectionViewCell.xib; sourceTree = "<group>"; };
 		89E4797228D7681900C3E1E0 /* RisingTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RisingTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89E4797528D7681900C3E1E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89E4797728D7681900C3E1E0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -324,9 +328,11 @@
 			isa = PBXGroup;
 			children = (
 				8961508A28E33AE70097BE29 /* Address */,
+				8987BA9628E0E47800A9C871 /* OrderTitleCollectionViewCell.swift */,
 				8987BA9028E0DFC900A9C871 /* AddressCollectionViewCell.swift */,
 				8987BA9128E0DFC900A9C871 /* AddressCollectionViewCell.xib */,
-				8987BA9628E0E47800A9C871 /* OrderTitleCollectionViewCell.swift */,
+				89D87C7F28E447C8005D5756 /* PointCollectionViewCell.swift */,
+				89D87C8028E447C8005D5756 /* PointCollectionViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -560,6 +566,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				89E4798228D7681900C3E1E0 /* LaunchScreen.storyboard in Resources */,
+				89D87C8228E447C8005D5756 /* PointCollectionViewCell.xib in Resources */,
 				8991A4FD28E0B1C400D5AC2B /* UserGoodsCollectionReusableView.xib in Resources */,
 				89E6C35C28DAF5A100A48052 /* WritePhotoCollectionViewCell.xib in Resources */,
 				8987BA9328E0DFC900A9C871 /* AddressCollectionViewCell.xib in Resources */,
@@ -661,6 +668,7 @@
 				8902131128E2D076001D71E9 /* NewAddressRequest.swift in Sources */,
 				8991A50928E0D15F00D5AC2B /* ReviewCollectionViewCell.swift in Sources */,
 				89E4797628D7681900C3E1E0 /* AppDelegate.swift in Sources */,
+				89D87C8128E447C8005D5756 /* PointCollectionViewCell.swift in Sources */,
 				89939DB828DDD0E3002004C2 /* LoginDataManager.swift in Sources */,
 				8991A4F728E0945C00D5AC2B /* GoodsResponse.swift in Sources */,
 				89E4797828D7681900C3E1E0 /* SceneDelegate.swift in Sources */,

@@ -35,11 +35,9 @@ class OrderViewController: UIViewController {
         super.viewDidLoad()
 
         setNavigationItem()
+        configureCollectionView()
         
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        
-        collectionView.register(UINib(nibName: "AddressCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "AddressCell")
+        self.dismissKeyboardWhenTappedAround()
         
         AddressesDataManager().fetchAddressesData(delegate: self)
         
@@ -62,6 +60,14 @@ class OrderViewController: UIViewController {
         navigationBar.tintColor = .black
         
         navigationBar.items = [item]
+    }
+    
+    func configureCollectionView() {
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        
+        collectionView.register(UINib(nibName: "AddressCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "AddressCell")
+        collectionView.register(UINib(nibName: "PointCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "PointCell")
     }
     
     // MARK: - Action
@@ -142,7 +148,7 @@ extension OrderViewController: AddressDataDelegate {
 // MARK: - UICollectionView
 extension OrderViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2
+        return 3
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -177,6 +183,11 @@ extension OrderViewController: UICollectionViewDelegate, UICollectionViewDataSou
             cell.receiptView.addGestureRecognizer(receiptGestureRecognizer)
             
             return cell
+        case 2:
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PointCell", for: indexPath) as? PointCollectionViewCell else {
+                return UICollectionViewCell()
+            }
+            return cell
         default:
             return UICollectionViewCell()
         }
@@ -188,7 +199,9 @@ extension OrderViewController: UICollectionViewDelegate, UICollectionViewDataSou
         case 0:
             return CGSize(width: width, height: 200)
         case 1:
-            return CGSize(width: width, height: 500)
+            return CGSize(width: width, height: 320)
+        case 2:
+            return CGSize(width: width, height: 200)
         default:
             return CGSize()
         }
