@@ -40,6 +40,8 @@ class OrderViewController: UIViewController {
     var isAgreementChecked = false
     
     var basicOrderInfo: BasicOrderInfo?
+    var orderRequest = OrderRequest(goodsIdx: 0, addressIdx: 0, orderDeliveryReq: "", goodsPrice: 0, orderFee: 0, deliveryFee: 0, orderTotalPrice: 0, orderPaymentMethod: "")
+    
     let receiptOptions = ["문앞", "직접 받고 부재 시 문앞", "경비실", "우편함", "직접입력"]
     
     @IBOutlet var navigationBar: UINavigationBar!
@@ -145,7 +147,14 @@ class OrderViewController: UIViewController {
     
     @objc func doneButtonTapped() {
         if isAgreementChecked {
-            print("결제")
+            if let goodsIndex = basicOrderInfo?.goodsIndex, let addressIdx = selectedAddress?.addressIdx, let goodsPrice = basicOrderInfo?.goodsPrice {
+                orderRequest.goodsIdx = goodsIndex
+                orderRequest.addressIdx = addressIdx
+                orderRequest.orderDeliveryReq = receiptOptions[selectedReceiptIndex]
+                orderRequest.goodsPrice = goodsPrice
+                orderRequest.orderPaymentMethod = selectedPayment
+                AddressesDataManager().postOrder(parameters: orderRequest, delegate: self)
+            }
         } else {
             guard let agreementPopupViewController = UIStoryboard(name: "MainStoryboard", bundle: nil).instantiateViewController(withIdentifier: "AgreementPopupViewController") as? AgreementPopupViewController else {
                 return
@@ -195,6 +204,10 @@ extension OrderViewController: AddressDataDelegate {
             selectedAddress = baseAddress
         }
         collectionView.reloadData()
+    }
+    
+    func didPostOrder() {
+        print("결제완료")
     }
 }
 
@@ -255,6 +268,10 @@ extension OrderViewController: UICollectionViewDelegate, UICollectionViewDataSou
                 cell.securePaymentFeeLabel.text = "+\(securePaymentFee.insertComma)원"
                 cell.deliveryFeeLabel.text = basicOrderInfo?.isDeilveryFee == "Y" ? "배송비포함" : "배송비별도"
                 cell.totalPriceLabel.text = totalPrice.insertComma + "원"
+                
+                orderRequest.orderFee = Int(securePaymentFee) ?? 0
+                orderRequest.deliveryFee = basicOrderInfo?.isDeilveryFee == "Y" ? 0 : 2500
+                orderRequest.orderTotalPrice = Int(totalPrice) ?? 0
             }
             
             return cell

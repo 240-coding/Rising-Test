@@ -72,6 +72,8 @@
 		89C3D59128E4AEE4002A9507 /* AgreementPayCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C3D58F28E4AEE4002A9507 /* AgreementPayCollectionViewCell.swift */; };
 		89C3D59228E4AEE4002A9507 /* AgreementPayCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89C3D59028E4AEE4002A9507 /* AgreementPayCollectionViewCell.xib */; };
 		89C3D59428E4B4A6002A9507 /* AgreementPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C3D59328E4B4A6002A9507 /* AgreementPopupViewController.swift */; };
+		89C3D59728E4B68C002A9507 /* OrderRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C3D59628E4B68C002A9507 /* OrderRequest.swift */; };
+		89C3D59928E4BA06002A9507 /* OrderResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C3D59828E4BA06002A9507 /* OrderResponse.swift */; };
 		89D87C7E28E4385D005D5756 /* AddressRemoveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D87C7D28E4385D005D5756 /* AddressRemoveViewController.swift */; };
 		89D87C8128E447C8005D5756 /* PointCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D87C7F28E447C8005D5756 /* PointCollectionViewCell.swift */; };
 		89D87C8228E447C8005D5756 /* PointCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89D87C8028E447C8005D5756 /* PointCollectionViewCell.xib */; };
@@ -158,6 +160,8 @@
 		89C3D58F28E4AEE4002A9507 /* AgreementPayCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgreementPayCollectionViewCell.swift; sourceTree = "<group>"; };
 		89C3D59028E4AEE4002A9507 /* AgreementPayCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AgreementPayCollectionViewCell.xib; sourceTree = "<group>"; };
 		89C3D59328E4B4A6002A9507 /* AgreementPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgreementPopupViewController.swift; sourceTree = "<group>"; };
+		89C3D59628E4B68C002A9507 /* OrderRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderRequest.swift; sourceTree = "<group>"; };
+		89C3D59828E4BA06002A9507 /* OrderResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderResponse.swift; sourceTree = "<group>"; };
 		89D87C7D28E4385D005D5756 /* AddressRemoveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressRemoveViewController.swift; sourceTree = "<group>"; };
 		89D87C7F28E447C8005D5756 /* PointCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointCollectionViewCell.swift; sourceTree = "<group>"; };
 		89D87C8028E447C8005D5756 /* PointCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PointCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -457,12 +461,22 @@
 		89C0EB5628E1716700243D00 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				89C3D59528E4B67F002A9507 /* Address */,
+				89C3D59628E4B68C002A9507 /* OrderRequest.swift */,
+				89C3D59828E4BA06002A9507 /* OrderResponse.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		89C3D59528E4B67F002A9507 /* Address */ = {
+			isa = PBXGroup;
+			children = (
 				89C0EB5728E171E800243D00 /* AddressesResponse.swift */,
 				8902130E28E2C6A9001D71E9 /* AddressEditResponse.swift */,
 				8902131028E2D076001D71E9 /* NewAddressRequest.swift */,
 				8902131828E2F422001D71E9 /* AddressAddResponse.swift */,
 			);
-			path = Entity;
+			path = Address;
 			sourceTree = "<group>";
 		};
 		89E4796928D7681900C3E1E0 = {
@@ -675,6 +689,7 @@
 				8991A4FC28E0B1C400D5AC2B /* UserGoodsCollectionReusableView.swift in Sources */,
 				8987BA9528E0E3CA00A9C871 /* OrderViewController.swift in Sources */,
 				8994934E28D9918600333811 /* MainTabBarController.swift in Sources */,
+				89C3D59928E4BA06002A9507 /* OrderResponse.swift in Sources */,
 				891179FF28E20D2900985C10 /* AddressEditViewController.swift in Sources */,
 				8991A50228E0CE7100D5AC2B /* UserGoodsFooterCollectionReusableView.swift in Sources */,
 				89939DB628DDD07E002004C2 /* Constant.swift in Sources */,
@@ -696,6 +711,7 @@
 				8902131128E2D076001D71E9 /* NewAddressRequest.swift in Sources */,
 				89C3D59128E4AEE4002A9507 /* AgreementPayCollectionViewCell.swift in Sources */,
 				89D87C8928E4753B005D5756 /* PaymentCollectionViewCell.swift in Sources */,
+				89C3D59728E4B68C002A9507 /* OrderRequest.swift in Sources */,
 				8991A50928E0D15F00D5AC2B /* ReviewCollectionViewCell.swift in Sources */,
 				89E4797628D7681900C3E1E0 /* AppDelegate.swift in Sources */,
 				89D87C8128E447C8005D5756 /* PointCollectionViewCell.swift in Sources */,
