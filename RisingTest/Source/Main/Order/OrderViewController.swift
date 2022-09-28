@@ -206,8 +206,14 @@ extension OrderViewController: AddressDataDelegate {
         collectionView.reloadData()
     }
     
-    func didPostOrder() {
-        print("결제완료")
+    func didPostOrder(orderResult: OrderResult) {
+        guard let orderCompleteViewController = UIStoryboard(name: "MainStoryboard", bundle: nil).instantiateViewController(withIdentifier: "OrderCompleteViewController") as? OrderCompleteViewController else {
+            return
+        }
+        orderCompleteViewController.modalPresentationStyle = .fullScreen
+        orderCompleteViewController.orderIdx = orderResult.orderIdx
+        orderCompleteViewController.paymentMethod = orderRequest.orderPaymentMethod
+        present(orderCompleteViewController, animated: false, completion: nil)
     }
 }
 

@@ -74,6 +74,7 @@
 		89C3D59428E4B4A6002A9507 /* AgreementPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C3D59328E4B4A6002A9507 /* AgreementPopupViewController.swift */; };
 		89C3D59728E4B68C002A9507 /* OrderRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C3D59628E4B68C002A9507 /* OrderRequest.swift */; };
 		89C3D59928E4BA06002A9507 /* OrderResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C3D59828E4BA06002A9507 /* OrderResponse.swift */; };
+		89C3D59D28E4BF71002A9507 /* OrderCompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C3D59C28E4BF71002A9507 /* OrderCompleteViewController.swift */; };
 		89D87C7E28E4385D005D5756 /* AddressRemoveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D87C7D28E4385D005D5756 /* AddressRemoveViewController.swift */; };
 		89D87C8128E447C8005D5756 /* PointCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D87C7F28E447C8005D5756 /* PointCollectionViewCell.swift */; };
 		89D87C8228E447C8005D5756 /* PointCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89D87C8028E447C8005D5756 /* PointCollectionViewCell.xib */; };
@@ -162,6 +163,7 @@
 		89C3D59328E4B4A6002A9507 /* AgreementPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgreementPopupViewController.swift; sourceTree = "<group>"; };
 		89C3D59628E4B68C002A9507 /* OrderRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderRequest.swift; sourceTree = "<group>"; };
 		89C3D59828E4BA06002A9507 /* OrderResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderResponse.swift; sourceTree = "<group>"; };
+		89C3D59C28E4BF71002A9507 /* OrderCompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCompleteViewController.swift; sourceTree = "<group>"; };
 		89D87C7D28E4385D005D5756 /* AddressRemoveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressRemoveViewController.swift; sourceTree = "<group>"; };
 		89D87C7F28E447C8005D5756 /* PointCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointCollectionViewCell.swift; sourceTree = "<group>"; };
 		89D87C8028E447C8005D5756 /* PointCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PointCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -341,6 +343,7 @@
 				8987BA9428E0E3CA00A9C871 /* OrderViewController.swift */,
 				89D87C8B28E4A3F3005D5756 /* PaymentViewController.swift */,
 				89C3D59328E4B4A6002A9507 /* AgreementPopupViewController.swift */,
+				89C3D59C28E4BF71002A9507 /* OrderCompleteViewController.swift */,
 				89C0EB5928E1740300243D00 /* AddressesDataManager.swift */,
 			);
 			path = Order;
@@ -700,6 +703,7 @@
 				8991A4EC28DF57B900D5AC2B /* String.swift in Sources */,
 				89E89A5C28E1B5FF0029D0BA /* AddressManagementTableViewCell.swift in Sources */,
 				8994935928D9B98E00333811 /* WriteUploadCollectionViewCell.swift in Sources */,
+				89C3D59D28E4BF71002A9507 /* OrderCompleteViewController.swift in Sources */,
 				89939DC428DE1D28002004C2 /* HomeResponse.swift in Sources */,
 				8991A4E628DF009800D5AC2B /* RecommendViewController.swift in Sources */,
 				89C0EB5A28E1740300243D00 /* AddressesDataManager.swift in Sources */,

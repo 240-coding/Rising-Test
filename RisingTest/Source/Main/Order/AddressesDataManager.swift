@@ -102,7 +102,7 @@ class AddressesDataManager {
             .responseDecodable(of: OrderResponse.self) { response in
                 switch response.result {
                 case .success(let response):
-                    delegate.didPostOrder()
+                    delegate.didPostOrder(orderResult: response.result)
                 case .failure(let error):
                     print(error.localizedDescription)
                 }
