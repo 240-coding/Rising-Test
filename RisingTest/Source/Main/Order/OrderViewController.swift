@@ -15,17 +15,26 @@ protocol SelectReceiptDelegate {
     func setSelectedReceipt(index: Int)
 }
 
-class OrderViewController: UIViewController {
-    
+protocol SelectPaymentDelegate {
+    func setSelectedPayment(paymentName: String)
+}
+
+struct BasicOrderInfo {
     var goodsIndex: Int?
     var goodsName: String?
     var goodsImage: String?
     var goodsPrice: Int?
-    
+    var isSecurePayment, isDeilveryFee: String?
+}
+
+class OrderViewController: UIViewController {
     var addresses = [AddressesResult]()
     var selectedAddress: AddressesResult?
     var selectedReceiptIndex = 0
+    var selectedPayment = "번개장터 간편결제"
+    var selectedOtherPayment = "네이버페이"
     
+    var basicOrderInfo: BasicOrderInfo?
     let receiptOptions = ["문앞", "직접 받고 부재 시 문앞", "경비실", "우편함", "직접입력"]
     
     @IBOutlet var navigationBar: UINavigationBar!
@@ -68,6 +77,8 @@ class OrderViewController: UIViewController {
         
         collectionView.register(UINib(nibName: "AddressCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "AddressCell")
         collectionView.register(UINib(nibName: "PointCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "PointCell")
+        collectionView.register(UINib(nibName: "PriceCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "PriceCell")
+        collectionView.register(UINib(nibName: "PaymentCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "PaymentCell")
     }
     
     // MARK: - Action
@@ -114,9 +125,21 @@ class OrderViewController: UIViewController {
         AddressesDataManager().fetchAddressesData(delegate: self)
         collectionView.reloadData()
     }
+    
+    @objc func otherPaymentChangeButtonTapped() {
+        guard let paymentViewController = UIStoryboard(name: "MainStoryboard", bundle: nil).instantiateViewController(withIdentifier: "PaymentViewController") as? PaymentViewController else {
+            return
+        }
+        paymentViewController.modalPresentationStyle = .fullScreen
+        paymentViewController.delegate = self
+        paymentViewController.selectedIndex = paymentViewController.paymentName.firstIndex(of: self.selectedOtherPayment) ?? 2
+        
+        self.present(paymentViewController, animated: false, completion: nil)
+    }
 }
 
-extension OrderViewController: SelectAddressDelegate, SelectReceiptDelegate {
+// MARK: - SelectDelegate
+extension OrderViewController: SelectAddressDelegate, SelectReceiptDelegate, SelectPaymentDelegate {
     func setSelectedAddress(index: Int) {
         selectedAddress = addresses[index]
         collectionView.reloadData()
@@ -124,6 +147,14 @@ extension OrderViewController: SelectAddressDelegate, SelectReceiptDelegate {
     
     func setSelectedReceipt(index: Int) {
         selectedReceiptIndex = index
+        collectionView.reloadData()
+    }
+    
+    func setSelectedPayment(paymentName: String) {
+        selectedPayment = paymentName
+        if paymentName != "번개장터 간편결제" {
+            selectedOtherPayment = paymentName
+        }
         collectionView.reloadData()
     }
 }
@@ -148,7 +179,7 @@ extension OrderViewController: AddressDataDelegate {
 // MARK: - UICollectionView
 extension OrderViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return 5
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -157,13 +188,13 @@ extension OrderViewController: UICollectionViewDelegate, UICollectionViewDataSou
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TitleCell", for: indexPath) as? OrderTitleCollectionViewCell else {
                 return UICollectionViewCell()
             }
-            if let goodsImage = goodsImage {
+            if let goodsImage = basicOrderInfo?.goodsImage {
                 if let url = URL(string: goodsImage) {
                     cell.imageView.load(url: url)
                 }
             }
-            cell.priceLabel.text = String(goodsPrice ?? 0).insertComma + "원"
-            cell.nameLabel.text = goodsName ?? ""
+            cell.priceLabel.text = String(basicOrderInfo?.goodsPrice ?? 0).insertComma + "원"
+            cell.nameLabel.text = basicOrderInfo?.goodsName ?? ""
             
             return cell
         case 1: // 배송지
@@ -183,10 +214,42 @@ extension OrderViewController: UICollectionViewDelegate, UICollectionViewDataSou
             cell.receiptView.addGestureRecognizer(receiptGestureRecognizer)
             
             return cell
-        case 2:
+        case 2: // 번개포인트
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PointCell", for: indexPath) as? PointCollectionViewCell else {
                 return UICollectionViewCell()
             }
+            return cell
+        case 3: // 결제금액
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PriceCell", for: indexPath) as? PriceCollectionViewCell else {
+                return UICollectionViewCell()
+            }
+            if let goodsPrice = basicOrderInfo?.goodsPrice {
+                cell.goodsPriceLabel.text = String(basicOrderInfo?.goodsPrice ?? 0).insertComma + "원"
+                
+                let tempSecurePaymentFee = String(Int(Double(goodsPrice) * 0.035))
+                let securePaymentFee = tempSecurePaymentFee.substring(from: 0, to: tempSecurePaymentFee.count - 1) + "0"
+                let totalPrice = String(goodsPrice + (Int(securePaymentFee) ?? 0))
+                
+                cell.securePaymentFeeLabel.text = "+\(securePaymentFee.insertComma)원"
+                cell.deliveryFeeLabel.text = basicOrderInfo?.isDeilveryFee == "Y" ? "배송비포함" : "배송비별도"
+                cell.totalPriceLabel.text = totalPrice.insertComma + "원"
+            }
+            
+            return cell
+        case 4: // 결제수단
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PaymentCell", for: indexPath) as? PaymentCollectionViewCell else {
+                return UICollectionViewCell()
+            }
+            
+            if selectedPayment != "번개장터 간편결제" {
+                cell.otherPaymentTypeLabel.text = selectedPayment
+            }
+            
+            cell.delegate = self
+            
+            cell.otherPaymentChangeButton.addTarget(self, action: #selector(otherPaymentChangeButtonTapped), for: .touchUpInside)
+
+            
             return cell
         default:
             return UICollectionViewCell()
@@ -202,6 +265,10 @@ extension OrderViewController: UICollectionViewDelegate, UICollectionViewDataSou
             return CGSize(width: width, height: 320)
         case 2:
             return CGSize(width: width, height: 200)
+        case 3:
+            return CGSize(width: width, height: 350)
+        case 4:
+            return CGSize(width: width, height: 800)
         default:
             return CGSize()
         }

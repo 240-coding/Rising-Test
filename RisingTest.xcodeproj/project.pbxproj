@@ -72,6 +72,11 @@
 		89D87C7E28E4385D005D5756 /* AddressRemoveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D87C7D28E4385D005D5756 /* AddressRemoveViewController.swift */; };
 		89D87C8128E447C8005D5756 /* PointCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D87C7F28E447C8005D5756 /* PointCollectionViewCell.swift */; };
 		89D87C8228E447C8005D5756 /* PointCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89D87C8028E447C8005D5756 /* PointCollectionViewCell.xib */; };
+		89D87C8528E44D57005D5756 /* PriceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D87C8328E44D57005D5756 /* PriceCollectionViewCell.swift */; };
+		89D87C8628E44D57005D5756 /* PriceCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89D87C8428E44D57005D5756 /* PriceCollectionViewCell.xib */; };
+		89D87C8928E4753B005D5756 /* PaymentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D87C8728E4753B005D5756 /* PaymentCollectionViewCell.swift */; };
+		89D87C8A28E4753B005D5756 /* PaymentCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89D87C8828E4753B005D5756 /* PaymentCollectionViewCell.xib */; };
+		89D87C8C28E4A3F3005D5756 /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D87C8B28E4A3F3005D5756 /* PaymentViewController.swift */; };
 		89E4797628D7681900C3E1E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E4797528D7681900C3E1E0 /* AppDelegate.swift */; };
 		89E4797828D7681900C3E1E0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E4797728D7681900C3E1E0 /* SceneDelegate.swift */; };
 		89E4797A28D7681900C3E1E0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E4797928D7681900C3E1E0 /* HomeViewController.swift */; };
@@ -150,6 +155,11 @@
 		89D87C7D28E4385D005D5756 /* AddressRemoveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressRemoveViewController.swift; sourceTree = "<group>"; };
 		89D87C7F28E447C8005D5756 /* PointCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointCollectionViewCell.swift; sourceTree = "<group>"; };
 		89D87C8028E447C8005D5756 /* PointCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PointCollectionViewCell.xib; sourceTree = "<group>"; };
+		89D87C8328E44D57005D5756 /* PriceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceCollectionViewCell.swift; sourceTree = "<group>"; };
+		89D87C8428E44D57005D5756 /* PriceCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PriceCollectionViewCell.xib; sourceTree = "<group>"; };
+		89D87C8728E4753B005D5756 /* PaymentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentCollectionViewCell.swift; sourceTree = "<group>"; };
+		89D87C8828E4753B005D5756 /* PaymentCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PaymentCollectionViewCell.xib; sourceTree = "<group>"; };
+		89D87C8B28E4A3F3005D5756 /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
 		89E4797228D7681900C3E1E0 /* RisingTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RisingTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89E4797528D7681900C3E1E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89E4797728D7681900C3E1E0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -319,6 +329,7 @@
 				8987BA8F28E0DF9B00A9C871 /* View */,
 				8961508928E33A9D0097BE29 /* Address */,
 				8987BA9428E0E3CA00A9C871 /* OrderViewController.swift */,
+				89D87C8B28E4A3F3005D5756 /* PaymentViewController.swift */,
 				89C0EB5928E1740300243D00 /* AddressesDataManager.swift */,
 			);
 			path = Order;
@@ -333,6 +344,10 @@
 				8987BA9128E0DFC900A9C871 /* AddressCollectionViewCell.xib */,
 				89D87C7F28E447C8005D5756 /* PointCollectionViewCell.swift */,
 				89D87C8028E447C8005D5756 /* PointCollectionViewCell.xib */,
+				89D87C8328E44D57005D5756 /* PriceCollectionViewCell.swift */,
+				89D87C8428E44D57005D5756 /* PriceCollectionViewCell.xib */,
+				89D87C8728E4753B005D5756 /* PaymentCollectionViewCell.swift */,
+				89D87C8828E4753B005D5756 /* PaymentCollectionViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -569,8 +584,10 @@
 				89D87C8228E447C8005D5756 /* PointCollectionViewCell.xib in Resources */,
 				8991A4FD28E0B1C400D5AC2B /* UserGoodsCollectionReusableView.xib in Resources */,
 				89E6C35C28DAF5A100A48052 /* WritePhotoCollectionViewCell.xib in Resources */,
+				89D87C8628E44D57005D5756 /* PriceCollectionViewCell.xib in Resources */,
 				8987BA9328E0DFC900A9C871 /* AddressCollectionViewCell.xib in Resources */,
 				8994935628D9B75000333811 /* WriteCollectionReusableView.xib in Resources */,
+				89D87C8A28E4753B005D5756 /* PaymentCollectionViewCell.xib in Resources */,
 				8994935A28D9B98E00333811 /* WriteUploadCollectionViewCell.xib in Resources */,
 				89E4797F28D7681900C3E1E0 /* Assets.xcassets in Resources */,
 				89E4797D28D7681900C3E1E0 /* MainStoryboard.storyboard in Resources */,
@@ -633,6 +650,7 @@
 				89E89A6028E1F0BD0029D0BA /* AddressManagementViewController.swift in Sources */,
 				89152A9E28D840670071225D /* LoginViewController.swift in Sources */,
 				890F195E28D8DA9C00927292 /* LoginCollectionViewCell.swift in Sources */,
+				89D87C8C28E4A3F3005D5756 /* PaymentViewController.swift in Sources */,
 				8991A4F428E06F6100D5AC2B /* PaddingLabel.swift in Sources */,
 				89E6C35F28DAFA5900A48052 /* WriteCollectionViewCell.swift in Sources */,
 				8965255228DCCAD5004A7D1F /* SearchChildViewController.swift in Sources */,
@@ -666,6 +684,7 @@
 				89E4797A28D7681900C3E1E0 /* HomeViewController.swift in Sources */,
 				89BE704528DB7CC10093A704 /* TextViewCollectionViewCell.swift in Sources */,
 				8902131128E2D076001D71E9 /* NewAddressRequest.swift in Sources */,
+				89D87C8928E4753B005D5756 /* PaymentCollectionViewCell.swift in Sources */,
 				8991A50928E0D15F00D5AC2B /* ReviewCollectionViewCell.swift in Sources */,
 				89E4797628D7681900C3E1E0 /* AppDelegate.swift in Sources */,
 				89D87C8128E447C8005D5756 /* PointCollectionViewCell.swift in Sources */,
@@ -678,6 +697,7 @@
 				89E6C36128DB071A00A48052 /* UIView.swift in Sources */,
 				8991A4EF28DF718600D5AC2B /* DetailViewController.swift in Sources */,
 				8991A4E828DF00A200D5AC2B /* BrandViewController.swift in Sources */,
+				89D87C8528E44D57005D5756 /* PriceCollectionViewCell.swift in Sources */,
 				8991A50528E0D11000D5AC2B /* ReviewHeaderCollectionReusableView.swift in Sources */,
 				89E6C35B28DAF5A100A48052 /* WritePhotoCollectionViewCell.swift in Sources */,
 				8902131928E2F422001D71E9 /* AddressAddResponse.swift in Sources */,

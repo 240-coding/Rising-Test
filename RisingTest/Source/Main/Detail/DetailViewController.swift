@@ -157,10 +157,7 @@ class DetailViewController: UIViewController {
             return
         }
         orderViewController.modalPresentationStyle = .fullScreen
-        orderViewController.goodsIndex = goodsData?.goodsIdx
-        orderViewController.goodsName = goodsData?.goodsName
-        orderViewController.goodsImage = goodsData?.imgs.first?.goodsImgUrl
-        orderViewController.goodsPrice = goodsData?.goodsPrice
+        orderViewController.basicOrderInfo = BasicOrderInfo(goodsIndex: goodsData?.goodsIdx, goodsName: goodsData?.goodsName, goodsImage: goodsData?.imgs.first?.goodsImgUrl, goodsPrice: goodsData?.goodsPrice, isSecurePayment: goodsData?.isSecurePayment, isDeilveryFee: goodsData?.isDeilveryFee)
         
         present(orderViewController, animated: true, completion: nil)
     }

@@ -31,7 +31,7 @@
                                 <rect key="frame" x="16" y="77" width="329" height="150"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="기본배송지" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fsy-bh-Ics" customClass="PaddingLabel" customModule="RisingTest" customModuleProvider="target">
-                                        <rect key="frame" x="69" y="26.5" width="72" height="24.5"/>
+                                        <rect key="frame" x="69" y="31.5" width="52" height="14.5"/>
                                         <color key="backgroundColor" name="lightred"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                         <color key="textColor" name="red"/>
@@ -149,7 +149,7 @@
     </objects>
     <designables>
         <designable name="Fsy-bh-Ics">
-            <size key="intrinsicContentSize" width="72" height="24.5"/>
+            <size key="intrinsicContentSize" width="52" height="14.5"/>
         </designable>
     </designables>
     <resources>
