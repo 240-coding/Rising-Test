@@ -3286,6 +3286,73 @@
             </objects>
             <point key="canvasLocation" x="10899" y="248"/>
         </scene>
+        <!--Agreement Popup View Controller-->
+        <scene sceneID="PC3-qn-USz">
+            <objects>
+                <viewController storyboardIdentifier="AgreementPopupViewController" id="8WD-eZ-q2F" customClass="AgreementPopupViewController" customModule="RisingTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zRA-xo-cjB">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0fv-WQ-bZO">
+                                <rect key="frame" x="48" y="373" width="318" height="150"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="dVv-UQ-MRE">
+                                        <rect key="frame" x="0.0" y="100" width="318" height="50"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BK8-Cr-aY1">
+                                                <rect key="frame" x="0.0" y="0.0" width="318" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="5q3-K5-gxy"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="확인">
+                                                    <color key="titleColor" red="0.0039215686269999999" green="0.58039215690000001" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="yesButtonTapped:" destination="8WD-eZ-q2F" eventType="touchUpInside" id="V4n-iD-Hf9"/>
+                                                    <action selector="yesButtonTapped:" destination="tc9-IH-FYG" eventType="touchUpInside" id="oZN-lz-xUT"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="결제 이용약관을 동의해주세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lBX-Ix-JMf">
+                                        <rect key="frame" x="56.5" y="40" width="205" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="lBX-Ix-JMf" firstAttribute="top" secondItem="0fv-WQ-bZO" secondAttribute="top" constant="40" id="KSa-7A-Ebc"/>
+                                    <constraint firstAttribute="height" constant="150" id="WhA-mR-RA8"/>
+                                    <constraint firstAttribute="trailing" secondItem="dVv-UQ-MRE" secondAttribute="trailing" id="XHV-oO-1nd"/>
+                                    <constraint firstItem="lBX-Ix-JMf" firstAttribute="centerX" secondItem="0fv-WQ-bZO" secondAttribute="centerX" id="gkz-Wh-3s0"/>
+                                    <constraint firstAttribute="bottom" secondItem="dVv-UQ-MRE" secondAttribute="bottom" id="jMQ-I8-deI"/>
+                                    <constraint firstItem="dVv-UQ-MRE" firstAttribute="leading" secondItem="0fv-WQ-bZO" secondAttribute="leading" id="xUh-pl-XBM"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="984-BM-eAz"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="0fv-WQ-bZO" firstAttribute="centerY" secondItem="zRA-xo-cjB" secondAttribute="centerY" id="LUi-az-Zej"/>
+                            <constraint firstItem="0fv-WQ-bZO" firstAttribute="centerX" secondItem="zRA-xo-cjB" secondAttribute="centerX" id="QGM-1e-ALn"/>
+                            <constraint firstItem="984-BM-eAz" firstAttribute="trailing" secondItem="0fv-WQ-bZO" secondAttribute="trailing" constant="48" id="V07-Fo-WQh"/>
+                            <constraint firstItem="0fv-WQ-bZO" firstAttribute="leading" secondItem="984-BM-eAz" secondAttribute="leading" constant="48" id="rI5-OX-lCG"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="modalView" destination="0fv-WQ-bZO" id="dqL-k1-Gec"/>
+                        <outlet property="okayButton" destination="BK8-Cr-aY1" id="pfo-4q-YsX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="15M-GK-fdI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="11764" y="248"/>
+        </scene>
     </scenes>
     <designables>
         <designable name="9i3-xr-4J7">

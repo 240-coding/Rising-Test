@@ -19,6 +19,10 @@ protocol SelectPaymentDelegate {
     func setSelectedPayment(paymentName: String)
 }
 
+protocol CheckAgreementDelegate {
+    func setAgreementChecked(isChecked: Bool)
+}
+
 struct BasicOrderInfo {
     var goodsIndex: Int?
     var goodsName: String?
@@ -33,6 +37,7 @@ class OrderViewController: UIViewController {
     var selectedReceiptIndex = 0
     var selectedPayment = "번개장터 간편결제"
     var selectedOtherPayment = "네이버페이"
+    var isAgreementChecked = false
     
     var basicOrderInfo: BasicOrderInfo?
     let receiptOptions = ["문앞", "직접 받고 부재 시 문앞", "경비실", "우편함", "직접입력"]
@@ -79,6 +84,7 @@ class OrderViewController: UIViewController {
         collectionView.register(UINib(nibName: "PointCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "PointCell")
         collectionView.register(UINib(nibName: "PriceCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "PriceCell")
         collectionView.register(UINib(nibName: "PaymentCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "PaymentCell")
+        collectionView.register(UINib(nibName: "AgreementPayCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "AgreementPayCell")
     }
     
     // MARK: - Action
@@ -136,10 +142,22 @@ class OrderViewController: UIViewController {
         
         self.present(paymentViewController, animated: false, completion: nil)
     }
+    
+    @objc func doneButtonTapped() {
+        if isAgreementChecked {
+            print("결제")
+        } else {
+            guard let agreementPopupViewController = UIStoryboard(name: "MainStoryboard", bundle: nil).instantiateViewController(withIdentifier: "AgreementPopupViewController") as? AgreementPopupViewController else {
+                return
+            }
+            agreementPopupViewController.modalPresentationStyle = .overFullScreen
+            self.present(agreementPopupViewController, animated: false, completion: nil)
+        }
+    }
 }
 
 // MARK: - SelectDelegate
-extension OrderViewController: SelectAddressDelegate, SelectReceiptDelegate, SelectPaymentDelegate {
+extension OrderViewController: SelectAddressDelegate, SelectReceiptDelegate, SelectPaymentDelegate, CheckAgreementDelegate {
     func setSelectedAddress(index: Int) {
         selectedAddress = addresses[index]
         collectionView.reloadData()
@@ -156,6 +174,10 @@ extension OrderViewController: SelectAddressDelegate, SelectReceiptDelegate, Sel
             selectedOtherPayment = paymentName
         }
         collectionView.reloadData()
+    }
+    
+    func setAgreementChecked(isChecked: Bool) {
+        isAgreementChecked = isChecked
     }
 }
 
@@ -179,7 +201,7 @@ extension OrderViewController: AddressDataDelegate {
 // MARK: - UICollectionView
 extension OrderViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return 6
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -251,6 +273,14 @@ extension OrderViewController: UICollectionViewDelegate, UICollectionViewDataSou
 
             
             return cell
+        case 5: // 동의 및 결제 버튼
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AgreementPayCell", for: indexPath) as? AgreementPayCollectionViewCell else {
+                return UICollectionViewCell()
+            }
+            cell.delegate = self
+            cell.doneButton.addTarget(self, action: #selector(doneButtonTapped), for: .touchUpInside)
+            
+            return cell
         default:
             return UICollectionViewCell()
         }
@@ -268,7 +298,9 @@ extension OrderViewController: UICollectionViewDelegate, UICollectionViewDataSou
         case 3:
             return CGSize(width: width, height: 350)
         case 4:
-            return CGSize(width: width, height: 800)
+            return CGSize(width: width, height: 750)
+        case 5:
+            return CGSize(width: width, height: 370)
         default:
             return CGSize()
         }
