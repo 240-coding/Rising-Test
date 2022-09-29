@@ -11,7 +11,15 @@ import Alamofire
 class HomeDataManager {
     func fetchHomeData(delegate: HomeViewController) {
         let url = Constant.BASE_URL + "/home"
-        AF.request(url, method: .get)
+        
+        guard let userToken = UserDefaults.standard.string(forKey: "KakaoLoginUserIdentifier") else {
+            return
+        }
+        let headers: HTTPHeaders = [
+            "X_ACCESS_TOKEN": userToken
+        ]
+        
+        AF.request(url, method: .get, headers: headers)
             .validate()
             .responseDecodable(of: HomeResponse.self) { response in
                 switch response.result {
