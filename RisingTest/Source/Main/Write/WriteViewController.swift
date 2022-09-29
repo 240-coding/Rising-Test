@@ -7,10 +7,16 @@
 
 import UIKit
 
+protocol TagDelegate {
+    func loadUserTags(tags: [String])
+}
+
 class WriteViewController: UIViewController {
     
     
     var selectedImages = [UIImage]()
+    var tags = [String]()
+    
     @IBOutlet var scrollView: UIScrollView!
     
     @IBOutlet weak var collectionView: UICollectionView!
@@ -120,6 +126,8 @@ class WriteViewController: UIViewController {
         guard let tagViewController = UIStoryboard(name: "MainStoryboard", bundle: nil).instantiateViewController(withIdentifier: "TagViewController") as? TagViewController else {
             return
         }
+        tagViewController.delegate = self
+        tagViewController.tags = self.tags
         navigationController?.pushViewController(tagViewController, animated: true)
     }
     
@@ -154,6 +162,26 @@ class WriteViewController: UIViewController {
         self.present(imagePicker, animated: true, completion: nil)
     }
 
+}
+
+extension WriteViewController: TagDelegate {
+    func loadUserTags(tags: [String]) {
+        self.tags = tags
+        if !tags.isEmpty {
+            var tagButtonText = ""
+            for tag in tags {
+                tagButtonText += "#\(tag)\t"
+            }
+            tagButton.setTitle(tagButtonText, for: .normal)
+            tagButton.setTitleColor(.black, for: .normal)
+            tagButton.setImage(UIImage(), for: .normal)
+        } else {
+            tagButton.setTitle("태그", for: .normal)
+            tagButton.setTitleColor(.systemGray3, for: .normal)
+            tagButton.setImage(UIImage(systemName: "number"), for: .normal)
+        }
+        
+    }
 }
 
 // MARK: - UICollectionView

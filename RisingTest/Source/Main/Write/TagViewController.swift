@@ -10,6 +10,7 @@ import UIKit
 class TagViewController: UIViewController {
     
     var tags = [String]()
+    var delegate: TagDelegate?
     
     @IBOutlet var textfield: UITextField!
     @IBOutlet var tagStackView: UIStackView!
@@ -18,8 +19,11 @@ class TagViewController: UIViewController {
     @IBOutlet var collectionView: UICollectionView!
     @IBOutlet var collectionViewHeight: NSLayoutConstraint!
     
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        configureNavigationBar()
 
         tagStackView.addBorders(edges: .bottom, color: UIColor(named: "lightgray")!, width: 1)
         addButton.addBorders(edges: .left, color: UIColor(named: "lightgray")!, width: 1)
@@ -35,18 +39,30 @@ class TagViewController: UIViewController {
         view.layoutIfNeeded()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
+    func configureNavigationBar() {
+        let backBarButtom = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(popVC))
+        let titleBarButton = UIBarButtonItem(title: "태그", style: .done, target: self, action: nil)
+        navigationItem.leftBarButtonItems = [backBarButtom, titleBarButton]
     }
     
     // MARK: - Action
+    @objc func popVC() {
+        delegate?.loadUserTags(tags: tags)
+        navigationController?.popViewController(animated: true)
+    }
+    
     @IBAction func addButtonTapped() {
         if let tag = textfield.text {
-            if tags.count < 5 && !tags.contains(tag) {
+            if tags.count < 5 && !tags.contains(tag) && tag.isExists {
                 tags.append(tag)
             }
         }
+        textfield.text = ""
+        self.viewDidLayoutSubviews()
+    }
+    
+    @objc func deleteButtonTapped(_ sender: UIButton) {
+        tags.remove(at: sender.tag)
         self.viewDidLayoutSubviews()
     }
 
@@ -63,6 +79,8 @@ extension TagViewController: UICollectionViewDelegate, UICollectionViewDataSourc
         }
         
         cell.tagLabel.text = tags[indexPath.row]
+        cell.deleteButton.tag = indexPath.row
+        cell.deleteButton.addTarget(self, action: #selector(deleteButtonTapped(_:)), for: .touchUpInside)
         
         return cell
     }
