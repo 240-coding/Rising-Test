@@ -11,6 +11,7 @@ class DetailViewController: UIViewController {
     
     var goodsIndex: Int?
     var goodsImages = [String]()
+    var isLiked: Bool?
     var goodsData: GetGoodsDataRes?
     var userGoods = [GetStoreGoodsRe]()
     var userReviews = [GetStoreReviewRe]()

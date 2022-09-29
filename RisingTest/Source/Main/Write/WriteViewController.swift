@@ -11,8 +11,13 @@ protocol TagDelegate {
     func loadUserTags(tags: [String])
 }
 
+protocol OptionDelegate {
+    func loadSelectedOptions(amount: Int, condition: String, isExchange: String)
+}
+
 class WriteViewController: UIViewController {
     
+    var writeRequest = WriteRequest(goodsAddress: "서울특별시 서대문구 신촌동", goodsName: "", goodsContent: "", goodsPrice: 0, isSecurePayment: "N", isDeliveryFee: "N", goodsCount: 1, goodsCondition: "0", isExchange: "N", categoryOptionIdx: 0, categoryIdx: 0, tags: [], multipartfile: UIImage())
     
     var selectedImages = [UIImage]()
     var tags = [String]()
@@ -128,7 +133,6 @@ class WriteViewController: UIViewController {
         guard let categoryViewController = UIStoryboard(name: "MainStoryboard", bundle: nil).instantiateViewController(withIdentifier: "CategoryViewController") as? CategoryViewController else {
             return
         }
-//        tagViewController.delegate = self
         navigationController?.pushViewController(categoryViewController, animated: true)
     }
     
@@ -147,10 +151,28 @@ class WriteViewController: UIViewController {
         if sender.isSelected {
             sender.setImage(UIImage(systemName: "checkmark.circle.fill"), for: .normal)
             sender.tintColor = UIColor(named: "red") ?? UIColor()
+            writeRequest.isDeliveryFee = "Y"
         } else {
             sender.setImage(UIImage(systemName: "checkmark.circle"), for: .normal)
             sender.tintColor = UIColor(named: "lightgray") ?? .systemGray3
+            writeRequest.isDeliveryFee = "N"
         }
+    }
+    
+    @IBAction func pressedOptionButton(_ sender: UIButton) {
+        guard let optionViewController = UIStoryboard(name: "MainStoryboard", bundle: nil).instantiateViewController(withIdentifier: "OptionViewController") as? OptionViewController else {
+            return
+        }
+        optionViewController.modalPresentationStyle = .pageSheet
+        optionViewController.delegate = self
+        
+        if #available(iOS 15.0, *) {
+            if let sheet = optionViewController.sheetPresentationController {
+                sheet.detents = [.medium()]
+                sheet.preferredCornerRadius = 15
+            }
+        }
+        self.present(optionViewController, animated: true, completion: nil)
     }
     
     @IBAction func pressedPayButton(_ sender: UIButton) {
@@ -160,11 +182,13 @@ class WriteViewController: UIViewController {
             payWarningImageView.isHidden = true
             payWarningLabel.text = "내 상품에 안전결제 배지가 표시돼요"
             payWarningLabel.textColor = .black
+            writeRequest.isSecurePayment = "Y"
         } else {
             sender.layer.borderColor = UIColor(named: "lightgray")?.cgColor
             payWarningImageView.isHidden = false
             payWarningLabel.text = "안전결제를 거부하면 주의 안내가 표시돼요"
             payWarningLabel.textColor = UIColor(named: "red") ?? UIColor()
+            writeRequest.isSecurePayment = "N"
         }
     }
     
@@ -179,10 +203,37 @@ class WriteViewController: UIViewController {
         let selectedCategory = "\(data["categoryName"] ?? "") > \(data["categoryOptionName"] ?? "")"
         categoryButton.setTitle(selectedCategory, for: .normal)
         categoryButton.setTitleColor(.black, for: .normal)
+        
+        if let categoryIdx = Int(data["categoryIdx"] ?? ""), let categoryOptionIdx = Int(data["categoryOptionIdx"] ?? "") {
+            writeRequest.categoryIdx = categoryIdx
+            writeRequest.categoryOptionIdx = categoryOptionIdx
+        }
     }
-
+    
+    @IBAction func pressedWriteButton(sender: UIButton) {
+        if let goodsName = nameTextField.text, let priceText = priceTextField.text, let price = Int(priceText), let content = textView.text, let image = selectedImages.first {
+            writeRequest.goodsName = goodsName
+            writeRequest.goodsPrice = price
+            writeRequest.goodsContent = content
+            writeRequest.multipartfile = image
+            
+            writeRequest.tags = tags.map{ WriteTag(tagName: $0 )}
+            
+            WriteDataManager().postGoods(writeRequest: writeRequest, delegate: self)
+        } else {
+            print("no data")
+        }
+        
+    }
+}
+// MARK: - Networking
+extension WriteViewController {
+    func didPostGoods() {
+        dismiss(animated: true, completion: nil)
+    }
 }
 
+// MARK: - Custom Delegate
 extension WriteViewController: TagDelegate {
     func loadUserTags(tags: [String]) {
         self.tags = tags
@@ -203,6 +254,16 @@ extension WriteViewController: TagDelegate {
     }
 }
 
+extension WriteViewController: OptionDelegate {
+    func loadSelectedOptions(amount: Int, condition: String, isExchange: String) {
+        optionLabel.text = "\(amount)개﹒\(condition == "0" ? "중고상품" : "새상품")﹒\(isExchange == "N" ? "교환불가" : "교환가능")"
+        
+        writeRequest.goodsCount = amount
+        writeRequest.goodsCondition = condition
+        writeRequest.isExchange = isExchange
+    }
+}
+
 // MARK: - UICollectionView
 extension WriteViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -214,6 +275,8 @@ extension WriteViewController: UICollectionViewDelegate, UICollectionViewDataSou
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "UploadCell", for: indexPath) as? WriteUploadCollectionViewCell else {
                 return UICollectionViewCell()
             }
+            cell.imageCountLabel.text = "\(selectedImages.count)/12"
+            
             return cell
         } else {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath) as? WritePhotoCollectionViewCell else {

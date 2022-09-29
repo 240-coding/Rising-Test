@@ -86,6 +86,13 @@
 		89D2FCFE28E5D0E5000C118C /* CategoryOptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D2FCFD28E5D0E5000C118C /* CategoryOptionTableViewCell.swift */; };
 		89D2FD0028E5D0FA000C118C /* CategoryOptionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D2FCFF28E5D0FA000C118C /* CategoryOptionHeaderView.swift */; };
 		89D2FD0228E5D10F000C118C /* CategoryOptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D2FD0128E5D10F000C118C /* CategoryOptionViewController.swift */; };
+		89D2FD0428E5EF61000C118C /* OptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D2FD0328E5EF61000C118C /* OptionViewController.swift */; };
+		89D2FD0628E5F97A000C118C /* WriteRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D2FD0528E5F97A000C118C /* WriteRequest.swift */; };
+		89D2FD0828E6107F000C118C /* WriteResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D2FD0728E6107F000C118C /* WriteResponse.swift */; };
+		89D2FD0C28E6544F000C118C /* PostLikeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D2FD0B28E6544F000C118C /* PostLikeResponse.swift */; };
+		89D2FD0E28E65519000C118C /* LikeListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D2FD0D28E65519000C118C /* LikeListResponse.swift */; };
+		89D2FD1028E6560E000C118C /* PatchLikeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D2FD0F28E6560E000C118C /* PatchLikeResponse.swift */; };
+		89D2FD1228E65678000C118C /* LikeDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D2FD1128E65678000C118C /* LikeDataManager.swift */; };
 		89D87C7E28E4385D005D5756 /* AddressRemoveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D87C7D28E4385D005D5756 /* AddressRemoveViewController.swift */; };
 		89D87C8128E447C8005D5756 /* PointCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D87C7F28E447C8005D5756 /* PointCollectionViewCell.swift */; };
 		89D87C8228E447C8005D5756 /* PointCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89D87C8028E447C8005D5756 /* PointCollectionViewCell.xib */; };
@@ -188,6 +195,13 @@
 		89D2FCFD28E5D0E5000C118C /* CategoryOptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryOptionTableViewCell.swift; sourceTree = "<group>"; };
 		89D2FCFF28E5D0FA000C118C /* CategoryOptionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryOptionHeaderView.swift; sourceTree = "<group>"; };
 		89D2FD0128E5D10F000C118C /* CategoryOptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryOptionViewController.swift; sourceTree = "<group>"; };
+		89D2FD0328E5EF61000C118C /* OptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionViewController.swift; sourceTree = "<group>"; };
+		89D2FD0528E5F97A000C118C /* WriteRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteRequest.swift; sourceTree = "<group>"; };
+		89D2FD0728E6107F000C118C /* WriteResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteResponse.swift; sourceTree = "<group>"; };
+		89D2FD0B28E6544F000C118C /* PostLikeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostLikeResponse.swift; sourceTree = "<group>"; };
+		89D2FD0D28E65519000C118C /* LikeListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeListResponse.swift; sourceTree = "<group>"; };
+		89D2FD0F28E6560E000C118C /* PatchLikeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatchLikeResponse.swift; sourceTree = "<group>"; };
+		89D2FD1128E65678000C118C /* LikeDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeDataManager.swift; sourceTree = "<group>"; };
 		89D87C7D28E4385D005D5756 /* AddressRemoveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressRemoveViewController.swift; sourceTree = "<group>"; };
 		89D87C7F28E447C8005D5756 /* PointCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointCollectionViewCell.swift; sourceTree = "<group>"; };
 		89D87C8028E447C8005D5756 /* PointCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PointCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -296,6 +310,7 @@
 		89152A9928D83C7E0071225D /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				89D2FD0928E6542E000C118C /* Like */,
 				89939DBE28DE160D002004C2 /* Home */,
 				8965254B28DCAE77004A7D1F /* Search */,
 				8991A4ED28DF717800D5AC2B /* Detail */,
@@ -480,6 +495,7 @@
 				89F452D828E5949500E86E03 /* TagViewController.swift */,
 				89F452DD28E5B04500E86E03 /* CategoryViewController.swift */,
 				89D2FD0128E5D10F000C118C /* CategoryOptionViewController.swift */,
+				89D2FD0328E5EF61000C118C /* OptionViewController.swift */,
 				89D2FCF828E5CDEA000C118C /* WriteDataManager.swift */,
 			);
 			path = Write;
@@ -551,6 +567,27 @@
 			isa = PBXGroup;
 			children = (
 				89D2FCFB28E5CE9C000C118C /* CategoryResponse.swift */,
+				89D2FD0528E5F97A000C118C /* WriteRequest.swift */,
+				89D2FD0728E6107F000C118C /* WriteResponse.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		89D2FD0928E6542E000C118C /* Like */ = {
+			isa = PBXGroup;
+			children = (
+				89D2FD0A28E6543D000C118C /* Entity */,
+				89D2FD1128E65678000C118C /* LikeDataManager.swift */,
+			);
+			path = Like;
+			sourceTree = "<group>";
+		};
+		89D2FD0A28E6543D000C118C /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				89D2FD0B28E6544F000C118C /* PostLikeResponse.swift */,
+				89D2FD0D28E65519000C118C /* LikeListResponse.swift */,
+				89D2FD0F28E6560E000C118C /* PatchLikeResponse.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -787,6 +824,7 @@
 				8994935928D9B98E00333811 /* WriteUploadCollectionViewCell.swift in Sources */,
 				89C3D59D28E4BF71002A9507 /* OrderCompleteViewController.swift in Sources */,
 				89939DC428DE1D28002004C2 /* HomeResponse.swift in Sources */,
+				89D2FD0E28E65519000C118C /* LikeListResponse.swift in Sources */,
 				8991A4E628DF009800D5AC2B /* RecommendViewController.swift in Sources */,
 				89C0EB5A28E1740300243D00 /* AddressesDataManager.swift in Sources */,
 				8994935028D99C4000333811 /* SearchViewController.swift in Sources */,
@@ -798,8 +836,10 @@
 				89D87C8928E4753B005D5756 /* PaymentCollectionViewCell.swift in Sources */,
 				89C3D5AF28E53EEC002A9507 /* OrderDetailResponse.swift in Sources */,
 				89C3D59728E4B68C002A9507 /* OrderRequest.swift in Sources */,
+				89D2FD1028E6560E000C118C /* PatchLikeResponse.swift in Sources */,
 				8991A50928E0D15F00D5AC2B /* ReviewCollectionViewCell.swift in Sources */,
 				89E4797628D7681900C3E1E0 /* AppDelegate.swift in Sources */,
+				89D2FD0C28E6544F000C118C /* PostLikeResponse.swift in Sources */,
 				89D87C8128E447C8005D5756 /* PointCollectionViewCell.swift in Sources */,
 				89939DB828DDD0E3002004C2 /* LoginDataManager.swift in Sources */,
 				8991A4F728E0945C00D5AC2B /* GoodsResponse.swift in Sources */,
@@ -816,15 +856,18 @@
 				8991A4E828DF00A200D5AC2B /* BrandViewController.swift in Sources */,
 				89C3D5A028E529BA002A9507 /* OrderDetailHeaderView.swift in Sources */,
 				89C3D59428E4B4A6002A9507 /* AgreementPopupViewController.swift in Sources */,
+				89D2FD0828E6107F000C118C /* WriteResponse.swift in Sources */,
 				89D87C8528E44D57005D5756 /* PriceCollectionViewCell.swift in Sources */,
 				8991A50528E0D11000D5AC2B /* ReviewHeaderCollectionReusableView.swift in Sources */,
 				89E6C35B28DAF5A100A48052 /* WritePhotoCollectionViewCell.swift in Sources */,
 				89D2FD0028E5D0FA000C118C /* CategoryOptionHeaderView.swift in Sources */,
 				8902131928E2F422001D71E9 /* AddressAddResponse.swift in Sources */,
 				89E89A5E28E1C3C20029D0BA /* SelectReceiptViewController.swift in Sources */,
+				89D2FD0428E5EF61000C118C /* OptionViewController.swift in Sources */,
 				8991A4DF28DEF68A00D5AC2B /* UINavigationBar.swift in Sources */,
 				8987BA9728E0E47800A9C871 /* OrderTitleCollectionViewCell.swift in Sources */,
 				89D2FD0228E5D10F000C118C /* CategoryOptionViewController.swift in Sources */,
+				89D2FD1228E65678000C118C /* LikeDataManager.swift in Sources */,
 				89D2FCFE28E5D0E5000C118C /* CategoryOptionTableViewCell.swift in Sources */,
 				89C0EB5C28E177C900243D00 /* SelectAddressViewController.swift in Sources */,
 				8987BA9228E0DFC900A9C871 /* AddressCollectionViewCell.swift in Sources */,
@@ -835,6 +878,7 @@
 				8902131328E2D7E5001D71E9 /* Notification.swift in Sources */,
 				8994934C28D9911A00333811 /* WriteViewController.swift in Sources */,
 				89939DBB28DDD29D002004C2 /* LoginResponse.swift in Sources */,
+				89D2FD0628E5F97A000C118C /* WriteRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

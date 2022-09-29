@@ -72,6 +72,7 @@
             <size key="customSize" width="31" height="35"/>
             <connections>
                 <outlet property="grayView" destination="zZJ-Ww-sTg" id="JbC-DK-5n0"/>
+                <outlet property="imageCountLabel" destination="4Aa-02-rzb" id="sUV-cx-mFr"/>
             </connections>
             <point key="canvasLocation" x="123.91304347826087" y="94.419642857142847"/>
         </collectionViewCell>

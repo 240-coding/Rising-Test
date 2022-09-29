@@ -10,6 +10,7 @@ import UIKit
 class WriteUploadCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var grayView: UIView!
+    @IBOutlet var imageCountLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()

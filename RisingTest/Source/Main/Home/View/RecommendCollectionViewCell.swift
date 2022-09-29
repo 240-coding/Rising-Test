@@ -15,6 +15,8 @@ class RecommendCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var likeStackView: UIStackView!
+    @IBOutlet weak var likeLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,6 +26,17 @@ class RecommendCollectionViewCell: UICollectionViewCell {
         heartButton.layer.shadowOpacity = 0.5
         heartButton.layer.shadowOffset = CGSize(width: 0, height: 0)
         heartButton.layer.shadowRadius = 1
-        heartButton.layer.shadowColor = UIColor.gray.cgColor
+        
+        setHeartButtonState()
+    }
+    
+    func setHeartButtonState() {
+        if heartButton.isSelected {
+            heartButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+            heartButton.tintColor = UIColor(named: "red")
+        } else {
+            heartButton.setImage(UIImage(systemName: "heart"), for: .normal)
+            heartButton.tintColor = .white
+        }
     }
 }
