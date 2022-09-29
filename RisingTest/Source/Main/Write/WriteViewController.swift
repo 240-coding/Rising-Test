@@ -58,6 +58,8 @@ class WriteViewController: UIViewController {
 //        self.dismissKeyboardWhenTappedAround()
         
         imagePicker.delegate = self
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(getSelectedCategoryIdx), name: Notification.Name.category, object: nil)
     }
     
     override func viewDidLayoutSubviews() {
@@ -168,6 +170,15 @@ class WriteViewController: UIViewController {
     
     @objc func uploadCellTapped() {
         self.present(imagePicker, animated: true, completion: nil)
+    }
+    
+    @objc func getSelectedCategoryIdx(_ notification: Notification) {
+        guard let data = notification.userInfo as? [String: String] else {
+            return
+        }
+        let selectedCategory = "\(data["categoryName"] ?? "") > \(data["categoryOptionName"] ?? "")"
+        categoryButton.setTitle(selectedCategory, for: .normal)
+        categoryButton.setTitleColor(.black, for: .normal)
     }
 
 }

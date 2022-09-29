@@ -12,4 +12,5 @@ extension Notification.Name {
     static let recommendCellTapped = Notification.Name("RecommendCellTapped")
 //    static let postData = Notification.Name("PostData")
     static let addressEdited = Notification.Name("AddressEdited")
+    static let category = Notification.Name("Category")
 }

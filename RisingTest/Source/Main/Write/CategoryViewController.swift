@@ -9,6 +9,8 @@ import UIKit
 
 class CategoryViewController: UIViewController {
     
+    var categories = [CategoryResult]()
+    
     @IBOutlet var tableView: UITableView!
 
     override func viewDidLoad() {
@@ -18,6 +20,8 @@ class CategoryViewController: UIViewController {
 
         tableView.delegate = self
         tableView.dataSource = self
+        
+        WriteDataManager().fetchCategories(delegate: self)
     }
     
     func configureNavigationBar() {
@@ -32,19 +36,37 @@ class CategoryViewController: UIViewController {
     }
 
 }
+// MARK: - Networking
+extension CategoryViewController {
+    func didFetchCategoryData(result: [CategoryResult]) {
+        categories = result
+        tableView.reloadData()
+    }
+}
 
+// MARK: - UITableView
 extension CategoryViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return categories.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell") as? CategoryTableViewCell else {
             return UITableViewCell()
         }
-        cell.nameLabel.text = "카테고리"
+        let category = categories[indexPath.row]
+        
+        cell.nameLabel.text = category.categoryName
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let categoryOptionViewController = UIStoryboard(name: "MainStoryboard", bundle: nil).instantiateViewController(withIdentifier: "CategoryOptionViewController") as? CategoryOptionViewController else {
+            return
+        }
+        categoryOptionViewController.category = categories[indexPath.row]
+        navigationController?.pushViewController(categoryOptionViewController, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
