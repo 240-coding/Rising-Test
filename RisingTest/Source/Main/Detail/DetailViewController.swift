@@ -77,6 +77,8 @@ class DetailViewController: UIViewController {
         if let goodsIndex = goodsIndex {
             GoodsDataManager().fetchGoodsData(goodsIndex: String(goodsIndex), delegate: self)
         }
+        
+        talkButton.addTarget(self, action: #selector(talkButtonTapped), for: .touchUpInside)
     }
     
     override func viewDidLayoutSubviews() {
@@ -160,6 +162,14 @@ class DetailViewController: UIViewController {
         orderViewController.basicOrderInfo = BasicOrderInfo(goodsIndex: goodsData?.goodsIdx, goodsName: goodsData?.goodsName, goodsImage: goodsData?.imgs.first?.goodsImgUrl, goodsPrice: goodsData?.goodsPrice, isSecurePayment: goodsData?.isSecurePayment, isDeilveryFee: goodsData?.isDeilveryFee)
         
         present(orderViewController, animated: true, completion: nil)
+    }
+    
+    @objc func talkButtonTapped() {
+        guard let orderDetailViewController = UIStoryboard(name: "MainStoryboard", bundle: nil).instantiateViewController(withIdentifier: "OrderDetailViewController") as? OrderDetailViewController else {
+            return
+        }
+        orderDetailViewController.modalPresentationStyle = .fullScreen
+        present(orderDetailViewController, animated: true, completion: nil)
     }
 }
 

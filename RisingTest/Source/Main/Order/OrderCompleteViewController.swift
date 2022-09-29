@@ -58,10 +58,15 @@ class OrderCompleteViewController: UIViewController {
     }
     
     @IBAction func checkOrderDetailButtonTapped() {
-        if let orderIdx = orderIdx {
-            print(orderIdx)
+        guard let orderDetailViewController = UIStoryboard(name: "MainStoryboard", bundle: nil).instantiateViewController(withIdentifier: "OrderDetailViewController") as? OrderDetailViewController else {
+            return
         }
-        print("상세내역 보기")
+        orderDetailViewController.modalPresentationStyle = .fullScreen
+        
+        if let orderIdx = orderIdx {
+            orderDetailViewController.orderIdx = orderIdx
+        }
+        present(orderDetailViewController, animated: true, completion: nil)
     }
 
 }

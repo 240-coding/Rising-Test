@@ -153,7 +153,7 @@ class OrderViewController: UIViewController {
                 orderRequest.orderDeliveryReq = receiptOptions[selectedReceiptIndex]
                 orderRequest.goodsPrice = goodsPrice
                 orderRequest.orderPaymentMethod = selectedPayment
-                AddressesDataManager().postOrder(parameters: orderRequest, delegate: self)
+                OrderDataManager().postOrder(parameters: orderRequest, delegate: self)
             }
         } else {
             guard let agreementPopupViewController = UIStoryboard(name: "MainStoryboard", bundle: nil).instantiateViewController(withIdentifier: "AgreementPopupViewController") as? AgreementPopupViewController else {

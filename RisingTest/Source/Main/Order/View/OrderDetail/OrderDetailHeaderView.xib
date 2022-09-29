@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OrderDetailHeaderView" customModule="RisingTest" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="OrderDetailHeaderView" customModule="RisingTest" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="58t-xt-3UU">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xm3-fz-RZX">
+                            <rect key="frame" x="8" y="8" width="54" height="54"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="xm3-fz-RZX" secondAttribute="height" multiplier="1:1" id="9z0-Mk-Alh"/>
+                                <constraint firstAttribute="width" secondItem="xm3-fz-RZX" secondAttribute="height" multiplier="1:1" id="zoj-9q-Ntu"/>
+                            </constraints>
+                        </imageView>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="EW9-3E-3bt">
+                            <rect key="frame" x="70" y="14.5" width="101" height="41.5"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="kBm-pg-srk">
+                                    <rect key="frame" x="0.0" y="0.0" width="101" height="20.5"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="결제완료" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="02x-fe-ikz" customClass="PaddingLabel" customModule="RisingTest" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="52" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="leftPadding">
+                                                    <real key="value" value="5"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="rightPadding">
+                                                    <real key="value" value="5"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SOf-3r-yVq">
+                                            <rect key="frame" x="56" y="0.0" width="45" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </stackView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="상품명" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ha-g2-w08">
+                                    <rect key="frame" x="0.0" y="24.5" width="101" height="17"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="xm3-fz-RZX" firstAttribute="leading" secondItem="58t-xt-3UU" secondAttribute="leading" constant="8" id="5aH-Zi-7Th"/>
+                        <constraint firstAttribute="bottom" secondItem="xm3-fz-RZX" secondAttribute="bottom" constant="8" id="8Ie-9a-6O2"/>
+                        <constraint firstItem="EW9-3E-3bt" firstAttribute="centerY" secondItem="58t-xt-3UU" secondAttribute="centerY" id="B4v-gs-3GH"/>
+                        <constraint firstItem="xm3-fz-RZX" firstAttribute="top" secondItem="58t-xt-3UU" secondAttribute="top" constant="8" id="JWd-8L-m21"/>
+                        <constraint firstItem="xm3-fz-RZX" firstAttribute="width" secondItem="xm3-fz-RZX" secondAttribute="height" multiplier="1:1" id="RLz-9k-wvl"/>
+                        <constraint firstItem="EW9-3E-3bt" firstAttribute="leading" secondItem="xm3-fz-RZX" secondAttribute="trailing" constant="8" id="w2Q-yC-58L"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="58t-xt-3UU" secondAttribute="bottom" id="5wd-Ul-MKd"/>
+                <constraint firstItem="58t-xt-3UU" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="E3n-61-ICW"/>
+                <constraint firstAttribute="trailing" secondItem="58t-xt-3UU" secondAttribute="trailing" id="mju-Qu-zb9"/>
+                <constraint firstItem="58t-xt-3UU" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="mw8-PD-Sy1"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="imageView" destination="xm3-fz-RZX" id="JQH-mH-d1D"/>
+                <outlet property="nameLabel" destination="2ha-g2-w08" id="v9i-oU-Nsm"/>
+                <outlet property="payCompleteLabel" destination="02x-fe-ikz" id="pCo-Uf-Ahg"/>
+                <outlet property="priceLabel" destination="SOf-3r-yVq" id="3AM-CT-NNc"/>
+            </connections>
+            <point key="canvasLocation" x="131.8840579710145" y="-191.18303571428569"/>
+        </view>
+    </objects>
+    <designables>
+        <designable name="02x-fe-ikz">
+            <size key="intrinsicContentSize" width="52" height="14.5"/>
+        </designable>
+    </designables>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
