@@ -25,6 +25,7 @@ class WriteViewController: UIViewController {
     
     @IBOutlet var optionView: [UIView]!
     @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var categoryButton: UIButton!
     @IBOutlet weak var tagButton: UIButton!
     @IBOutlet weak var priceWonImageView: UIImageView!
     @IBOutlet weak var priceTextField: UITextField!
@@ -121,6 +122,13 @@ class WriteViewController: UIViewController {
     }
     
     // MARK: - Actions
+    @IBAction func pressedCategoryButton(_ sender: Any) {
+        guard let categoryViewController = UIStoryboard(name: "MainStoryboard", bundle: nil).instantiateViewController(withIdentifier: "CategoryViewController") as? CategoryViewController else {
+            return
+        }
+//        tagViewController.delegate = self
+        navigationController?.pushViewController(categoryViewController, animated: true)
+    }
     
     @IBAction func pressedTagButton(_ sender: UIButton) {
         guard let tagViewController = UIStoryboard(name: "MainStoryboard", bundle: nil).instantiateViewController(withIdentifier: "TagViewController") as? TagViewController else {
