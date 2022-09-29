@@ -117,7 +117,10 @@ class WriteViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction func pressedTagButton(_ sender: UIButton) {
-        optionView[sender.tag].addBorders(edges: .bottom, color: .black, width: 1.0)
+        guard let tagViewController = UIStoryboard(name: "MainStoryboard", bundle: nil).instantiateViewController(withIdentifier: "TagViewController") as? TagViewController else {
+            return
+        }
+        navigationController?.pushViewController(tagViewController, animated: true)
     }
     
     @IBAction func pressedDeliveryFeeButton(_ sender: UIButton) {

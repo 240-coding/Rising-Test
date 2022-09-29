@@ -101,6 +101,8 @@
 		89E89A5E28E1C3C20029D0BA /* SelectReceiptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E89A5D28E1C3C20029D0BA /* SelectReceiptViewController.swift */; };
 		89E89A6028E1F0BD0029D0BA /* AddressManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E89A5F28E1F0BD0029D0BA /* AddressManagementViewController.swift */; };
 		89E89A6228E1F9E50029D0BA /* AddressManagementHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E89A6128E1F9E50029D0BA /* AddressManagementHeaderView.swift */; };
+		89F452D928E5949500E86E03 /* TagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F452D828E5949500E86E03 /* TagViewController.swift */; };
+		89F452DC28E5970300E86E03 /* TagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F452DB28E5970300E86E03 /* TagCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -196,6 +198,8 @@
 		89E89A5D28E1C3C20029D0BA /* SelectReceiptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectReceiptViewController.swift; sourceTree = "<group>"; };
 		89E89A5F28E1F0BD0029D0BA /* AddressManagementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressManagementViewController.swift; sourceTree = "<group>"; };
 		89E89A6128E1F9E50029D0BA /* AddressManagementHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressManagementHeaderView.swift; sourceTree = "<group>"; };
+		89F452D828E5949500E86E03 /* TagViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagViewController.swift; sourceTree = "<group>"; };
+		89F452DB28E5970300E86E03 /* TagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCollectionViewCell.swift; sourceTree = "<group>"; };
 		A2A41C2F0276971A1D96260B /* Pods-RisingTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RisingTest.debug.xcconfig"; path = "Target Support Files/Pods-RisingTest/Pods-RisingTest.debug.xcconfig"; sourceTree = "<group>"; };
 		C1C2728AA16F1022018E204F /* Pods_RisingTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RisingTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -458,6 +462,7 @@
 			children = (
 				8994935228D9B73E00333811 /* View */,
 				8994934B28D9911A00333811 /* WriteViewController.swift */,
+				89F452D828E5949500E86E03 /* TagViewController.swift */,
 			);
 			path = Write;
 			sourceTree = "<group>";
@@ -465,6 +470,7 @@
 		8994935228D9B73E00333811 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				89F452DA28E596F400E86E03 /* Tag */,
 				89E6C35D28DAFA4100A48052 /* Photo */,
 			);
 			path = View;
@@ -554,6 +560,14 @@
 				89E6C35A28DAF5A100A48052 /* WritePhotoCollectionViewCell.xib */,
 			);
 			path = Photo;
+			sourceTree = "<group>";
+		};
+		89F452DA28E596F400E86E03 /* Tag */ = {
+			isa = PBXGroup;
+			children = (
+				89F452DB28E5970300E86E03 /* TagCollectionViewCell.swift */,
+			);
+			path = Tag;
 			sourceTree = "<group>";
 		};
 		EEBEDD47A844A99D8AFFEC0B /* Frameworks */ = {
@@ -710,6 +724,7 @@
 				8991A4F428E06F6100D5AC2B /* PaddingLabel.swift in Sources */,
 				8965255228DCCAD5004A7D1F /* SearchChildViewController.swift in Sources */,
 				8991A4F228E0541600D5AC2B /* ImageCollectionViewCell.swift in Sources */,
+				89F452DC28E5970300E86E03 /* TagCollectionViewCell.swift in Sources */,
 				8965255628DD1EB5004A7D1F /* SearchPopularCollectionViewCell.swift in Sources */,
 				89D87C7E28E4385D005D5756 /* AddressRemoveViewController.swift in Sources */,
 				8991A4F928E094F500D5AC2B /* GoodsDataManager.swift in Sources */,
@@ -769,6 +784,7 @@
 				8987BA9728E0E47800A9C871 /* OrderTitleCollectionViewCell.swift in Sources */,
 				89C0EB5C28E177C900243D00 /* SelectAddressViewController.swift in Sources */,
 				8987BA9228E0DFC900A9C871 /* AddressCollectionViewCell.swift in Sources */,
+				89F452D928E5949500E86E03 /* TagViewController.swift in Sources */,
 				89C3D5A828E53711002A9507 /* OrderDetailSectionHeaderView.swift in Sources */,
 				89C3D5A228E52A8F002A9507 /* OrderDetailViewController.swift in Sources */,
 				8991A4EA28DF15F800D5AC2B /* RecommendCollectionViewCell.swift in Sources */,
