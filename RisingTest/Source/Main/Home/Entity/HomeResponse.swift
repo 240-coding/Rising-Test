@@ -27,7 +27,7 @@ struct HomeData: Decodable {
     let goodsUpdatedAtTime: String
     let address: String?
     let likes: Int
-    let goodsLikeNy: Int
+    let goodsLike: Int
     let isSecurePayment: String
     let gimgs: [Gimg]
 }

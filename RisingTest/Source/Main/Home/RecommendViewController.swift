@@ -25,7 +25,9 @@ class RecommendViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         LikeDataManager().fetchLikeList(delegate: self)
-        collectionView.reloadData()
+        if homeData.isEmpty {
+            collectionView.reloadData()
+        }
         self.viewDidLayoutSubviews()
     }
     
@@ -99,7 +101,7 @@ extension RecommendViewController: UICollectionViewDelegate, UICollectionViewDat
         cell.locationLabel.text = data.address?.substring(from: 0, to: 10) ?? "지역 정보 없음"
         cell.timeLabel.text = data.goodsUpdatedAtTime
         cell.payImageView.isHidden = data.isSecurePayment == "Y" ? false : true
-        cell.likeStackView.isHidden = data.goodsLikeNy == 0 ? false: true
+        cell.likeStackView.isHidden = data.goodsLike == 0 ? false: true
         cell.likeLabel.text = String(data.likes)
         
         return cell

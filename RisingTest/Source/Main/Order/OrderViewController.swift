@@ -8,7 +8,7 @@
 import UIKit
 
 protocol SelectAddressDelegate {
-    func setSelectedAddress(index: Int)
+    func setSelectedAddress(address: AddressesResult)
 }
 
 protocol SelectReceiptDelegate {
@@ -57,7 +57,7 @@ class OrderViewController: UIViewController {
         
         AddressesDataManager().fetchAddressesData(delegate: self)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(fetchEditedAddress), name: Notification.Name.addressEdited, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(fetchEditedAddress), name: Notification.Name.addressEdited, object: nil)
         
     }
     
@@ -129,10 +129,10 @@ class OrderViewController: UIViewController {
         self.present(selectReceiptViewController, animated: true, completion: nil)
     }
     
-    @objc func fetchEditedAddress() {
-        AddressesDataManager().fetchAddressesData(delegate: self)
-        collectionView.reloadData()
-    }
+//    @objc func fetchEditedAddress() {
+//        AddressesDataManager().fetchAddressesData(delegate: self)
+//        collectionView.reloadData()
+//    }
     
     @objc func otherPaymentChangeButtonTapped() {
         guard let paymentViewController = UIStoryboard(name: "MainStoryboard", bundle: nil).instantiateViewController(withIdentifier: "PaymentViewController") as? PaymentViewController else {
@@ -167,8 +167,8 @@ class OrderViewController: UIViewController {
 
 // MARK: - SelectDelegate
 extension OrderViewController: SelectAddressDelegate, SelectReceiptDelegate, SelectPaymentDelegate, CheckAgreementDelegate {
-    func setSelectedAddress(index: Int) {
-        selectedAddress = addresses[index]
+    func setSelectedAddress(address: AddressesResult) {
+        selectedAddress = address
         collectionView.reloadData()
     }
     
@@ -193,7 +193,7 @@ extension OrderViewController: SelectAddressDelegate, SelectReceiptDelegate, Sel
 // MARK: - UIAdaptivePresentationControllerDelegate
 extension OrderViewController: UIAdaptivePresentationControllerDelegate {
     func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
-        fetchEditedAddress()
+//        fetchEditedAddress()
     }
 }
 // MARK: - Networking
@@ -245,6 +245,7 @@ extension OrderViewController: UICollectionViewDelegate, UICollectionViewDataSou
             if let selectedAddress = self.selectedAddress {
                 cell.nameLabel.text = selectedAddress.userName
                 cell.addressLabel.text = "\(selectedAddress.address)  \(selectedAddress.addressDetail)\n\(selectedAddress.userPhoneNum)"
+                cell.baseAddressLabel.isHidden = selectedAddress.isBaseAddress == "Y" ? false: true
             }
             
             cell.receiptLabel.text = receiptOptions[selectedReceiptIndex]

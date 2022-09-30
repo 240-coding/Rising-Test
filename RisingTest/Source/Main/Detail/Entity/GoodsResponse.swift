@@ -68,4 +68,9 @@ struct GetStoreDataRes: Codable {
     let score: Double
     let userImgUrl: String?
     let userNickName: String
+    let follow: [Follow]
+}
+
+struct Follow: Codable {
+    let follow: Int
 }

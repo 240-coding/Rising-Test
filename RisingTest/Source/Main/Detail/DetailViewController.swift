@@ -246,6 +246,7 @@ extension DetailViewController {
         
         userNameLabel.text = userData.userNickName
         userRateLabel.text = String(userData.score)
+        userFollowerLabel.text = "팔로워 \(userData.follow.first?.follow ?? 0)"
         
         // 상점 상품
         userGoods = result.getStoreGoodsRes
