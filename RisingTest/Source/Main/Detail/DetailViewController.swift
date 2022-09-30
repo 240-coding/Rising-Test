@@ -10,6 +10,7 @@ import UIKit
 class DetailViewController: UIViewController {
     
     var goodsIndex: Int?
+    var goodsLikeIndex: Int?
     var goodsImages = [String]()
     var isLiked: Bool?
     var goodsData: GetGoodsDataRes?
@@ -63,6 +64,7 @@ class DetailViewController: UIViewController {
         configureNavigationBar()
         configureBottomButtonView()
         configureButtons()
+        configureHeartButton()
         configurePageLabel()
 
         navigationController?.navigationBar.tintColor = .black
@@ -145,6 +147,20 @@ class DetailViewController: UIViewController {
         profileImageView.layer.cornerRadius = profileImageView.frame.height / 2
     }
     
+    func configureHeartButton() {
+        guard let isLiked = isLiked else {
+            return
+        }
+
+        if isLiked {
+            heartButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+            heartButton.tintColor = UIColor(named: "red")
+        } else {
+            heartButton.setImage(UIImage(systemName: "heart"), for: .normal)
+            heartButton.tintColor = UIColor(named: "gray")
+        }
+    }
+    
     func configurePageLabel() {
         pageLabel.backgroundColor = UIColor(white: 0, alpha: 0.2)
         pageLabel.layer.cornerRadius = 5
@@ -155,6 +171,25 @@ class DetailViewController: UIViewController {
     }
     
     // MARK: - Action
+    @IBAction func heartButtonTapped(_ sender: Any) {
+        isLiked?.toggle()
+        
+        guard let isLiked = isLiked else {
+            return
+        }
+        
+        if isLiked {
+            if let goodsIndex = goodsIndex {
+                LikeDataManager().postLike(goodsIdx: goodsIndex, delegate: self)
+            }
+        } else {
+            if let goodsLikeIndex = goodsLikeIndex {
+                LikeDataManager().patchLike(goodsLikeIdx: goodsLikeIndex, delegate: self)
+            }
+        }
+    }
+    
+    
     @IBAction func orderButtonTapped(_ sender: Any) {
         guard let orderViewController = UIStoryboard(name: "MainStoryboard", bundle: nil).instantiateViewController(withIdentifier: "OrderViewController") as? OrderViewController else {
             return
@@ -230,6 +265,26 @@ extension DetailViewController {
         
         self.viewDidLayoutSubviews()
     }
+}
+// Like
+extension DetailViewController: LikeDelegate {
+    func didFetchLikeListData(result: [LikeListResult]) {
+        
+    }
+    
+    func didPostLike(goodsIdx: Int, result: PostLikeResult) {
+        print(result.goodsLikeIdx)
+        isLiked = true
+        configureHeartButton()
+    }
+    
+    func didPatchLike(result: String) {
+        print(result)
+        isLiked = false
+        configureHeartButton()
+    }
+    
+    
 }
 
 extension DetailViewController: UIScrollViewDelegate {

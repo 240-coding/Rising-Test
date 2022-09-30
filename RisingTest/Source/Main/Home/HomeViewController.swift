@@ -137,7 +137,7 @@ extension HomeViewController {
     
     // 2초마다 실행되는 타이머
     func bannerTimer() {
-        let _: Timer = Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { (Timer) in
+        let _: Timer = Timer.scheduledTimer(withTimeInterval: 3, repeats: true) { (Timer) in
             self.bannerMove()
         }
     }

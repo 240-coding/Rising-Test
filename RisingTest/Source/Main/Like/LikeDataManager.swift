@@ -11,7 +11,7 @@ import Alamofire
 protocol LikeDelegate {
     func didFetchLikeListData(result: [LikeListResult])
     
-    func didPostLike(result: PostLikeResult)
+    func didPostLike(goodsIdx: Int, result: PostLikeResult)
     
     func didPatchLike(result: String)
 }
@@ -57,7 +57,7 @@ class LikeDataManager {
             .responseDecodable(of: PostLikeResponse.self) { response in
                 switch response.result {
                 case .success(let response):
-                    delegate.didPostLike(result: response.result)
+                    delegate.didPostLike(goodsIdx: goodsIdx, result: response.result)
                 case .failure(let error):
                     print(error.localizedDescription)
                 }

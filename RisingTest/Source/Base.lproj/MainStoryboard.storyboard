@@ -1814,6 +1814,9 @@
                                                 <state key="normal">
                                                     <imageReference key="image" image="heart" catalog="system" symbolScale="large"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="heartButtonTapped:" destination="2M1-Jz-tc3" eventType="touchUpInside" id="Mmi-S0-SjQ"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3x3-Te-Qu0">
                                                 <rect key="frame" x="56.5" y="0.0" width="100" height="50"/>

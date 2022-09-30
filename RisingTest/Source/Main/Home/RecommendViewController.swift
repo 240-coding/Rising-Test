@@ -21,12 +21,10 @@ class RecommendViewController: UIViewController {
 
         collectionView.delegate = self
         collectionView.dataSource = self
-        
-        LikeDataManager().fetchLikeList(delegate: self)
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        LikeDataManager().fetchLikeList(delegate: self)
         collectionView.reloadData()
         self.viewDidLayoutSubviews()
     }
@@ -34,7 +32,6 @@ class RecommendViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         collectionViewHeight.constant = collectionView.contentSize.height + 100
-        print(collectionViewHeight.constant)
         NotificationCenter.default.post(name: Notification.Name.recommend, object: nil, userInfo: ["height": collectionViewHeight.constant])
     }
     
@@ -49,6 +46,7 @@ class RecommendViewController: UIViewController {
             sender.tintColor = UIColor(named: "red")
         } else {
             guard let goodsLikeIdx = likeData[sender.tag] else { return }
+            likeData[sender.tag] = nil
             LikeDataManager().patchLike(goodsLikeIdx: goodsLikeIdx, delegate: self)
             
             sender.setImage(UIImage(systemName: "heart"), for: .normal)
@@ -59,14 +57,16 @@ class RecommendViewController: UIViewController {
 // MARK: - Networking
 extension RecommendViewController: LikeDelegate {
     func didFetchLikeListData(result: [LikeListResult]) {
-        
+        likeData = [:]
         for like in result {
             likeData[like.goodsIdx] = like.goodsLikeIdx
         }
+        print(likeData)
         collectionView.reloadData()
     }
     
-    func didPostLike(result: PostLikeResult) {
+    func didPostLike(goodsIdx: Int, result: PostLikeResult) {
+        likeData[goodsIdx] = result.goodsLikeIdx
         print(result.goodsLikeIdx)
     }
     
@@ -115,6 +115,12 @@ extension RecommendViewController: UICollectionViewDelegate, UICollectionViewDat
             return
         }
         detailViewController.goodsIndex = homeData[indexPath.row].goodsIdx
+        if let goodsLikeIdx = likeData[homeData[indexPath.row].goodsIdx] {
+            detailViewController.isLiked = true
+            detailViewController.goodsLikeIndex = goodsLikeIdx
+        } else {
+            detailViewController.isLiked = false
+        }
         self.navigationController?.pushViewController(detailViewController, animated: true)
     }
 }
