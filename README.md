@@ -160,3 +160,76 @@
         - TextFieldEffects 라이브러리 사용
             - 기존에는 텍스트필드에 내용이 있으면 하단 선 색상이 Border Active Color로 쭉 설정되었다.
             - 텍스트필드에서 입력 중일 때만 하단 선이 검정색이 되도록 코드를 수정했다.
+## 🗓 2022.09.27 진행상황
+
+### 상품 결제 화면
+
+- 배송지
+    - 주소 수정
+        - 주소 수정 API 연동
+    - 주소 수정 화면에서 주소를 수정하면 이전 화면들(주소 변경, 배송지)에서도 바뀐 주소가 반영이 되어야 한다.
+        - 처음에는 주소 데이터가 필요한 view controller들의 `viewWillAppear` 에서 주소 API를 호출하는 메소드를 호출하는 방식으로 구현하려고 했다. 그런데 modal은 dismiss 된 후에는 viewWillAppear이 실행되지 않았다.
+            - 해결 방법: view controller의 `modalPresentationStyle` 을 `.overFullScreen` 이 아닌 `fullScreen` 으로 변경하니까 viewWillAppear이 잘 호출되었다.
+            - `modalPresentationStyle` 이 `.pageSheet` 인 view controller를 가지는 OrderViewController는 `UIAdaptivePresentationControllerDelegate` 의 `presentationControllerDidDismiss` 메소드를 사용해서 주소 선택 창이 닫힐 때 주소 정보를 다시 받아오고 collection view를 reload하도록 했다.
+    - 주소 추가
+        - 화면 구현 및 API 연동 완료
+    - 주소 수정/주소 추가 화면에서 화면 누르면 키보드 내려가는 기능 적용
+    - 주소 관리
+        - table view cell의 맨 위와 맨 아래 separator 숨기기
+            - 맨 위 separator는 tableHeaderView에 빈 UIView를 넣고 맨 아래 separator는 cell의 separatorInset를 조절해서 구현하였다.
+
+## 🗓 2022.09.28 진행상황
+
+### 상품 결제 화면
+
+- 배송지
+    - 주소 삭제
+        - 커스텀 팝업창 구현
+            - 참고 링크: [https://ios-development.tistory.com/244](https://ios-development.tistory.com/244)
+        - 팝업창 바깥 부분을 터치하면 view controller가 dismiss되는 기능 구현
+            - view controller에 그냥 gesture recognizer만 추가하니까 팝업창 view를 터치해도 view controller가 dismiss 되었다.
+            - 해결 방법
+                - `UIGestureRecognizerDelegate` 의 `gestureRecognizer(_:shouldReceive:)` 메소드를 사용해서 해결할 수 있었다.
+                - 참고 링크: [https://stackoverflow.com/questions/15814697/uitapgesturerecognizer-tap-on-self-view-but-ignore-subviews](https://stackoverflow.com/questions/15814697/uitapgesturerecognizer-tap-on-self-view-but-ignore-subviews)
+- 번개포인트
+- 결제금액
+    - 안전결제 수수료의 경우 1원 단위는 버린다.
+- 결제수단
+    - 번개장터 간편결제/다른 결제수단 라디오버튼 직접 구현
+- 이용약관 동의 및 결제하기 버튼
+    - 이용약관 동의 체크하지 않으면 “결제 이용약관을 동의해주세요” 팝업 발생
+
+### 결제 완료 화면
+
+- 결제 화면에서 orderIdx와 orderPaymentMethod 값을 받아온다.
+
+## 🗓 2022.09.29 진행상황
+
+### 주문 상세 내역
+
+- 주문 상세 내역 API를 먼저 호출한 후 상품 상세 정보 API를 호출해서 상품 이미지 데이터를 받아온다.
+
+### 상품 상세페이지
+
+- 상품 설명 있는 view 높이 동적으로 바뀌도록 수정
+    - 상품 설명 view의 height constraint을 `greater than or equal` 로 바꾸고, 상품 설명 label의 bottom constraint을 `greater than or equal` 로 추가했다.
+
+### 상품 등록
+
+- collection view에서 scroll view로 구조 수정
+    - 기존에는 상품 등록 화면에서 collection view을 사용하고, 그 collection view의 header 안에 또 collection view을 추가해서 사진 업로드 부분을 구현했다. 이렇게 하니 image picker를 사용하거나 데이터를 주고받기 너무 어려운 것 같아 scroll view 안에 collection view가 있는 구조로 수정했다.
+- 상품 사진 업로드 기능 구현
+    - UIImagePicker 사용
+- 태그 추가 화면
+    - 태그 부분은 UICollectionView 사용해서 구현
+    - delegate 패턴을 사용해서 뒤로 가기 버튼을 누르면 상품 등록 화면에 입력한 태그들이 뜨도록 구현하였다.
+- 카테고리 선택 화면
+    - 카테고리를 선택하면 세부 카테고리(옵션) 선택 화면으로 넘어간다.
+        - 세부 카테고리 선택 화면 상단에 있는 `전체` 를 누르면 이전 화면(카테고리 선택 화면)으로 돌아간다.
+
+## 🗓 2022.09.30 진행상황
+
+### 찜
+
+- 홈 화면 찜 추가/제거 기능 구현
+- 상품 상세 페이지 찜 추가/제거 기능 구현 
