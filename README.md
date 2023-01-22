@@ -1,235 +1,79 @@
-## 🗓 2022.09.17 진행상황
+# ⚡️ 라이징캠프 9기 iOS 라이징테스트
 
-- 기획서 작성 완료
-- 1주차 작업 범위 확정
+라이징캠프 9기 iOS 수강 후 진행한 라이징테스트 프로젝트입니다.
 
-## 🗓 2022.09.18 진행상황
+- 프로젝트 주제: 번개장터 클론코딩
+- 프로젝트 기간: 2022.09.17~2022.09.30
+- 클라이언트 3인 독립적으로 작업, 서버 2인 협업
 
-- 이미지 리소스 구하기
-- 프로젝트 생성
+## 주요 기능
 
-## 🗓 2022.09.19 진행상황
+### 로그인 화면
 
-### 폴더 세분화
+<p align="center">
+<img width="350" alt="스크린샷 2023-01-22 오전 11 43 00" src="https://user-images.githubusercontent.com/68412683/213898692-cc3f97a7-9949-4860-bac4-e678eabd9f99.png">
+</p>
 
-- Configuration
-- Util
-- Source
-    - Login
-    - Main
-
-### 로그인/회원가입 화면 구현
-
-- `Login` 폴더 및 `LoginStoryboard` 생성
-- Main 스토리보드가 아닌 새 스토리보드 사용 관련 에러 해결
-    - [https://mini-min-dev.tistory.com/32](https://mini-min-dev.tistory.com/32)
-    - Info.plist의 `Storyboard Name` 도 새 스토리보드 이름으로 바꿔주어야 한다.
-- `LoginViewController` 생성 후 UI 작업
-    - 로그인 화면 문구/이미지 부분 구현
-        - UICollectionView 및 PageControl 사용
-    - 로그인 버튼 추가
-## 🗓 2022.09.20 진행상황
-
-- 뼈대 레이아웃 구성
-    - Tab Bar 생성 및 스타일링
-    - 검색, 등록 메뉴는 modal로 뜨도록 구현
-        - `UITabBarControllerDelegate` 의 `shouldSelect` 메소드 활용
-        - [https://stackoverflow.com/questions/61371106/present-modally-uiviewcontroller-from-uitabbarcontroller-programmatically](https://stackoverflow.com/questions/61371106/present-modally-uiviewcontroller-from-uitabbarcontroller-programmatically)
-- 등록 화면
-    - 내비게이션 바 UI 구현
-    - 하단 안전결제, 등록 버튼 및 주의사항 문구 부분 UI 구현
-    - 사진 첨부 부분
-        - UIView xib 안에 UICollectionView를 포함할 때는 xib에서 UICollectionViewCell을 추가할 수 없다. → Cell도 xib를 만들어서 register 해주어야 한다.
-            - [https://stackoverflow.com/questions/38285469/can´t-add-items-to-uicollectionview-inside-uiview-xib](https://stackoverflow.com/questions/38285469/can%C2%B4t-add-items-to-uicollectionview-inside-uiview-xib)
-
-## 🗓 2022.09.21 진행상황
-
-- 등록 화면
-    - 이미지 첨부시 보여질 UICollectionViewCell 구현
-    - 상품명, 카테고리, 태그, 가격 부분 UI 구현
-        - 각각 View를 두고 하단 border 설정
-    - 상품 설명 부분 구현
-        - UITextView
-        - ⚠️ 입력한 텍스트 내용에 따라 UITextView의 높이가 동적으로 바뀌어야 하는데 이 부분은 방법을 더 찾아봐야 할 것 같다.
- ## 🗓 2022.09.22 진행상황
-
-### 검색 화면
-
-- 내비게이션 바 UI 구현
-    - 뒤로 가기 버튼
-    - UISearchBar
-    - 홈 버튼
-- 검색어 입력 여부에 따라 다른 view controller 띄우기
-    - Custom container view controller 사용
-    - [참고 영상](https://www.youtube.com/watch?v=tcdEjazeYtY&ab_channel=iOSAcademy)
-    - 최근 검색어, 요즘 많이 찾는 검색어 UI 구현
-
-## 🗓 2022.09.23 진행상황
-
-### 검색 화면
-
-- 인기 카테고리 UI 구현
-    - UICollectionView
-### 카카오 소셜로그인 구현
-
-- 서버 로그인 API 호출하는 과정에서 500 Internal Server Error가 발생했다.
-- → 사용자 이메일을 동의 항목으로 선택하지 않아서 발생하는 문제였다.
-    - [참고했던 링크](https://devtalk.kakao.com/t/api/124184/2)
-        
-## 🗓 2022.09.24 진행상황
-
-### 카카오 소셜 로그인
-
-- 로그인 성공시 로직 구현
-    - 사용자 jwt 토큰 UserDefaults에 저장 후 메인 스토리보드로 화면 전환
-- 자동 로그인 기능 구현
-    - 로그인 여부 UserDefaults에 저장 후 그 값에 따라 로그인 화면 또는 메인 화면을 띄운다.
+- 카카오 소셜 로그인을 통해 로그인 가능
+- 자동로그인 지원
 
 ### 홈 화면
 
-- 배너
-    - 우측 하단 `현재 페이지 번호 / 전체 페이지 번호` 수 뜨도록 하였다.
-    - 타이머 기능을 사용해서 2초마다 자동으로 스크롤이 되도록 하였다.
-- 카테고리
-    - UICollectionView 사용
-    - ⚠️ PageControl(?) 부분은 어떻게 구현해야 할지 더 고민해야 할 것 같다.
-        - 일반적인 page control처럼 페이지가 딱 나뉘어 떨어지지 않고 자연스럽게 움직여야 해서 더 까다롭다…!
-- 내비게이션 바
-    - 왼쪽에는 메뉴(카테고리) 버튼, 오른쪽에는 검색 및 알림 버튼 배치
-    - 스크롤뷰의 `contentOffset.y` 값이 0 이하면 내비게이션 바의 배경을 투명하게 하고 tintColor는 흰 색이 되도록 하였다. 아래로 스크롤 할 때는 내비게이션 바의 배경은 흰 색, tintColor는 검은색이 되도록 하였다.
-        - `UIScrollViewDelegate` 의 `scrollViewDidScroll` 메소드 사용
-- 추천상품/브랜드
-    - UIContainerView, TabMan 라이브러리 사용
-    - scroll view 스크롤 관련 이슈 해결
-        - 추천상품/브랜드 collection view의 스크롤 기능을 막고 collection view 전체 높이에 맞춰서 container view 및 스크롤뷰 높이가 동적으로 설정되어야 한다.
-        - 추천상품/브랜드 부분은 HomeViewController → Container View(TabManViewController) → RecommendViewController/BrandViewController 계층 구조로 이루어져 있기 때문에 부모 - 자식 view controller 사이에서 collection view의 높이를 전달받고, scroll view의 높이를 다시 설정해주어야 했다.
-        - 해결 방법
-            - HomeViewController의 ScrollView 안에 있는 ContentView의 너비와 높이를 ScrollView와 같게 설정한다. 이때 높이의 priority는 250으로 설정한다.
-            - RecommendViewController의 Collection View의 constraint들의 priority는 250보다 높은 500으로 설정한다.
-            - RecommendViewController의 `viewDidLayoutSubViews` 메소드 안에서 collection view의 높이를 `collectionView.contentSize.height` 으로 설정한다.
-            - TabManViewController의 `viewDidLayoutSubViews` 메소드 안에서 RecommendViewController의 collection view의 높이 값을 부모 view controller에게 전달해준다.
-            - ⚠️ 3개의 view controller들을 거쳐가야 해서 가독성이나 효율성 측면에서 좋은 방법인지는 잘 모르겠다. 나중에 더 고민해봐야 할 것 같다. 🥲
-        - 참고 링크
-            - [https://stackoverflow.com/questions/35014362/sizing-a-container-view-with-a-controller-of-dynamic-size-inside-a-scrollview](https://stackoverflow.com/questions/35014362/sizing-a-container-view-with-a-controller-of-dynamic-size-inside-a-scrollview)
-            - [https://www.youtube.com/watch?v=MGQPRuoTdVo&ab_channel=DivyeshGondaliya](https://www.youtube.com/watch?v=MGQPRuoTdVo&ab_channel=DivyeshGondaliya)
-    - 서버에서 받아온 데이터 추천상품 collection view에 반영하기
-        1. 서버에서 받은 추천상품 데이터 RecommendViewController에 전달
-            - 서버에서 배너 이미지와 추천상품에 관련한 데이터를 한꺼번에 보내준다. 따라서 HomeViewController와 RecommendViewController에서 같은 데이터를 중복해서 받지 않고 HomeViewController에서 받은 추천상품 데이터를 RecommendViewController에게 전달해주는 방식을 선택했다.
-            - 데이터 전달 역시 사이에 TabManViewController가 껴있기 때문에 HomeViewController → TabManViewController → RecommendViewController 를 거쳐서 데이터를 전달해주어야 했다. 😂
-                - ⚠️ 다음 view controller로 데이터를 전달하면서 `viewWillAppear` 를 호출해주어야 했는데, 이 과정이 비효율적인 것 같아서 NotificationCenter 같은 다른 방법으로 리팩토링 해야 할 것 같다.
-        2. 서버에서 받은 데이터 반영 후 container view 높이 재계산
-            - 서버에서 데이터를 받은 후 collection view가 reload 되면 container view의 높이도 다시 계산되어야 한다.
-            - 처음에는 delegate 패턴을 사용해서 새로 바뀐 높이 값을 홈에 전달하려고 했지만 두 view controller가 바로 연결된 게 아니라서 사용하기가 어려웠다. 그래서 NotificationCenter를 사용해서 RecommendViewController의 `viewDidLayoutSubviews` 메소드가 호출될 때 HomeViewController에 Notification을 보내고, container view의 높이를 설정하는 메소드가 호출되도록 했다.
-        
-        홈 화면 구현을 내가 늦게 한 편이라 서버쪽에서 구현한 방식을 그대로 따랐는데, 다음부터는 서버측의 작업 속도와 맞추면서 효율적인 데이터 전달 형식을 서버 개발자분들과 함께 생각해봐야 할 것 같다고 느꼈다. 
-## 🗓 2022.09.25 진행상황
+<p align="center">
+<img width="350" alt="스크린샷 2023-01-22 오전 11 43 31" src="https://user-images.githubusercontent.com/68412683/213898718-72d865f2-5a40-4fe6-9dce-7805a39232d7.png">
+</p>
 
-### 홈 화면 내비게이션 바 UI 구현 방법 변경
-
-- 홈 화면에서 템플릿에 있는 `isTransparent` 를 적용하면 내비게이션 바의 backgroundImage와 shadowImage가 없는 것처럼 적용된다. 그래서 홈 화면에서 상품 상세페이지 화면으로 들어가면 내비게이션 바 위에 status bar 부분이 검은 색으로 보여지는 문제가 있었다.
-- 이를 해결하기 위해 `UINavigationBarAppearance()` 를 사용해서 배경색을 투명 또는 흰색으로 설정하는 방식으로 구현 방법을 변경하였다.
+- 상단 배너 타이머 기능
+- 추천 상품 우측 상단 찜 버튼 사용 가능
 
 ### 상품 상세페이지
 
-- 내비게이션 바
-- UIScrollView 사용
-    - 상품 설명 내용에 따라 ScrollView의 높이가 동적으로 조절되어야 한다.
-    - [구글링](https://stackoverflow.com/questions/44839101/how-to-dynamically-increase-the-height-of-scroll-view/44839329#44839329)을 해서 스크롤뷰의 높이를 조절하는 코드는 찾았지만 스크롤뷰의 끝부분까지 스크롤이 되지 않는다.
-        - ⚠️ 스크롤뷰 높이에 임시 방편으로 상수값을 더하거나 곱해서 아래부분까지 다 보여지도록 했지만.. 더 알맞은 방법을 찾아봐야 할 것 같다.
-- 서버에서 상품 데이터 받아오기
-    - 어떤 상품 상세페이지에서는 `The data couldn’t be read because it is missing.` 라는 에러 메시지가 발생했다.
-        - 특정 상품의 `goodsAddress` 값이 서버에 `null` 로 저장되어 있는데 이 변수를 옵셔널로 설정하지 않아서 발생한 에러였다.
-- 상점 상품/거래후기
-    - 각각을 collection view로 구현했다.
-    - 판매 상품/거래후기 존재 여부에 따라 각각의 collection view를 숨기거나 보이도록 했다.
-    - 거래후기는 최대 2개까지만 보여지도록 했다.
+| <img width="484" alt="스크린샷 2023-01-22 오전 11 44 43" src="https://user-images.githubusercontent.com/68412683/213898747-22105f1e-de07-46af-8691-616ca04c055d.png"> | <img width="484" alt="스크린샷 2023-01-22 오전 11 55 23" src="https://user-images.githubusercontent.com/68412683/213898757-6e640077-f808-4d39-8f13-61c86ff476c7.png"> | <img width="484" alt="스크린샷 2023-01-22 오전 11 55 36" src="https://user-images.githubusercontent.com/68412683/213898759-67c9418f-75b5-4d02-82b7-24f6ca677987.png">
+| --- | --- | --- |
 
-## 🗓 2022.09.26 진행상황
+- 스크롤을 통해 사진을 넘겨볼 수 있음
+- 판매자 상점 및 상품 정보 조회 가능
+- 상점 거래후기가 있을 시 거래후기 조회 가능
+- 좌측 하단 찜 버튼 사용 가능
 
-### 상품 결제 화면
+### 결제
 
-- UICollectionView를 사용해서 각 부분(타이틀/배송지/번개포인트…)을 UICollectionViewCell로 구현했다.
-- 배송지
-    - 주소 변경
-        - 배송지 변경 버튼을 누르면 `sheetPresentationController` 를 사용해서 bottom sheet 형태로 주소 선택 화면이 뜨도록 했다.
-        - 처음에는 기본배송지로 설정된 주소 정보가 뜨고, 주소 변경 화면에서 다른 주소를 누르면 배송지가 그 주소로 바뀐다.
-    - 수령 방법
-        - 버튼들을 배열에 저장한 후 인덱스 값을 사용해서 수령 방법을 구분한다.
-        - 주소 변경 화면과 마찬가지로 delegate 패턴을 사용한다.
-    - 주소 수정
-        - TextFieldEffects 라이브러리 사용
-            - 기존에는 텍스트필드에 내용이 있으면 하단 선 색상이 Border Active Color로 쭉 설정되었다.
-            - 텍스트필드에서 입력 중일 때만 하단 선이 검정색이 되도록 코드를 수정했다.
-## 🗓 2022.09.27 진행상황
+| <img width="484" alt="스크린샷 2023-01-22 오전 11 45 09" src="https://user-images.githubusercontent.com/68412683/213898786-6b19fe07-7260-48dd-bfb6-1099cc8cc345.png"> | <img width="484" alt="스크린샷 2023-01-22 오전 11 55 36" src="https://user-images.githubusercontent.com/68412683/213898794-05a198b6-e6e5-4c07-b476-f13847456e24.png"> | <img width="484" alt="스크린샷 2023-01-22 오전 11 56 25" src="https://user-images.githubusercontent.com/68412683/213898837-17e494ac-3c5a-435d-9b6e-e1e348aab121.png"> |
+| --- | --- | --- |
 
-### 상품 결제 화면
-
-- 배송지
-    - 주소 수정
-        - 주소 수정 API 연동
-    - 주소 수정 화면에서 주소를 수정하면 이전 화면들(주소 변경, 배송지)에서도 바뀐 주소가 반영이 되어야 한다.
-        - 처음에는 주소 데이터가 필요한 view controller들의 `viewWillAppear` 에서 주소 API를 호출하는 메소드를 호출하는 방식으로 구현하려고 했다. 그런데 modal은 dismiss 된 후에는 viewWillAppear이 실행되지 않았다.
-            - 해결 방법: view controller의 `modalPresentationStyle` 을 `.overFullScreen` 이 아닌 `fullScreen` 으로 변경하니까 viewWillAppear이 잘 호출되었다.
-            - `modalPresentationStyle` 이 `.pageSheet` 인 view controller를 가지는 OrderViewController는 `UIAdaptivePresentationControllerDelegate` 의 `presentationControllerDidDismiss` 메소드를 사용해서 주소 선택 창이 닫힐 때 주소 정보를 다시 받아오고 collection view를 reload하도록 했다.
-    - 주소 추가
-        - 화면 구현 및 API 연동 완료
-    - 주소 수정/주소 추가 화면에서 화면 누르면 키보드 내려가는 기능 적용
-    - 주소 관리
-        - table view cell의 맨 위와 맨 아래 separator 숨기기
-            - 맨 위 separator는 tableHeaderView에 빈 UIView를 넣고 맨 아래 separator는 cell의 separatorInset를 조절해서 구현하였다.
-
-## 🗓 2022.09.28 진행상황
-
-### 상품 결제 화면
-
-- 배송지
-    - 주소 삭제
-        - 커스텀 팝업창 구현
-            - 참고 링크: [https://ios-development.tistory.com/244](https://ios-development.tistory.com/244)
-        - 팝업창 바깥 부분을 터치하면 view controller가 dismiss되는 기능 구현
-            - view controller에 그냥 gesture recognizer만 추가하니까 팝업창 view를 터치해도 view controller가 dismiss 되었다.
-            - 해결 방법
-                - `UIGestureRecognizerDelegate` 의 `gestureRecognizer(_:shouldReceive:)` 메소드를 사용해서 해결할 수 있었다.
-                - 참고 링크: [https://stackoverflow.com/questions/15814697/uitapgesturerecognizer-tap-on-self-view-but-ignore-subviews](https://stackoverflow.com/questions/15814697/uitapgesturerecognizer-tap-on-self-view-but-ignore-subviews)
-- 번개포인트
-- 결제금액
-    - 안전결제 수수료의 경우 1원 단위는 버린다.
-- 결제수단
-    - 번개장터 간편결제/다른 결제수단 라디오버튼 직접 구현
-- 이용약관 동의 및 결제하기 버튼
-    - 이용약관 동의 체크하지 않으면 “결제 이용약관을 동의해주세요” 팝업 발생
+- 배송지 선택 가능
+- 상품 수령 장소 선택 가능
+- 결제수단 선택 가능
+- 결제수단 선택 라디오 버튼, 이용약관 동의 체크버튼 구현
 
 ### 결제 완료 화면
 
-- 결제 화면에서 orderIdx와 orderPaymentMethod 값을 받아온다.
+| <img width="484" alt="스크린샷 2023-01-22 오전 11 59 44" src="https://user-images.githubusercontent.com/68412683/213898867-c20310fe-5067-4ded-840d-2746518e8d86.png"> | <img width="484" alt="스크린샷 2023-01-22 오후 12 00 29" src="https://user-images.githubusercontent.com/68412683/213898870-3394819f-f0f9-4296-b68a-4e0bd3e70400.png"> |
+| --- | --- |
 
-## 🗓 2022.09.29 진행상황
+### 기타 화면
 
-### 주문 상세 내역
+| <img width="484" alt="스크린샷 2023-01-22 오전 11 46 02" src="https://user-images.githubusercontent.com/68412683/213898882-91d56d2c-18a3-4b3c-a890-d72f08f82dfe.png"> | <img width="484" alt="스크린샷 2023-01-22 오전 11 45 39" src="https://user-images.githubusercontent.com/68412683/213898888-1da63416-c85c-441a-aa7b-e6ac8b7cf222.png"> |
+| --- | --- |
 
-- 주문 상세 내역 API를 먼저 호출한 후 상품 상세 정보 API를 호출해서 상품 이미지 데이터를 받아온다.
+- 상품 등록 화면
+  - 사진 선택 가능
+  
+- 검색 화면
 
-### 상품 상세페이지
+## 기술 스택
 
-- 상품 설명 있는 view 높이 동적으로 바뀌도록 수정
-    - 상품 설명 view의 height constraint을 `greater than or equal` 로 바꾸고, 상품 설명 label의 bottom constraint을 `greater than or equal` 로 추가했다.
+- UIKit
+- Storyboard
 
-### 상품 등록
+### 사용 라이브러리
 
-- collection view에서 scroll view로 구조 수정
-    - 기존에는 상품 등록 화면에서 collection view을 사용하고, 그 collection view의 header 안에 또 collection view을 추가해서 사진 업로드 부분을 구현했다. 이렇게 하니 image picker를 사용하거나 데이터를 주고받기 너무 어려운 것 같아 scroll view 안에 collection view가 있는 구조로 수정했다.
-- 상품 사진 업로드 기능 구현
-    - UIImagePicker 사용
-- 태그 추가 화면
-    - 태그 부분은 UICollectionView 사용해서 구현
-    - delegate 패턴을 사용해서 뒤로 가기 버튼을 누르면 상품 등록 화면에 입력한 태그들이 뜨도록 구현하였다.
-- 카테고리 선택 화면
-    - 카테고리를 선택하면 세부 카테고리(옵션) 선택 화면으로 넘어간다.
-        - 세부 카테고리 선택 화면 상단에 있는 `전체` 를 누르면 이전 화면(카테고리 선택 화면)으로 돌아간다.
+- Alamofire
+- Kakao SDK for iOS
+- Tabman
+- TextFieldEffects
 
-## 🗓 2022.09.30 진행상황
+## 기타 문서
 
-### 찜
-
-- 홈 화면 찜 추가/제거 기능 구현
-- 상품 상세 페이지 찜 추가/제거 기능 구현 
+- [API 명세서](https://docs.google.com/spreadsheets/d/1ZS2UCFSkcK28vmRZ-4oA8V6786w9PUaX/edit#gid=990061567)
+- [개발일지](https://www.notion.so/8c0a82b0d00d45e5acdff9b07b0d33ce)
