@@ -983,10 +983,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="c2o-VU-Mb1">
-                                                    <rect key="frame" x="32" y="11.5" width="64.5" height="25"/>
+                                                    <rect key="frame" x="24" y="11.5" width="80.5" height="25"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S2F-3O-lyM" customClass="PaddingLabel" customModule="RisingTest" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="0.0" width="35.5" height="25"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="51.5" height="25"/>
                                                             <color key="backgroundColor" name="lightgray"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <nil key="textColor"/>
@@ -1007,7 +1007,7 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h1Z-qa-Dhk">
-                                                            <rect key="frame" x="39.5" y="0.0" width="25" height="25"/>
+                                                            <rect key="frame" x="55.5" y="0.0" width="25" height="25"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="25" id="Gk5-2p-dKK"/>
                                                                 <constraint firstAttribute="height" constant="25" id="VpK-JA-6GE"/>

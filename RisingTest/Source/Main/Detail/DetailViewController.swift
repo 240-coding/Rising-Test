@@ -86,23 +86,26 @@ class DetailViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+
+        var height: CGFloat = 0
+        
         userGoodsCollectionViewHeight.constant = userGoodsCollectionView.contentSize.height
         reviewCollectionViewHeight.constant = reviewCollectionView.contentSize.height
-        
-        var height = imageCollectionView.frame.height
-        height += 300
-        height += 100
-        
-        if !userGoodsCollectionView.isHidden {
-            height += userGoodsCollectionView.frame.height
+
+        scrollView.subviews.first!.subviews.forEach{
+            print($0.frame.height)
+            height += $0.frame.height
         }
-        if !reviewCollectionView.isHidden {
-            height += reviewCollectionView.frame.height
+
+        if userGoodsCollectionView.isHidden {
+            height -= userGoodsCollectionView.frame.height
         }
-        
-        height += descriptionLabel.frame.height
+        if reviewCollectionView.isHidden {
+            height -= reviewCollectionView.frame.height
+        }
         
         scrollView.contentSize.height = height
+
         view.layoutIfNeeded()
     }
     
