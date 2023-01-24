@@ -33,8 +33,11 @@ class RecommendViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        collectionViewHeight.constant = collectionView.contentSize.height + 100
-        NotificationCenter.default.post(name: Notification.Name.recommend, object: nil, userInfo: ["height": collectionViewHeight.constant])
+        let newHeight = collectionView.contentSize.height + 100
+        if collectionViewHeight.constant != newHeight {
+            collectionViewHeight.constant = newHeight
+            NotificationCenter.default.post(name: Notification.Name.recommend, object: nil, userInfo: ["height": collectionViewHeight.constant])
+        }
     }
     
     // MARK: - Action

@@ -89,17 +89,20 @@ class DetailViewController: UIViewController {
         userGoodsCollectionViewHeight.constant = userGoodsCollectionView.contentSize.height
         reviewCollectionViewHeight.constant = reviewCollectionView.contentSize.height
         
+        var height = imageCollectionView.frame.height
+        height += 300
+        height += 100
         
-        var height = scrollView.subviews.sorted(by: { $0.frame.maxY < $1.frame.maxY }).last?.frame.maxY ?? scrollView.contentSize.height
-        
-        if userGoodsCollectionView.isHidden {
-            height -= userGoodsCollectionViewHeight.constant + 250
+        if !userGoodsCollectionView.isHidden {
+            height += userGoodsCollectionView.frame.height
         }
-        if reviewCollectionView.isHidden {
-            height -= reviewCollectionViewHeight.constant + 250
+        if !reviewCollectionView.isHidden {
+            height += reviewCollectionView.frame.height
         }
         
-        scrollView.contentSize.height = height * 1.4
+        height += descriptionLabel.frame.height
+        
+        scrollView.contentSize.height = height
         view.layoutIfNeeded()
     }
     
